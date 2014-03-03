@@ -16,5 +16,11 @@ namespace ConnectingCompanies
         {
             InitializeComponent();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            UserInterfaceForm UIF = new UserInterfaceForm();
+            UIF.Show();
+        }
     }
 }
