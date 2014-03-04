@@ -31,6 +31,8 @@
             this.tabControlUserInterface = new System.Windows.Forms.TabControl();
             this.tabPageUserProfile = new System.Windows.Forms.TabPage();
             this.groupBoxPersonalMailing = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listBoxPersonalMails = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -57,18 +59,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageGroupProfile = new System.Windows.Forms.TabPage();
             this.groupBoxGroupFunctions = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.buttonNewOffer = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.groupBoxGroupInformation = new System.Windows.Forms.GroupBox();
-            this.tabPageCalendar = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.labelGroupEvents = new System.Windows.Forms.Label();
-            this.labelPersonalEvents = new System.Windows.Forms.Label();
-            this.listBoxGroupEvents = new System.Windows.Forms.ListBox();
-            this.listBoxPersonalEvents = new System.Windows.Forms.ListBox();
-            this.buttonCreateNewEvent = new System.Windows.Forms.Button();
-            this.tabPageSearch = new System.Windows.Forms.TabPage();
-            this.listBoxPersonalMails = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -85,28 +88,25 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.tabPageCalendar = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonModifyEvent = new System.Windows.Forms.Button();
+            this.labelGroupEvents = new System.Windows.Forms.Label();
+            this.labelPersonalEvents = new System.Windows.Forms.Label();
+            this.listBoxGroupEvents = new System.Windows.Forms.ListBox();
+            this.listBoxPersonalEvents = new System.Windows.Forms.ListBox();
+            this.buttonCreateNewEvent = new System.Windows.Forms.Button();
+            this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.tabPageGroupProfile.SuspendLayout();
             this.groupBoxGroupFunctions.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBoxGroupInformation.SuspendLayout();
             this.tabPageCalendar.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -132,7 +132,6 @@
             this.tabPageUserProfile.TabIndex = 0;
             this.tabPageUserProfile.Text = "Felhasználó Adatlap";
             this.tabPageUserProfile.UseVisualStyleBackColor = true;
-            this.tabPageUserProfile.Click += new System.EventHandler(this.tabPageUserProfile_Click);
             // 
             // groupBoxPersonalMailing
             // 
@@ -147,7 +146,23 @@
             this.groupBoxPersonalMailing.TabIndex = 1;
             this.groupBoxPersonalMailing.TabStop = false;
             this.groupBoxPersonalMailing.Text = "Levelezés";
-            this.groupBoxPersonalMailing.Enter += new System.EventHandler(this.groupBoxPersonalMailing_Enter);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Levelek:";
+            // 
+            // listBoxPersonalMails
+            // 
+            this.listBoxPersonalMails.FormattingEnabled = true;
+            this.listBoxPersonalMails.Location = new System.Drawing.Point(6, 80);
+            this.listBoxPersonalMails.Name = "listBoxPersonalMails";
+            this.listBoxPersonalMails.Size = new System.Drawing.Size(287, 407);
+            this.listBoxPersonalMails.TabIndex = 1;
             // 
             // button8
             // 
@@ -157,7 +172,6 @@
             this.button8.TabIndex = 2;
             this.button8.Text = "Törlés";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -167,7 +181,6 @@
             this.button7.TabIndex = 1;
             this.button7.Text = "Megnyitás";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -177,7 +190,7 @@
             this.button6.TabIndex = 0;
             this.button6.Text = "Új üzenet";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.buttonNewMail_Click);
             // 
             // groupBoxPersonalInformation
             // 
@@ -207,7 +220,6 @@
             this.groupBoxPersonalInformation.TabIndex = 0;
             this.groupBoxPersonalInformation.TabStop = false;
             this.groupBoxPersonalInformation.Text = "Személyes Adatok";
-            this.groupBoxPersonalInformation.Enter += new System.EventHandler(this.groupBoxPersonalInformation_Enter);
             // 
             // button5
             // 
@@ -217,7 +229,6 @@
             this.button5.TabIndex = 20;
             this.button5.Text = "Kép feltöltés";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -227,7 +238,6 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "Adatok mentése";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -237,7 +247,6 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Adatok módosítása";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox7
             // 
@@ -246,7 +255,6 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(235, 194);
             this.textBox7.TabIndex = 17;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label8
             // 
@@ -256,7 +264,6 @@
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 16;
             this.label8.Text = "Magamról:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // groupBox1
             // 
@@ -266,7 +273,6 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profil kép";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dateTimePicker1
             // 
@@ -274,7 +280,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(323, 20);
             this.dateTimePicker1.TabIndex = 14;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // textBox3
             // 
@@ -282,7 +287,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(323, 20);
             this.textBox3.TabIndex = 13;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label7
             // 
@@ -292,7 +296,6 @@
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Cég címe:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox5
             // 
@@ -300,7 +303,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(323, 20);
             this.textBox5.TabIndex = 11;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label5
             // 
@@ -310,7 +312,6 @@
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Beosztás:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox6
             // 
@@ -318,7 +319,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(323, 20);
             this.textBox6.TabIndex = 9;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label6
             // 
@@ -328,7 +328,6 @@
             this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Cég:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label3
             // 
@@ -338,7 +337,6 @@
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Születési idő:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox4
             // 
@@ -346,7 +344,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(323, 20);
             this.textBox4.TabIndex = 5;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
             // 
@@ -356,7 +353,6 @@
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Születési hely:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox2
             // 
@@ -364,7 +360,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(323, 20);
             this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -374,7 +369,6 @@
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Lakhely:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
@@ -382,7 +376,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(323, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -392,7 +385,6 @@
             this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Felhasználó neve:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabPageGroupProfile
             // 
@@ -405,7 +397,6 @@
             this.tabPageGroupProfile.TabIndex = 1;
             this.tabPageGroupProfile.Text = "Csoport Adatlap";
             this.tabPageGroupProfile.UseVisualStyleBackColor = true;
-            this.tabPageGroupProfile.Click += new System.EventHandler(this.tabPageGroupProfile_Click);
             // 
             // groupBoxGroupFunctions
             // 
@@ -417,7 +408,123 @@
             this.groupBoxGroupFunctions.TabIndex = 3;
             this.groupBoxGroupFunctions.TabStop = false;
             this.groupBoxGroupFunctions.Text = "Csoport Funkciók";
-            this.groupBoxGroupFunctions.Enter += new System.EventHandler(this.groupBoxGroupFunctions_Enter);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.listBox2);
+            this.groupBox4.Controls.Add(this.button15);
+            this.groupBox4.Controls.Add(this.button16);
+            this.groupBox4.Controls.Add(this.buttonNewOffer);
+            this.groupBox4.Location = new System.Drawing.Point(6, 262);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(287, 230);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ajánlatok kezelése";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 61);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Ajánlatok:";
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(6, 77);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(275, 147);
+            this.listBox2.TabIndex = 11;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(192, 19);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(87, 30);
+            this.button15.TabIndex = 10;
+            this.button15.Text = "Törlés";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(99, 19);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(87, 30);
+            this.button16.TabIndex = 9;
+            this.button16.Text = "Megnyitás";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // buttonNewOffer
+            // 
+            this.buttonNewOffer.Location = new System.Drawing.Point(6, 19);
+            this.buttonNewOffer.Name = "buttonNewOffer";
+            this.buttonNewOffer.Size = new System.Drawing.Size(87, 30);
+            this.buttonNewOffer.TabIndex = 8;
+            this.buttonNewOffer.Text = "Új ajánlat";
+            this.buttonNewOffer.UseVisualStyleBackColor = true;
+            this.buttonNewOffer.Click += new System.EventHandler(this.buttonNewOffer_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.listBox1);
+            this.groupBox3.Controls.Add(this.button12);
+            this.groupBox3.Controls.Add(this.button13);
+            this.groupBox3.Controls.Add(this.button14);
+            this.groupBox3.Location = new System.Drawing.Point(6, 24);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(287, 230);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Csoportos levélküldés";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 61);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Levelek:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 77);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(275, 147);
+            this.listBox1.TabIndex = 6;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(192, 19);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(87, 30);
+            this.button12.TabIndex = 5;
+            this.button12.Text = "Törlés";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(99, 19);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(87, 30);
+            this.button13.TabIndex = 4;
+            this.button13.Text = "Megnyitás";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(6, 19);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(87, 30);
+            this.button14.TabIndex = 3;
+            this.button14.Text = "Új üzenet";
+            this.button14.UseVisualStyleBackColor = true;
             // 
             // groupBoxGroupInformation
             // 
@@ -443,123 +550,6 @@
             this.groupBoxGroupInformation.TabIndex = 2;
             this.groupBoxGroupInformation.TabStop = false;
             this.groupBoxGroupInformation.Text = "Csoport Adatok";
-            this.groupBoxGroupInformation.Enter += new System.EventHandler(this.groupBoxGroupInformation_Enter);
-            // 
-            // tabPageCalendar
-            // 
-            this.tabPageCalendar.Controls.Add(this.button2);
-            this.tabPageCalendar.Controls.Add(this.button1);
-            this.tabPageCalendar.Controls.Add(this.labelGroupEvents);
-            this.tabPageCalendar.Controls.Add(this.labelPersonalEvents);
-            this.tabPageCalendar.Controls.Add(this.listBoxGroupEvents);
-            this.tabPageCalendar.Controls.Add(this.listBoxPersonalEvents);
-            this.tabPageCalendar.Controls.Add(this.buttonCreateNewEvent);
-            this.tabPageCalendar.Location = new System.Drawing.Point(4, 22);
-            this.tabPageCalendar.Name = "tabPageCalendar";
-            this.tabPageCalendar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCalendar.Size = new System.Drawing.Size(752, 511);
-            this.tabPageCalendar.TabIndex = 2;
-            this.tabPageCalendar.Text = "Események";
-            this.tabPageCalendar.UseVisualStyleBackColor = true;
-            this.tabPageCalendar.Click += new System.EventHandler(this.tabPageCalendar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(552, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 50);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Esemény törlése";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(552, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 50);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Esemény módosítása";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // labelGroupEvents
-            // 
-            this.labelGroupEvents.AutoSize = true;
-            this.labelGroupEvents.Location = new System.Drawing.Point(276, 12);
-            this.labelGroupEvents.Name = "labelGroupEvents";
-            this.labelGroupEvents.Size = new System.Drawing.Size(101, 13);
-            this.labelGroupEvents.TabIndex = 5;
-            this.labelGroupEvents.Text = "Csoport Események";
-            this.labelGroupEvents.Click += new System.EventHandler(this.labelGroupEvents_Click);
-            // 
-            // labelPersonalEvents
-            // 
-            this.labelPersonalEvents.AutoSize = true;
-            this.labelPersonalEvents.Location = new System.Drawing.Point(3, 12);
-            this.labelPersonalEvents.Name = "labelPersonalEvents";
-            this.labelPersonalEvents.Size = new System.Drawing.Size(115, 13);
-            this.labelPersonalEvents.TabIndex = 4;
-            this.labelPersonalEvents.Text = "Személyes Események";
-            this.labelPersonalEvents.Click += new System.EventHandler(this.labelPersonalEvents_Click);
-            // 
-            // listBoxGroupEvents
-            // 
-            this.listBoxGroupEvents.FormattingEnabled = true;
-            this.listBoxGroupEvents.Location = new System.Drawing.Point(279, 28);
-            this.listBoxGroupEvents.Name = "listBoxGroupEvents";
-            this.listBoxGroupEvents.Size = new System.Drawing.Size(267, 472);
-            this.listBoxGroupEvents.TabIndex = 3;
-            this.listBoxGroupEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxGroupEvents_SelectedIndexChanged);
-            // 
-            // listBoxPersonalEvents
-            // 
-            this.listBoxPersonalEvents.FormattingEnabled = true;
-            this.listBoxPersonalEvents.Location = new System.Drawing.Point(6, 28);
-            this.listBoxPersonalEvents.Name = "listBoxPersonalEvents";
-            this.listBoxPersonalEvents.Size = new System.Drawing.Size(267, 472);
-            this.listBoxPersonalEvents.TabIndex = 2;
-            this.listBoxPersonalEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxPersonalEvents_SelectedIndexChanged);
-            // 
-            // buttonCreateNewEvent
-            // 
-            this.buttonCreateNewEvent.Location = new System.Drawing.Point(552, 28);
-            this.buttonCreateNewEvent.Name = "buttonCreateNewEvent";
-            this.buttonCreateNewEvent.Size = new System.Drawing.Size(194, 50);
-            this.buttonCreateNewEvent.TabIndex = 1;
-            this.buttonCreateNewEvent.Text = "Új esemény";
-            this.buttonCreateNewEvent.UseVisualStyleBackColor = true;
-            this.buttonCreateNewEvent.Click += new System.EventHandler(this.buttonCreateNewEvent_Click);
-            // 
-            // tabPageSearch
-            // 
-            this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSearch.Name = "tabPageSearch";
-            this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(752, 511);
-            this.tabPageSearch.TabIndex = 3;
-            this.tabPageSearch.Text = "Keresés";
-            this.tabPageSearch.UseVisualStyleBackColor = true;
-            this.tabPageSearch.Click += new System.EventHandler(this.tabPageSearch_Click);
-            // 
-            // listBoxPersonalMails
-            // 
-            this.listBoxPersonalMails.FormattingEnabled = true;
-            this.listBoxPersonalMails.Location = new System.Drawing.Point(6, 80);
-            this.listBoxPersonalMails.Name = "listBoxPersonalMails";
-            this.listBoxPersonalMails.Size = new System.Drawing.Size(287, 407);
-            this.listBoxPersonalMails.TabIndex = 1;
-            this.listBoxPersonalMails.SelectedIndexChanged += new System.EventHandler(this.listBoxPersonalMails_SelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Levelek:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // button9
             // 
@@ -694,121 +684,95 @@
             this.label17.TabIndex = 21;
             this.label17.Text = "Cégvezető neve:";
             // 
-            // groupBox3
+            // tabPageCalendar
             // 
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.listBox1);
-            this.groupBox3.Controls.Add(this.button12);
-            this.groupBox3.Controls.Add(this.button13);
-            this.groupBox3.Controls.Add(this.button14);
-            this.groupBox3.Location = new System.Drawing.Point(6, 24);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 230);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Csoportos levélküldés";
+            this.tabPageCalendar.Controls.Add(this.button2);
+            this.tabPageCalendar.Controls.Add(this.buttonModifyEvent);
+            this.tabPageCalendar.Controls.Add(this.labelGroupEvents);
+            this.tabPageCalendar.Controls.Add(this.labelPersonalEvents);
+            this.tabPageCalendar.Controls.Add(this.listBoxGroupEvents);
+            this.tabPageCalendar.Controls.Add(this.listBoxPersonalEvents);
+            this.tabPageCalendar.Controls.Add(this.buttonCreateNewEvent);
+            this.tabPageCalendar.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCalendar.Name = "tabPageCalendar";
+            this.tabPageCalendar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCalendar.Size = new System.Drawing.Size(752, 511);
+            this.tabPageCalendar.TabIndex = 2;
+            this.tabPageCalendar.Text = "Események";
+            this.tabPageCalendar.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // button2
             // 
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.listBox2);
-            this.groupBox4.Controls.Add(this.button15);
-            this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Controls.Add(this.button17);
-            this.groupBox4.Location = new System.Drawing.Point(6, 262);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(287, 230);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ajánlatok kezelése";
+            this.button2.Location = new System.Drawing.Point(552, 140);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(194, 50);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Esemény törlése";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // buttonModifyEvent
             // 
-            this.button12.Location = new System.Drawing.Point(192, 19);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(87, 30);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "Törlés";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonModifyEvent.Location = new System.Drawing.Point(552, 84);
+            this.buttonModifyEvent.Name = "buttonModifyEvent";
+            this.buttonModifyEvent.Size = new System.Drawing.Size(194, 50);
+            this.buttonModifyEvent.TabIndex = 6;
+            this.buttonModifyEvent.Text = "Esemény módosítása";
+            this.buttonModifyEvent.UseVisualStyleBackColor = true;
+            this.buttonModifyEvent.Click += new System.EventHandler(this.buttonModifyEvent_Click);
             // 
-            // button13
+            // labelGroupEvents
             // 
-            this.button13.Location = new System.Drawing.Point(99, 19);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(87, 30);
-            this.button13.TabIndex = 4;
-            this.button13.Text = "Megnyitás";
-            this.button13.UseVisualStyleBackColor = true;
+            this.labelGroupEvents.AutoSize = true;
+            this.labelGroupEvents.Location = new System.Drawing.Point(276, 12);
+            this.labelGroupEvents.Name = "labelGroupEvents";
+            this.labelGroupEvents.Size = new System.Drawing.Size(101, 13);
+            this.labelGroupEvents.TabIndex = 5;
+            this.labelGroupEvents.Text = "Csoport Események";
             // 
-            // button14
+            // labelPersonalEvents
             // 
-            this.button14.Location = new System.Drawing.Point(6, 19);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(87, 30);
-            this.button14.TabIndex = 3;
-            this.button14.Text = "Új üzenet";
-            this.button14.UseVisualStyleBackColor = true;
+            this.labelPersonalEvents.AutoSize = true;
+            this.labelPersonalEvents.Location = new System.Drawing.Point(3, 12);
+            this.labelPersonalEvents.Name = "labelPersonalEvents";
+            this.labelPersonalEvents.Size = new System.Drawing.Size(115, 13);
+            this.labelPersonalEvents.TabIndex = 4;
+            this.labelPersonalEvents.Text = "Személyes Események";
             // 
-            // label12
+            // listBoxGroupEvents
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 61);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Levelek:";
+            this.listBoxGroupEvents.FormattingEnabled = true;
+            this.listBoxGroupEvents.Location = new System.Drawing.Point(279, 28);
+            this.listBoxGroupEvents.Name = "listBoxGroupEvents";
+            this.listBoxGroupEvents.Size = new System.Drawing.Size(267, 472);
+            this.listBoxGroupEvents.TabIndex = 3;
             // 
-            // listBox1
+            // listBoxPersonalEvents
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 77);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(275, 147);
-            this.listBox1.TabIndex = 6;
+            this.listBoxPersonalEvents.FormattingEnabled = true;
+            this.listBoxPersonalEvents.Location = new System.Drawing.Point(6, 28);
+            this.listBoxPersonalEvents.Name = "listBoxPersonalEvents";
+            this.listBoxPersonalEvents.Size = new System.Drawing.Size(267, 472);
+            this.listBoxPersonalEvents.TabIndex = 2;
             // 
-            // label15
+            // buttonCreateNewEvent
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 61);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Ajánlatok:";
+            this.buttonCreateNewEvent.Location = new System.Drawing.Point(552, 28);
+            this.buttonCreateNewEvent.Name = "buttonCreateNewEvent";
+            this.buttonCreateNewEvent.Size = new System.Drawing.Size(194, 50);
+            this.buttonCreateNewEvent.TabIndex = 1;
+            this.buttonCreateNewEvent.Text = "Új esemény";
+            this.buttonCreateNewEvent.UseVisualStyleBackColor = true;
+            this.buttonCreateNewEvent.Click += new System.EventHandler(this.buttonCreateNewEvent_Click);
             // 
-            // listBox2
+            // tabPageSearch
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(6, 77);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(275, 147);
-            this.listBox2.TabIndex = 11;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(192, 19);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(87, 30);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "Törlés";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(99, 19);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(87, 30);
-            this.button16.TabIndex = 9;
-            this.button16.Text = "Megnyitás";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(6, 19);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(87, 30);
-            this.button17.TabIndex = 8;
-            this.button17.Text = "Új ajánlat";
-            this.button17.UseVisualStyleBackColor = true;
+            this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSearch.Name = "tabPageSearch";
+            this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSearch.Size = new System.Drawing.Size(752, 511);
+            this.tabPageSearch.TabIndex = 3;
+            this.tabPageSearch.Text = "Keresés";
+            this.tabPageSearch.UseVisualStyleBackColor = true;
             // 
             // UserInterfaceForm
             // 
@@ -826,14 +790,14 @@
             this.groupBoxPersonalInformation.PerformLayout();
             this.tabPageGroupProfile.ResumeLayout(false);
             this.groupBoxGroupFunctions.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBoxGroupInformation.ResumeLayout(false);
             this.groupBoxGroupInformation.PerformLayout();
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -849,7 +813,7 @@
         private System.Windows.Forms.GroupBox groupBoxGroupFunctions;
         private System.Windows.Forms.GroupBox groupBoxGroupInformation;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonModifyEvent;
         private System.Windows.Forms.Label labelGroupEvents;
         private System.Windows.Forms.Label labelPersonalEvents;
         private System.Windows.Forms.ListBox listBoxGroupEvents;
@@ -902,7 +866,7 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button buttonNewOffer;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listBox1;
