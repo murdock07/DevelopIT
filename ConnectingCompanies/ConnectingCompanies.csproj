@@ -97,6 +97,12 @@
     <EmbeddedResource Include="Forms\ModifyEventDialogForm.resx">
       <DependentUpon>ModifyEventDialogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewMailForm.resx">
+      <DependentUpon>NewMailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewOfferForm.resx">
+      <DependentUpon>NewOfferForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
     </EmbeddedResource>

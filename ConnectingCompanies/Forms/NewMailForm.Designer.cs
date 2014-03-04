@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // NewMailForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "NewMailForm";
+            this.ClientSize = new System.Drawing.Size(384, 311);
+            this.Name = "NewMailForm";
+            this.Text = "Új üzenet";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
