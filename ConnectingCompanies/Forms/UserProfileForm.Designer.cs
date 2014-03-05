@@ -99,6 +99,12 @@
             this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -110,6 +116,7 @@
             this.groupBoxGroupInformation.SuspendLayout();
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -781,6 +788,12 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button17);
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.textBox12);
+            this.groupBox5.Controls.Add(this.textBox10);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.label18);
             this.groupBox5.Location = new System.Drawing.Point(7, 7);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(372, 498);
@@ -795,6 +808,56 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(361, 498);
             this.listBox3.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(7, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Csoportnév:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Felhasználó név:";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(106, 20);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(260, 20);
+            this.textBox10.TabIndex = 2;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(106, 46);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(260, 20);
+            this.textBox12.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(62, 469);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Keresés";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(185, 469);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(117, 23);
+            this.button17.TabIndex = 5;
+            this.button17.Text = "Feltételek törlése";
+            this.button17.UseVisualStyleBackColor = true;
             // 
             // UserInterfaceForm
             // 
@@ -821,6 +884,8 @@
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
             this.tabPageSearch.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -898,5 +963,11 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
     }
 }
