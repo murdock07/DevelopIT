@@ -12,6 +12,7 @@ namespace ConnectingCompanies
 		/// The main entry point for the application.
 		/// </summary>
 		/*Comment by Huszi*/
+        /*Comment by Huszi from VS*/
 		[STAThread]
 		static void Main()
 		{
