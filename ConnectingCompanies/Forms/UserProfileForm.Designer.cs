@@ -97,6 +97,8 @@
             this.listBoxPersonalEvents = new System.Windows.Forms.ListBox();
             this.buttonCreateNewEvent = new System.Windows.Forms.Button();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -107,6 +109,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBoxGroupInformation.SuspendLayout();
             this.tabPageCalendar.SuspendLayout();
+            this.tabPageSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -766,6 +769,8 @@
             // 
             // tabPageSearch
             // 
+            this.tabPageSearch.Controls.Add(this.listBox3);
+            this.tabPageSearch.Controls.Add(this.groupBox5);
             this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
@@ -773,6 +778,23 @@
             this.tabPageSearch.TabIndex = 3;
             this.tabPageSearch.Text = "Keresés";
             this.tabPageSearch.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Location = new System.Drawing.Point(7, 7);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(372, 498);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Keresési feltételek";
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(385, 7);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(361, 498);
+            this.listBox3.TabIndex = 1;
             // 
             // UserInterfaceForm
             // 
@@ -798,6 +820,7 @@
             this.groupBoxGroupInformation.PerformLayout();
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
+            this.tabPageSearch.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -873,5 +896,7 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
