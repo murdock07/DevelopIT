@@ -39,7 +39,7 @@ namespace ConnectingCompanies
         private void buttonNewOffer_Click(object sender, EventArgs e)
         {
             NewOfferForm NOF = new NewOfferForm();
-            //NOF.Show();
+            NOF.Show();
         }
     }
 }
