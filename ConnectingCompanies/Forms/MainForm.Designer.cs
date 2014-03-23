@@ -33,19 +33,21 @@
             this.buttonGuestLogin = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.labelUserTag = new System.Windows.Forms.Label();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.labelLoginUserTag = new System.Windows.Forms.Label();
+            this.textBoxLoginPassword = new System.Windows.Forms.TextBox();
+            this.textBoxLoginUserName = new System.Windows.Forms.TextBox();
+            this.textBoxRegPassword = new System.Windows.Forms.TextBox();
+            this.labelRegPassword = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
-            this.dateTimePickerRegBirth = new System.Windows.Forms.DateTimePicker();
-            this.textBoxRegPlace = new System.Windows.Forms.TextBox();
+            this.dateTimePickerRegBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.textBoxRegAddress = new System.Windows.Forms.TextBox();
             this.textBoxRegUserName = new System.Windows.Forms.TextBox();
-            this.textBoxRegUserAccount = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxRegUserTag = new System.Windows.Forms.TextBox();
+            this.labelRegUserTag = new System.Windows.Forms.Label();
+            this.labelRegAddress = new System.Windows.Forms.Label();
+            this.labelRegBirthDate = new System.Windows.Forms.Label();
+            this.labelRegUserName = new System.Windows.Forms.Label();
+            this.labelRegistration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerLoginScreen)).BeginInit();
             this.splitContainerLoginScreen.Panel1.SuspendLayout();
             this.splitContainerLoginScreen.Panel2.SuspendLayout();
@@ -67,28 +69,30 @@
             this.splitContainerLoginScreen.Panel1.Controls.Add(this.buttonGuestLogin);
             this.splitContainerLoginScreen.Panel1.Controls.Add(this.buttonLogin);
             this.splitContainerLoginScreen.Panel1.Controls.Add(this.labelPassword);
-            this.splitContainerLoginScreen.Panel1.Controls.Add(this.labelUserTag);
-            this.splitContainerLoginScreen.Panel1.Controls.Add(this.textBoxPassword);
-            this.splitContainerLoginScreen.Panel1.Controls.Add(this.textBoxUserName);
+            this.splitContainerLoginScreen.Panel1.Controls.Add(this.labelLoginUserTag);
+            this.splitContainerLoginScreen.Panel1.Controls.Add(this.textBoxLoginPassword);
+            this.splitContainerLoginScreen.Panel1.Controls.Add(this.textBoxLoginUserName);
             this.splitContainerLoginScreen.Panel1MinSize = 310;
             // 
             // splitContainerLoginScreen.Panel2
             // 
             this.splitContainerLoginScreen.Panel2.AccessibleName = "RegisterPanel";
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegPassword);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegPassword);
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.buttonRegister);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.dateTimePickerRegBirth);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegPlace);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.dateTimePickerRegBirthDate);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegAddress);
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegUserName);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegUserAccount);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.label5);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.label4);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.label3);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.label2);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.label1);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegUserTag);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegUserTag);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegAddress);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegBirthDate);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegUserName);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.labelRegistration);
             this.splitContainerLoginScreen.Panel2MinSize = 310;
             this.splitContainerLoginScreen.Size = new System.Drawing.Size(624, 441);
             this.splitContainerLoginScreen.SplitterDistance = 312;
-            this.splitContainerLoginScreen.TabIndex = 0;
+            this.splitContainerLoginScreen.TabIndex = 20;
             // 
             // labelLogin
             // 
@@ -105,7 +109,7 @@
             this.buttonGuestLogin.Location = new System.Drawing.Point(102, 406);
             this.buttonGuestLogin.Name = "buttonGuestLogin";
             this.buttonGuestLogin.Size = new System.Drawing.Size(106, 23);
-            this.buttonGuestLogin.TabIndex = 11;
+            this.buttonGuestLogin.TabIndex = 4;
             this.buttonGuestLogin.Text = "Vendég Belépés";
             this.buttonGuestLogin.UseVisualStyleBackColor = true;
             this.buttonGuestLogin.Click += new System.EventHandler(this.buttonGuestLogin_Click);
@@ -115,7 +119,7 @@
             this.buttonLogin.Location = new System.Drawing.Point(76, 219);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(159, 43);
-            this.buttonLogin.TabIndex = 10;
+            this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "Bejelentkezés";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -129,119 +133,146 @@
             this.labelPassword.TabIndex = 9;
             this.labelPassword.Text = "Jelszó:";
             // 
-            // labelUserTag
+            // labelLoginUserTag
             // 
-            this.labelUserTag.AutoSize = true;
-            this.labelUserTag.Location = new System.Drawing.Point(9, 146);
-            this.labelUserTag.Name = "labelUserTag";
-            this.labelUserTag.Size = new System.Drawing.Size(116, 13);
-            this.labelUserTag.TabIndex = 8;
-            this.labelUserTag.Text = "Felhasználó azonosító:";
+            this.labelLoginUserTag.AutoSize = true;
+            this.labelLoginUserTag.Location = new System.Drawing.Point(9, 146);
+            this.labelLoginUserTag.Name = "labelLoginUserTag";
+            this.labelLoginUserTag.Size = new System.Drawing.Size(116, 13);
+            this.labelLoginUserTag.TabIndex = 8;
+            this.labelLoginUserTag.Text = "Felhasználó azonosító:";
             // 
-            // textBoxPassword
+            // textBoxLoginPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(131, 169);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(169, 20);
-            this.textBoxPassword.TabIndex = 7;
+            this.textBoxLoginPassword.AcceptsReturn = true;
+            this.textBoxLoginPassword.Location = new System.Drawing.Point(131, 169);
+            this.textBoxLoginPassword.Name = "textBoxLoginPassword";
+            this.textBoxLoginPassword.PasswordChar = '*';
+            this.textBoxLoginPassword.Size = new System.Drawing.Size(169, 20);
+            this.textBoxLoginPassword.TabIndex = 2;
             // 
-            // textBoxUserName
+            // textBoxLoginUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(131, 143);
-            this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserName.TabIndex = 6;
+            this.textBoxLoginUserName.AcceptsReturn = true;
+            this.textBoxLoginUserName.Location = new System.Drawing.Point(131, 143);
+            this.textBoxLoginUserName.Name = "textBoxLoginUserName";
+            this.textBoxLoginUserName.Size = new System.Drawing.Size(169, 20);
+            this.textBoxLoginUserName.TabIndex = 1;
+            // 
+            // textBoxRegPassword
+            // 
+            this.textBoxRegPassword.Location = new System.Drawing.Point(137, 167);
+            this.textBoxRegPassword.Name = "textBoxRegPassword";
+            this.textBoxRegPassword.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegPassword.TabIndex = 18;
+            // 
+            // labelRegPassword
+            // 
+            this.labelRegPassword.AutoSize = true;
+            this.labelRegPassword.Location = new System.Drawing.Point(92, 170);
+            this.labelRegPassword.Name = "labelRegPassword";
+            this.labelRegPassword.Size = new System.Drawing.Size(39, 13);
+            this.labelRegPassword.TabIndex = 19;
+            this.labelRegPassword.Text = "Jelszó:";
             // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(87, 277);
+            this.buttonRegister.Location = new System.Drawing.Point(87, 303);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(130, 38);
-            this.buttonRegister.TabIndex = 22;
+            this.buttonRegister.TabIndex = 9;
             this.buttonRegister.Text = "Regisztrálás";
             this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
-            // dateTimePickerRegBirth
+            // dateTimePickerRegBirthDate
             // 
-            this.dateTimePickerRegBirth.Location = new System.Drawing.Point(137, 221);
-            this.dateTimePickerRegBirth.Name = "dateTimePickerRegBirth";
-            this.dateTimePickerRegBirth.Size = new System.Drawing.Size(159, 20);
-            this.dateTimePickerRegBirth.TabIndex = 21;
+            this.dateTimePickerRegBirthDate.Location = new System.Drawing.Point(137, 247);
+            this.dateTimePickerRegBirthDate.Name = "dateTimePickerRegBirthDate";
+            this.dateTimePickerRegBirthDate.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePickerRegBirthDate.TabIndex = 8;
             // 
-            // textBoxRegPlace
+            // textBoxRegAddress
             // 
-            this.textBoxRegPlace.Location = new System.Drawing.Point(137, 194);
-            this.textBoxRegPlace.Name = "textBoxRegPlace";
-            this.textBoxRegPlace.Size = new System.Drawing.Size(159, 20);
-            this.textBoxRegPlace.TabIndex = 20;
+            this.textBoxRegAddress.Location = new System.Drawing.Point(137, 220);
+            this.textBoxRegAddress.Name = "textBoxRegAddress";
+            this.textBoxRegAddress.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegAddress.TabIndex = 7;
             // 
             // textBoxRegUserName
             // 
-            this.textBoxRegUserName.Location = new System.Drawing.Point(137, 167);
+            this.textBoxRegUserName.Location = new System.Drawing.Point(137, 193);
             this.textBoxRegUserName.Name = "textBoxRegUserName";
             this.textBoxRegUserName.Size = new System.Drawing.Size(159, 20);
-            this.textBoxRegUserName.TabIndex = 19;
+            this.textBoxRegUserName.TabIndex = 6;
             // 
-            // textBoxRegUserAccount
+            // textBoxRegUserTag
             // 
-            this.textBoxRegUserAccount.Location = new System.Drawing.Point(137, 141);
-            this.textBoxRegUserAccount.Name = "textBoxRegUserAccount";
-            this.textBoxRegUserAccount.Size = new System.Drawing.Size(159, 20);
-            this.textBoxRegUserAccount.TabIndex = 18;
+            this.textBoxRegUserTag.Location = new System.Drawing.Point(137, 141);
+            this.textBoxRegUserTag.Name = "textBoxRegUserTag";
+            this.textBoxRegUserTag.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegUserTag.TabIndex = 5;
             // 
-            // label5
+            // labelRegUserTag
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Felhasználó azonosító:";
+            this.labelRegUserTag.AutoSize = true;
+            this.labelRegUserTag.Location = new System.Drawing.Point(15, 144);
+            this.labelRegUserTag.Name = "labelRegUserTag";
+            this.labelRegUserTag.Size = new System.Drawing.Size(116, 13);
+            this.labelRegUserTag.TabIndex = 17;
+            this.labelRegUserTag.Text = "Felhasználó azonosító:";
             // 
-            // label4
+            // labelRegAddress
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 197);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Lakhely:";
+            this.labelRegAddress.AutoSize = true;
+            this.labelRegAddress.Location = new System.Drawing.Point(84, 223);
+            this.labelRegAddress.Name = "labelRegAddress";
+            this.labelRegAddress.Size = new System.Drawing.Size(47, 13);
+            this.labelRegAddress.TabIndex = 16;
+            this.labelRegAddress.Text = "Lakhely:";
             // 
-            // label3
+            // labelRegBirthDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 227);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Születési idő:";
+            this.labelRegBirthDate.AutoSize = true;
+            this.labelRegBirthDate.Location = new System.Drawing.Point(62, 253);
+            this.labelRegBirthDate.Name = "labelRegBirthDate";
+            this.labelRegBirthDate.Size = new System.Drawing.Size(69, 13);
+            this.labelRegBirthDate.TabIndex = 15;
+            this.labelRegBirthDate.Text = "Születési idő:";
             // 
-            // label2
+            // labelRegUserName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 170);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Felhasználó név:";
+            this.labelRegUserName.AutoSize = true;
+            this.labelRegUserName.Location = new System.Drawing.Point(44, 196);
+            this.labelRegUserName.Name = "labelRegUserName";
+            this.labelRegUserName.Size = new System.Drawing.Size(87, 13);
+            this.labelRegUserName.TabIndex = 14;
+            this.labelRegUserName.Text = "Felhasználó név:";
             // 
-            // label1
+            // labelRegistration
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(85, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 26);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Regisztráció";
+            this.labelRegistration.AutoSize = true;
+            this.labelRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelRegistration.Location = new System.Drawing.Point(85, 65);
+            this.labelRegistration.Name = "labelRegistration";
+            this.labelRegistration.Size = new System.Drawing.Size(132, 26);
+            this.labelRegistration.TabIndex = 13;
+            this.labelRegistration.Text = "Regisztráció";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.splitContainerLoginScreen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(640, 480);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connecting Companies - Bejelentkezés";
             this.splitContainerLoginScreen.Panel1.ResumeLayout(false);
             this.splitContainerLoginScreen.Panel1.PerformLayout();
@@ -260,19 +291,21 @@
         private System.Windows.Forms.Button buttonGuestLogin;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.Label labelUserTag;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelLoginUserTag;
+        private System.Windows.Forms.TextBox textBoxLoginPassword;
+        private System.Windows.Forms.TextBox textBoxLoginUserName;
+        private System.Windows.Forms.Label labelRegAddress;
+        private System.Windows.Forms.Label labelRegBirthDate;
+        private System.Windows.Forms.Label labelRegUserName;
+        private System.Windows.Forms.Label labelRegistration;
         private System.Windows.Forms.Button buttonRegister;
-        private System.Windows.Forms.DateTimePicker dateTimePickerRegBirth;
-        private System.Windows.Forms.TextBox textBoxRegPlace;
+        private System.Windows.Forms.DateTimePicker dateTimePickerRegBirthDate;
+        private System.Windows.Forms.TextBox textBoxRegAddress;
         private System.Windows.Forms.TextBox textBoxRegUserName;
-        private System.Windows.Forms.TextBox textBoxRegUserAccount;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxRegUserTag;
+        private System.Windows.Forms.Label labelRegUserTag;
+        private System.Windows.Forms.TextBox textBoxRegPassword;
+        private System.Windows.Forms.Label labelRegPassword;
     }
 }
 

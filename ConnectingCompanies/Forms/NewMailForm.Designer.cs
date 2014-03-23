@@ -28,117 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelMailSender = new System.Windows.Forms.Label();
+            this.textBoxMailSender = new System.Windows.Forms.TextBox();
+            this.labelMailTo = new System.Windows.Forms.Label();
+            this.textBoxMailSubject = new System.Windows.Forms.TextBox();
+            this.labelMailSubject = new System.Windows.Forms.Label();
+            this.textBoxMailBody = new System.Windows.Forms.TextBox();
+            this.labelMailBody = new System.Windows.Forms.Label();
+            this.buttonCloseMail = new System.Windows.Forms.Button();
+            this.buttonSendMail = new System.Windows.Forms.Button();
+            this.comboBoxMailTo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label1
+            // labelMailSender
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Küldő:";
+            this.labelMailSender.AutoSize = true;
+            this.labelMailSender.Location = new System.Drawing.Point(12, 13);
+            this.labelMailSender.Name = "labelMailSender";
+            this.labelMailSender.Size = new System.Drawing.Size(37, 13);
+            this.labelMailSender.TabIndex = 0;
+            this.labelMailSender.Text = "Küldő:";
             // 
-            // textBox1
+            // textBoxMailSender
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxMailSender.Location = new System.Drawing.Point(62, 10);
+            this.textBoxMailSender.Name = "textBoxMailSender";
+            this.textBoxMailSender.Size = new System.Drawing.Size(310, 20);
+            this.textBoxMailSender.TabIndex = 1;
             // 
-            // label2
+            // labelMailTo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Címzett:";
+            this.labelMailTo.AutoSize = true;
+            this.labelMailTo.Location = new System.Drawing.Point(12, 39);
+            this.labelMailTo.Name = "labelMailTo";
+            this.labelMailTo.Size = new System.Drawing.Size(46, 13);
+            this.labelMailTo.TabIndex = 2;
+            this.labelMailTo.Text = "Címzett:";
             // 
-            // textBox3
+            // textBoxMailSubject
             // 
-            this.textBox3.Location = new System.Drawing.Point(62, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(310, 20);
-            this.textBox3.TabIndex = 5;
+            this.textBoxMailSubject.Location = new System.Drawing.Point(62, 62);
+            this.textBoxMailSubject.Name = "textBoxMailSubject";
+            this.textBoxMailSubject.Size = new System.Drawing.Size(310, 20);
+            this.textBoxMailSubject.TabIndex = 5;
             // 
-            // label3
+            // labelMailSubject
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tárgy:";
+            this.labelMailSubject.AutoSize = true;
+            this.labelMailSubject.Location = new System.Drawing.Point(12, 65);
+            this.labelMailSubject.Name = "labelMailSubject";
+            this.labelMailSubject.Size = new System.Drawing.Size(37, 13);
+            this.labelMailSubject.TabIndex = 4;
+            this.labelMailSubject.Text = "Tárgy:";
             // 
-            // textBox4
+            // textBoxMailBody
             // 
-            this.textBox4.Location = new System.Drawing.Point(62, 88);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(310, 161);
-            this.textBox4.TabIndex = 7;
+            this.textBoxMailBody.Location = new System.Drawing.Point(62, 88);
+            this.textBoxMailBody.Multiline = true;
+            this.textBoxMailBody.Name = "textBoxMailBody";
+            this.textBoxMailBody.Size = new System.Drawing.Size(310, 161);
+            this.textBoxMailBody.TabIndex = 7;
             // 
-            // label4
+            // labelMailBody
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Üzenet:";
+            this.labelMailBody.AutoSize = true;
+            this.labelMailBody.Location = new System.Drawing.Point(12, 91);
+            this.labelMailBody.Name = "labelMailBody";
+            this.labelMailBody.Size = new System.Drawing.Size(44, 13);
+            this.labelMailBody.TabIndex = 6;
+            this.labelMailBody.Text = "Üzenet:";
             // 
-            // button1
+            // buttonCloseMail
             // 
-            this.button1.Location = new System.Drawing.Point(191, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 29);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Bezárás";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCloseMail.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCloseMail.Location = new System.Drawing.Point(191, 270);
+            this.buttonCloseMail.Name = "buttonCloseMail";
+            this.buttonCloseMail.Size = new System.Drawing.Size(97, 29);
+            this.buttonCloseMail.TabIndex = 8;
+            this.buttonCloseMail.Text = "Bezárás";
+            this.buttonCloseMail.UseVisualStyleBackColor = true;
+            this.buttonCloseMail.Click += new System.EventHandler(this.buttonCloseMail_Click);
             // 
-            // button2
+            // buttonSendMail
             // 
-            this.button2.Location = new System.Drawing.Point(88, 270);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 29);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Küldés";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSendMail.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonSendMail.Location = new System.Drawing.Point(88, 270);
+            this.buttonSendMail.Name = "buttonSendMail";
+            this.buttonSendMail.Size = new System.Drawing.Size(97, 29);
+            this.buttonSendMail.TabIndex = 9;
+            this.buttonSendMail.Text = "Küldés";
+            this.buttonSendMail.UseVisualStyleBackColor = true;
+            this.buttonSendMail.Click += new System.EventHandler(this.buttonSendMail_Click);
             // 
-            // comboBox1
+            // comboBoxMailTo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(62, 36);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(310, 21);
-            this.comboBox1.TabIndex = 10;
+            this.comboBoxMailTo.FormattingEnabled = true;
+            this.comboBoxMailTo.Location = new System.Drawing.Point(62, 36);
+            this.comboBoxMailTo.Name = "comboBoxMailTo";
+            this.comboBoxMailTo.Size = new System.Drawing.Size(310, 21);
+            this.comboBoxMailTo.TabIndex = 10;
             // 
             // NewMailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 311);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxMailTo);
+            this.Controls.Add(this.buttonSendMail);
+            this.Controls.Add(this.buttonCloseMail);
+            this.Controls.Add(this.textBoxMailBody);
+            this.Controls.Add(this.labelMailBody);
+            this.Controls.Add(this.textBoxMailSubject);
+            this.Controls.Add(this.labelMailSubject);
+            this.Controls.Add(this.labelMailTo);
+            this.Controls.Add(this.textBoxMailSender);
+            this.Controls.Add(this.labelMailSender);
             this.Name = "NewMailForm";
             this.Text = "Új üzenet";
             this.ResumeLayout(false);
@@ -148,15 +152,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelMailSender;
+        private System.Windows.Forms.TextBox textBoxMailSender;
+        private System.Windows.Forms.Label labelMailTo;
+        private System.Windows.Forms.TextBox textBoxMailSubject;
+        private System.Windows.Forms.Label labelMailSubject;
+        private System.Windows.Forms.TextBox textBoxMailBody;
+        private System.Windows.Forms.Label labelMailBody;
+        private System.Windows.Forms.Button buttonCloseMail;
+        private System.Windows.Forms.Button buttonSendMail;
+        private System.Windows.Forms.ComboBox comboBoxMailTo;
     }
 }

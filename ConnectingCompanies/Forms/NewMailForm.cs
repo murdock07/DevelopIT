@@ -16,5 +16,22 @@ namespace ConnectingCompanies.Forms
         {
             InitializeComponent();
         }
+
+        private void buttonSendMail_Click(object sender, EventArgs e)
+        {
+            //adatok csomagolása
+            //visszajelzés
+            MessageBox.Show("Elküldve");
+            //bezárás
+            this.Close();
+        }
+
+        private void buttonCloseMail_Click(object sender, EventArgs e)
+        {
+            //Figyelmeztetés
+            MessageBox.Show("Biztosan bezárja?", "Figyelmeztetés", MessageBoxButtons.YesNo);
+            //Bezárás
+            this.Close();
+        }
     }
 }

@@ -31,65 +31,65 @@
             this.tabControlUserInterface = new System.Windows.Forms.TabControl();
             this.tabPageUserProfile = new System.Windows.Forms.TabPage();
             this.groupBoxPersonalMailing = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.listBoxPersonalMails = new System.Windows.Forms.ListBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.labelUserMails = new System.Windows.Forms.Label();
+            this.listBoxUserMails = new System.Windows.Forms.ListBox();
+            this.buttonUserDeleteMail = new System.Windows.Forms.Button();
+            this.buttonUserOpenMail = new System.Windows.Forms.Button();
+            this.buttonUserNewMail = new System.Windows.Forms.Button();
             this.groupBoxPersonalInformation = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonUserUploadImage = new System.Windows.Forms.Button();
+            this.buttonUserSaveData = new System.Windows.Forms.Button();
+            this.buttonUserModifyData = new System.Windows.Forms.Button();
+            this.textBoxUserDescription = new System.Windows.Forms.TextBox();
+            this.labelUserDescription = new System.Windows.Forms.Label();
+            this.groupBoxUserImage = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerUserBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.textBoxUserGroupAddress = new System.Windows.Forms.TextBox();
+            this.labelUserGroupAddress = new System.Windows.Forms.Label();
+            this.textBoxUserGroupPost = new System.Windows.Forms.TextBox();
+            this.labelUserGroupPost = new System.Windows.Forms.Label();
+            this.textBoxUserGroupName = new System.Windows.Forms.TextBox();
+            this.labelUserGroupName = new System.Windows.Forms.Label();
+            this.labelUserBirthDate = new System.Windows.Forms.Label();
+            this.textBoxBirthPlace = new System.Windows.Forms.TextBox();
+            this.labelUserBirthPlace = new System.Windows.Forms.Label();
+            this.textBoxUserAddress = new System.Windows.Forms.TextBox();
+            this.labelUserAddress = new System.Windows.Forms.Label();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.tabPageGroupProfile = new System.Windows.Forms.TabPage();
             this.groupBoxGroupFunctions = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.buttonNewOffer = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.groupBoxOfferHandling = new System.Windows.Forms.GroupBox();
+            this.labelGroupOffers = new System.Windows.Forms.Label();
+            this.listBoxGroupOffers = new System.Windows.Forms.ListBox();
+            this.buttonGroupDeleteOffer = new System.Windows.Forms.Button();
+            this.buttonGroupOpenOffer = new System.Windows.Forms.Button();
+            this.buttonGroupNewOffer = new System.Windows.Forms.Button();
+            this.groupBoxGroupMailHandling = new System.Windows.Forms.GroupBox();
+            this.labelGroupMails = new System.Windows.Forms.Label();
+            this.listBoxGroupMails = new System.Windows.Forms.ListBox();
+            this.buttonGroupDeleteMail = new System.Windows.Forms.Button();
+            this.buttonGroupOpenMail = new System.Windows.Forms.Button();
+            this.buttonGroupNewMail = new System.Windows.Forms.Button();
             this.groupBoxGroupInformation = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.buttonGroupUploadImage = new System.Windows.Forms.Button();
+            this.buttonGroupSaveData = new System.Windows.Forms.Button();
+            this.buttonGroupModifyData = new System.Windows.Forms.Button();
+            this.textBoxGroupDescription = new System.Windows.Forms.TextBox();
+            this.labelGroupDescription = new System.Windows.Forms.Label();
+            this.groupBoxGroupImage = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerDateOfFounding = new System.Windows.Forms.DateTimePicker();
+            this.textBoxGroupAddress = new System.Windows.Forms.TextBox();
+            this.labelGroupAddress = new System.Windows.Forms.Label();
+            this.textBoxGroupName = new System.Windows.Forms.TextBox();
+            this.labelGroupName = new System.Windows.Forms.Label();
+            this.labelGroupDateOfFounding = new System.Windows.Forms.Label();
+            this.textBoxGroupMailAdress = new System.Windows.Forms.TextBox();
+            this.labelGroupMailAdress = new System.Windows.Forms.Label();
+            this.textBoxGroupLeader = new System.Windows.Forms.TextBox();
+            this.labelGroupLeader = new System.Windows.Forms.Label();
             this.tabPageCalendar = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.buttonModifyEvent = new System.Windows.Forms.Button();
             this.labelGroupEvents = new System.Windows.Forms.Label();
             this.labelPersonalEvents = new System.Windows.Forms.Label();
@@ -97,27 +97,44 @@
             this.listBoxPersonalEvents = new System.Windows.Forms.ListBox();
             this.buttonCreateNewEvent = new System.Windows.Forms.Button();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.buttonClearSearchParameters = new System.Windows.Forms.Button();
+            this.labelSearchGroupOption = new System.Windows.Forms.Label();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.comboBoxSearchGroupOption = new System.Windows.Forms.ComboBox();
+            this.listBoxSearchResults = new System.Windows.Forms.ListBox();
+            this.groupBoxSearchParameters = new System.Windows.Forms.GroupBox();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.bejelentkezveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kijelentkezésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
+            this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
+            this.dataGridViewStat = new System.Windows.Forms.DataGridView();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDeletes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.tabPageGroupProfile.SuspendLayout();
             this.groupBoxGroupFunctions.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxOfferHandling.SuspendLayout();
+            this.groupBoxGroupMailHandling.SuspendLayout();
             this.groupBoxGroupInformation.SuspendLayout();
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.tabPageAdmin.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            this.groupBoxStatistics.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -127,10 +144,10 @@
             this.tabControlUserInterface.Controls.Add(this.tabPageCalendar);
             this.tabControlUserInterface.Controls.Add(this.tabPageSearch);
             this.tabControlUserInterface.Controls.Add(this.tabPageAdmin);
-            this.tabControlUserInterface.Location = new System.Drawing.Point(12, 12);
+            this.tabControlUserInterface.Location = new System.Drawing.Point(0, 27);
             this.tabControlUserInterface.Name = "tabControlUserInterface";
             this.tabControlUserInterface.SelectedIndex = 0;
-            this.tabControlUserInterface.Size = new System.Drawing.Size(760, 537);
+            this.tabControlUserInterface.Size = new System.Drawing.Size(786, 552);
             this.tabControlUserInterface.TabIndex = 0;
             // 
             // tabPageUserProfile
@@ -140,263 +157,268 @@
             this.tabPageUserProfile.Location = new System.Drawing.Point(4, 22);
             this.tabPageUserProfile.Name = "tabPageUserProfile";
             this.tabPageUserProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUserProfile.Size = new System.Drawing.Size(752, 511);
+            this.tabPageUserProfile.Size = new System.Drawing.Size(778, 526);
             this.tabPageUserProfile.TabIndex = 0;
             this.tabPageUserProfile.Text = "Felhasználó Adatlap";
             this.tabPageUserProfile.UseVisualStyleBackColor = true;
             // 
             // groupBoxPersonalMailing
             // 
-            this.groupBoxPersonalMailing.Controls.Add(this.label9);
-            this.groupBoxPersonalMailing.Controls.Add(this.listBoxPersonalMails);
-            this.groupBoxPersonalMailing.Controls.Add(this.button8);
-            this.groupBoxPersonalMailing.Controls.Add(this.button7);
-            this.groupBoxPersonalMailing.Controls.Add(this.button6);
-            this.groupBoxPersonalMailing.Location = new System.Drawing.Point(447, 7);
+            this.groupBoxPersonalMailing.Controls.Add(this.labelUserMails);
+            this.groupBoxPersonalMailing.Controls.Add(this.listBoxUserMails);
+            this.groupBoxPersonalMailing.Controls.Add(this.buttonUserDeleteMail);
+            this.groupBoxPersonalMailing.Controls.Add(this.buttonUserOpenMail);
+            this.groupBoxPersonalMailing.Controls.Add(this.buttonUserNewMail);
+            this.groupBoxPersonalMailing.Location = new System.Drawing.Point(469, 7);
             this.groupBoxPersonalMailing.Name = "groupBoxPersonalMailing";
-            this.groupBoxPersonalMailing.Size = new System.Drawing.Size(299, 498);
+            this.groupBoxPersonalMailing.Size = new System.Drawing.Size(299, 510);
             this.groupBoxPersonalMailing.TabIndex = 1;
             this.groupBoxPersonalMailing.TabStop = false;
             this.groupBoxPersonalMailing.Text = "Levelezés";
             // 
-            // label9
+            // labelUserMails
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Levelek:";
+            this.labelUserMails.AutoSize = true;
+            this.labelUserMails.Location = new System.Drawing.Point(3, 81);
+            this.labelUserMails.Name = "labelUserMails";
+            this.labelUserMails.Size = new System.Drawing.Size(48, 13);
+            this.labelUserMails.TabIndex = 3;
+            this.labelUserMails.Text = "Levelek:";
             // 
-            // listBoxPersonalMails
+            // listBoxUserMails
             // 
-            this.listBoxPersonalMails.FormattingEnabled = true;
-            this.listBoxPersonalMails.Location = new System.Drawing.Point(6, 80);
-            this.listBoxPersonalMails.Name = "listBoxPersonalMails";
-            this.listBoxPersonalMails.Size = new System.Drawing.Size(287, 407);
-            this.listBoxPersonalMails.TabIndex = 1;
+            this.listBoxUserMails.FormattingEnabled = true;
+            this.listBoxUserMails.Location = new System.Drawing.Point(6, 97);
+            this.listBoxUserMails.Name = "listBoxUserMails";
+            this.listBoxUserMails.Size = new System.Drawing.Size(287, 407);
+            this.listBoxUserMails.TabIndex = 1;
             // 
-            // button8
+            // buttonUserDeleteMail
             // 
-            this.button8.Location = new System.Drawing.Point(201, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(92, 30);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Törlés";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonUserDeleteMail.Location = new System.Drawing.Point(201, 19);
+            this.buttonUserDeleteMail.Name = "buttonUserDeleteMail";
+            this.buttonUserDeleteMail.Size = new System.Drawing.Size(92, 30);
+            this.buttonUserDeleteMail.TabIndex = 2;
+            this.buttonUserDeleteMail.Text = "Törlés";
+            this.buttonUserDeleteMail.UseVisualStyleBackColor = true;
+            this.buttonUserDeleteMail.Click += new System.EventHandler(this.buttonUserDeleteMail_Click);
             // 
-            // button7
+            // buttonUserOpenMail
             // 
-            this.button7.Location = new System.Drawing.Point(104, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(92, 30);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "Megnyitás";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonUserOpenMail.Location = new System.Drawing.Point(104, 19);
+            this.buttonUserOpenMail.Name = "buttonUserOpenMail";
+            this.buttonUserOpenMail.Size = new System.Drawing.Size(92, 30);
+            this.buttonUserOpenMail.TabIndex = 1;
+            this.buttonUserOpenMail.Text = "Megnyitás";
+            this.buttonUserOpenMail.UseVisualStyleBackColor = true;
+            this.buttonUserOpenMail.Click += new System.EventHandler(this.buttonUserOpenMail_Click);
             // 
-            // button6
+            // buttonUserNewMail
             // 
-            this.button6.Location = new System.Drawing.Point(6, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 30);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Új üzenet";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.buttonNewMail_Click);
+            this.buttonUserNewMail.Location = new System.Drawing.Point(6, 19);
+            this.buttonUserNewMail.Name = "buttonUserNewMail";
+            this.buttonUserNewMail.Size = new System.Drawing.Size(92, 30);
+            this.buttonUserNewMail.TabIndex = 0;
+            this.buttonUserNewMail.Text = "Új üzenet";
+            this.buttonUserNewMail.UseVisualStyleBackColor = true;
+            this.buttonUserNewMail.Click += new System.EventHandler(this.buttonUserNewMail_Click);
             // 
             // groupBoxPersonalInformation
             // 
-            this.groupBoxPersonalInformation.Controls.Add(this.button5);
-            this.groupBoxPersonalInformation.Controls.Add(this.button4);
-            this.groupBoxPersonalInformation.Controls.Add(this.button3);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox7);
-            this.groupBoxPersonalInformation.Controls.Add(this.label8);
-            this.groupBoxPersonalInformation.Controls.Add(this.groupBox1);
-            this.groupBoxPersonalInformation.Controls.Add(this.dateTimePicker1);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox3);
-            this.groupBoxPersonalInformation.Controls.Add(this.label7);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox5);
-            this.groupBoxPersonalInformation.Controls.Add(this.label5);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox6);
-            this.groupBoxPersonalInformation.Controls.Add(this.label6);
-            this.groupBoxPersonalInformation.Controls.Add(this.label3);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox4);
-            this.groupBoxPersonalInformation.Controls.Add(this.label4);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox2);
-            this.groupBoxPersonalInformation.Controls.Add(this.label2);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBox1);
-            this.groupBoxPersonalInformation.Controls.Add(this.label1);
+            this.groupBoxPersonalInformation.Controls.Add(this.buttonUserUploadImage);
+            this.groupBoxPersonalInformation.Controls.Add(this.buttonUserSaveData);
+            this.groupBoxPersonalInformation.Controls.Add(this.buttonUserModifyData);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserDescription);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserDescription);
+            this.groupBoxPersonalInformation.Controls.Add(this.groupBoxUserImage);
+            this.groupBoxPersonalInformation.Controls.Add(this.dateTimePickerUserBirthDate);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserGroupAddress);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserGroupAddress);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserGroupPost);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserGroupPost);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserGroupName);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserGroupName);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserBirthDate);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxBirthPlace);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserBirthPlace);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserAddress);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserAddress);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserName);
+            this.groupBoxPersonalInformation.Controls.Add(this.labelUserName);
             this.groupBoxPersonalInformation.Location = new System.Drawing.Point(7, 7);
             this.groupBoxPersonalInformation.Name = "groupBoxPersonalInformation";
-            this.groupBoxPersonalInformation.Size = new System.Drawing.Size(434, 498);
+            this.groupBoxPersonalInformation.Size = new System.Drawing.Size(456, 510);
             this.groupBoxPersonalInformation.TabIndex = 0;
             this.groupBoxPersonalInformation.TabStop = false;
             this.groupBoxPersonalInformation.Text = "Személyes Adatok";
             // 
-            // button5
+            // buttonUserUploadImage
             // 
-            this.button5.Location = new System.Drawing.Point(295, 469);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Kép feltöltés";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonUserUploadImage.Location = new System.Drawing.Point(320, 481);
+            this.buttonUserUploadImage.Name = "buttonUserUploadImage";
+            this.buttonUserUploadImage.Size = new System.Drawing.Size(75, 23);
+            this.buttonUserUploadImage.TabIndex = 20;
+            this.buttonUserUploadImage.Text = "Kép feltöltés";
+            this.buttonUserUploadImage.UseVisualStyleBackColor = true;
+            this.buttonUserUploadImage.Click += new System.EventHandler(this.buttonUserUploadImage_Click);
             // 
-            // button4
+            // buttonUserSaveData
             // 
-            this.button4.Location = new System.Drawing.Point(128, 469);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 23);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Adatok mentése";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonUserSaveData.Location = new System.Drawing.Point(140, 481);
+            this.buttonUserSaveData.Name = "buttonUserSaveData";
+            this.buttonUserSaveData.Size = new System.Drawing.Size(124, 23);
+            this.buttonUserSaveData.TabIndex = 19;
+            this.buttonUserSaveData.Text = "Adatok mentése";
+            this.buttonUserSaveData.UseVisualStyleBackColor = true;
+            this.buttonUserSaveData.Click += new System.EventHandler(this.buttonUserSaveData_Click);
             // 
-            // button3
+            // buttonUserModifyData
             // 
-            this.button3.Location = new System.Drawing.Point(6, 469);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Adatok módosítása";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonUserModifyData.Location = new System.Drawing.Point(6, 481);
+            this.buttonUserModifyData.Name = "buttonUserModifyData";
+            this.buttonUserModifyData.Size = new System.Drawing.Size(124, 23);
+            this.buttonUserModifyData.TabIndex = 18;
+            this.buttonUserModifyData.Text = "Adatok módosítása";
+            this.buttonUserModifyData.UseVisualStyleBackColor = true;
+            this.buttonUserModifyData.Click += new System.EventHandler(this.buttonUserModifyData_Click);
             // 
-            // textBox7
+            // textBoxUserDescription
             // 
-            this.textBox7.Location = new System.Drawing.Point(7, 269);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(235, 194);
-            this.textBox7.TabIndex = 17;
+            this.textBoxUserDescription.Location = new System.Drawing.Point(7, 281);
+            this.textBoxUserDescription.Multiline = true;
+            this.textBoxUserDescription.Name = "textBoxUserDescription";
+            this.textBoxUserDescription.Size = new System.Drawing.Size(257, 194);
+            this.textBoxUserDescription.TabIndex = 17;
             // 
-            // label8
+            // labelUserDescription
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 253);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Magamról:";
+            this.labelUserDescription.AutoSize = true;
+            this.labelUserDescription.Location = new System.Drawing.Point(6, 265);
+            this.labelUserDescription.Name = "labelUserDescription";
+            this.labelUserDescription.Size = new System.Drawing.Size(56, 13);
+            this.labelUserDescription.TabIndex = 16;
+            this.labelUserDescription.Text = "Magamról:";
             // 
-            // groupBox1
+            // groupBoxUserImage
             // 
-            this.groupBox1.Location = new System.Drawing.Point(248, 263);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(180, 200);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Profil kép";
+            this.groupBoxUserImage.Location = new System.Drawing.Point(270, 275);
+            this.groupBoxUserImage.Name = "groupBoxUserImage";
+            this.groupBoxUserImage.Size = new System.Drawing.Size(180, 200);
+            this.groupBoxUserImage.TabIndex = 15;
+            this.groupBoxUserImage.TabStop = false;
+            this.groupBoxUserImage.Text = "Profil kép";
             // 
-            // dateTimePicker1
+            // dateTimePickerUserBirthDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(105, 123);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(323, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePickerUserBirthDate.Location = new System.Drawing.Point(105, 123);
+            this.dateTimePickerUserBirthDate.Name = "dateTimePickerUserBirthDate";
+            this.dateTimePickerUserBirthDate.Size = new System.Drawing.Size(345, 20);
+            this.dateTimePickerUserBirthDate.TabIndex = 14;
             // 
-            // textBox3
+            // textBoxUserGroupAddress
             // 
-            this.textBox3.Location = new System.Drawing.Point(105, 195);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(323, 20);
-            this.textBox3.TabIndex = 13;
+            this.textBoxUserGroupAddress.Location = new System.Drawing.Point(105, 195);
+            this.textBoxUserGroupAddress.Name = "textBoxUserGroupAddress";
+            this.textBoxUserGroupAddress.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserGroupAddress.TabIndex = 13;
             // 
-            // label7
+            // labelUserGroupAddress
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 198);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Cég címe:";
+            this.labelUserGroupAddress.AutoSize = true;
+            this.labelUserGroupAddress.Location = new System.Drawing.Point(6, 198);
+            this.labelUserGroupAddress.Name = "labelUserGroupAddress";
+            this.labelUserGroupAddress.Size = new System.Drawing.Size(56, 13);
+            this.labelUserGroupAddress.TabIndex = 12;
+            this.labelUserGroupAddress.Text = "Cég címe:";
             // 
-            // textBox5
+            // textBoxUserGroupPost
             // 
-            this.textBox5.Location = new System.Drawing.Point(105, 222);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(323, 20);
-            this.textBox5.TabIndex = 11;
+            this.textBoxUserGroupPost.Location = new System.Drawing.Point(105, 222);
+            this.textBoxUserGroupPost.Name = "textBoxUserGroupPost";
+            this.textBoxUserGroupPost.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserGroupPost.TabIndex = 11;
             // 
-            // label5
+            // labelUserGroupPost
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 225);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Beosztás:";
+            this.labelUserGroupPost.AutoSize = true;
+            this.labelUserGroupPost.Location = new System.Drawing.Point(6, 225);
+            this.labelUserGroupPost.Name = "labelUserGroupPost";
+            this.labelUserGroupPost.Size = new System.Drawing.Size(53, 13);
+            this.labelUserGroupPost.TabIndex = 10;
+            this.labelUserGroupPost.Text = "Beosztás:";
             // 
-            // textBox6
+            // textBoxUserGroupName
             // 
-            this.textBox6.Location = new System.Drawing.Point(105, 168);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(323, 20);
-            this.textBox6.TabIndex = 9;
+            this.textBoxUserGroupName.Location = new System.Drawing.Point(105, 168);
+            this.textBoxUserGroupName.Name = "textBoxUserGroupName";
+            this.textBoxUserGroupName.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserGroupName.TabIndex = 9;
             // 
-            // label6
+            // labelUserGroupName
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 171);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Cég:";
+            this.labelUserGroupName.AutoSize = true;
+            this.labelUserGroupName.Location = new System.Drawing.Point(6, 171);
+            this.labelUserGroupName.Name = "labelUserGroupName";
+            this.labelUserGroupName.Size = new System.Drawing.Size(29, 13);
+            this.labelUserGroupName.TabIndex = 8;
+            this.labelUserGroupName.Text = "Cég:";
             // 
-            // label3
+            // labelUserBirthDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Születési idő:";
+            this.labelUserBirthDate.AutoSize = true;
+            this.labelUserBirthDate.Location = new System.Drawing.Point(6, 126);
+            this.labelUserBirthDate.Name = "labelUserBirthDate";
+            this.labelUserBirthDate.Size = new System.Drawing.Size(69, 13);
+            this.labelUserBirthDate.TabIndex = 6;
+            this.labelUserBirthDate.Text = "Születési idő:";
             // 
-            // textBox4
+            // textBoxBirthPlace
             // 
-            this.textBox4.Location = new System.Drawing.Point(105, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(323, 20);
-            this.textBox4.TabIndex = 5;
+            this.textBoxBirthPlace.Location = new System.Drawing.Point(105, 97);
+            this.textBoxBirthPlace.Name = "textBoxBirthPlace";
+            this.textBoxBirthPlace.Size = new System.Drawing.Size(345, 20);
+            this.textBoxBirthPlace.TabIndex = 5;
             // 
-            // label4
+            // labelUserBirthPlace
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Születési hely:";
+            this.labelUserBirthPlace.AutoSize = true;
+            this.labelUserBirthPlace.Location = new System.Drawing.Point(6, 100);
+            this.labelUserBirthPlace.Name = "labelUserBirthPlace";
+            this.labelUserBirthPlace.Size = new System.Drawing.Size(74, 13);
+            this.labelUserBirthPlace.TabIndex = 4;
+            this.labelUserBirthPlace.Text = "Születési hely:";
             // 
-            // textBox2
+            // textBoxUserAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(323, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxUserAddress.Location = new System.Drawing.Point(105, 52);
+            this.textBoxUserAddress.Name = "textBoxUserAddress";
+            this.textBoxUserAddress.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserAddress.TabIndex = 3;
             // 
-            // label2
+            // labelUserAddress
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Lakhely:";
+            this.labelUserAddress.AutoSize = true;
+            this.labelUserAddress.Location = new System.Drawing.Point(6, 55);
+            this.labelUserAddress.Name = "labelUserAddress";
+            this.labelUserAddress.Size = new System.Drawing.Size(47, 13);
+            this.labelUserAddress.TabIndex = 2;
+            this.labelUserAddress.Text = "Lakhely:";
             // 
-            // textBox1
+            // textBoxUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(323, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxUserName.Location = new System.Drawing.Point(105, 26);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserName.TabIndex = 1;
             // 
-            // label1
+            // labelUserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Felhasználó neve:";
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Location = new System.Drawing.Point(6, 29);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(93, 13);
+            this.labelUserName.TabIndex = 0;
+            this.labelUserName.Text = "Felhasználó neve:";
             // 
             // tabPageGroupProfile
             // 
@@ -405,300 +427,308 @@
             this.tabPageGroupProfile.Location = new System.Drawing.Point(4, 22);
             this.tabPageGroupProfile.Name = "tabPageGroupProfile";
             this.tabPageGroupProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGroupProfile.Size = new System.Drawing.Size(752, 511);
+            this.tabPageGroupProfile.Size = new System.Drawing.Size(778, 526);
             this.tabPageGroupProfile.TabIndex = 1;
             this.tabPageGroupProfile.Text = "Csoport Adatlap";
             this.tabPageGroupProfile.UseVisualStyleBackColor = true;
             // 
             // groupBoxGroupFunctions
             // 
-            this.groupBoxGroupFunctions.Controls.Add(this.groupBox4);
-            this.groupBoxGroupFunctions.Controls.Add(this.groupBox3);
-            this.groupBoxGroupFunctions.Location = new System.Drawing.Point(447, 6);
+            this.groupBoxGroupFunctions.Controls.Add(this.groupBoxOfferHandling);
+            this.groupBoxGroupFunctions.Controls.Add(this.groupBoxGroupMailHandling);
+            this.groupBoxGroupFunctions.Location = new System.Drawing.Point(469, 6);
             this.groupBoxGroupFunctions.Name = "groupBoxGroupFunctions";
-            this.groupBoxGroupFunctions.Size = new System.Drawing.Size(299, 498);
+            this.groupBoxGroupFunctions.Size = new System.Drawing.Size(303, 514);
             this.groupBoxGroupFunctions.TabIndex = 3;
             this.groupBoxGroupFunctions.TabStop = false;
             this.groupBoxGroupFunctions.Text = "Csoport Funkciók";
             // 
-            // groupBox4
+            // groupBoxOfferHandling
             // 
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.listBox2);
-            this.groupBox4.Controls.Add(this.button15);
-            this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Controls.Add(this.buttonNewOffer);
-            this.groupBox4.Location = new System.Drawing.Point(6, 262);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(287, 230);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ajánlatok kezelése";
+            this.groupBoxOfferHandling.Controls.Add(this.labelGroupOffers);
+            this.groupBoxOfferHandling.Controls.Add(this.listBoxGroupOffers);
+            this.groupBoxOfferHandling.Controls.Add(this.buttonGroupDeleteOffer);
+            this.groupBoxOfferHandling.Controls.Add(this.buttonGroupOpenOffer);
+            this.groupBoxOfferHandling.Controls.Add(this.buttonGroupNewOffer);
+            this.groupBoxOfferHandling.Location = new System.Drawing.Point(6, 268);
+            this.groupBoxOfferHandling.Name = "groupBoxOfferHandling";
+            this.groupBoxOfferHandling.Size = new System.Drawing.Size(291, 240);
+            this.groupBoxOfferHandling.TabIndex = 1;
+            this.groupBoxOfferHandling.TabStop = false;
+            this.groupBoxOfferHandling.Text = "Ajánlatok kezelése";
             // 
-            // label15
+            // labelGroupOffers
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 61);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Ajánlatok:";
+            this.labelGroupOffers.AutoSize = true;
+            this.labelGroupOffers.Location = new System.Drawing.Point(3, 61);
+            this.labelGroupOffers.Name = "labelGroupOffers";
+            this.labelGroupOffers.Size = new System.Drawing.Size(54, 13);
+            this.labelGroupOffers.TabIndex = 12;
+            this.labelGroupOffers.Text = "Ajánlatok:";
             // 
-            // listBox2
+            // listBoxGroupOffers
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(6, 77);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(275, 147);
-            this.listBox2.TabIndex = 11;
+            this.listBoxGroupOffers.FormattingEnabled = true;
+            this.listBoxGroupOffers.Location = new System.Drawing.Point(6, 77);
+            this.listBoxGroupOffers.Name = "listBoxGroupOffers";
+            this.listBoxGroupOffers.Size = new System.Drawing.Size(279, 147);
+            this.listBoxGroupOffers.TabIndex = 11;
             // 
-            // button15
+            // buttonGroupDeleteOffer
             // 
-            this.button15.Location = new System.Drawing.Point(192, 19);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(87, 30);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "Törlés";
-            this.button15.UseVisualStyleBackColor = true;
+            this.buttonGroupDeleteOffer.Location = new System.Drawing.Point(196, 19);
+            this.buttonGroupDeleteOffer.Name = "buttonGroupDeleteOffer";
+            this.buttonGroupDeleteOffer.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupDeleteOffer.TabIndex = 10;
+            this.buttonGroupDeleteOffer.Text = "Törlés";
+            this.buttonGroupDeleteOffer.UseVisualStyleBackColor = true;
+            this.buttonGroupDeleteOffer.Click += new System.EventHandler(this.buttonGroupDeleteOffer_Click);
             // 
-            // button16
+            // buttonGroupOpenOffer
             // 
-            this.button16.Location = new System.Drawing.Point(99, 19);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(87, 30);
-            this.button16.TabIndex = 9;
-            this.button16.Text = "Megnyitás";
-            this.button16.UseVisualStyleBackColor = true;
+            this.buttonGroupOpenOffer.Location = new System.Drawing.Point(101, 19);
+            this.buttonGroupOpenOffer.Name = "buttonGroupOpenOffer";
+            this.buttonGroupOpenOffer.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupOpenOffer.TabIndex = 9;
+            this.buttonGroupOpenOffer.Text = "Megnyitás";
+            this.buttonGroupOpenOffer.UseVisualStyleBackColor = true;
+            this.buttonGroupOpenOffer.Click += new System.EventHandler(this.buttonGroupOpenOffer_Click);
             // 
-            // buttonNewOffer
+            // buttonGroupNewOffer
             // 
-            this.buttonNewOffer.Location = new System.Drawing.Point(6, 19);
-            this.buttonNewOffer.Name = "buttonNewOffer";
-            this.buttonNewOffer.Size = new System.Drawing.Size(87, 30);
-            this.buttonNewOffer.TabIndex = 8;
-            this.buttonNewOffer.Text = "Új ajánlat";
-            this.buttonNewOffer.UseVisualStyleBackColor = true;
-            this.buttonNewOffer.Click += new System.EventHandler(this.buttonNewOffer_Click);
+            this.buttonGroupNewOffer.Location = new System.Drawing.Point(6, 19);
+            this.buttonGroupNewOffer.Name = "buttonGroupNewOffer";
+            this.buttonGroupNewOffer.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupNewOffer.TabIndex = 8;
+            this.buttonGroupNewOffer.Text = "Új ajánlat";
+            this.buttonGroupNewOffer.UseVisualStyleBackColor = true;
+            this.buttonGroupNewOffer.Click += new System.EventHandler(this.buttonGroupNewOffer_Click);
             // 
-            // groupBox3
+            // groupBoxGroupMailHandling
             // 
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.listBox1);
-            this.groupBox3.Controls.Add(this.button12);
-            this.groupBox3.Controls.Add(this.button13);
-            this.groupBox3.Controls.Add(this.button14);
-            this.groupBox3.Location = new System.Drawing.Point(6, 24);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(287, 230);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Csoportos levélküldés";
+            this.groupBoxGroupMailHandling.Controls.Add(this.labelGroupMails);
+            this.groupBoxGroupMailHandling.Controls.Add(this.listBoxGroupMails);
+            this.groupBoxGroupMailHandling.Controls.Add(this.buttonGroupDeleteMail);
+            this.groupBoxGroupMailHandling.Controls.Add(this.buttonGroupOpenMail);
+            this.groupBoxGroupMailHandling.Controls.Add(this.buttonGroupNewMail);
+            this.groupBoxGroupMailHandling.Location = new System.Drawing.Point(6, 19);
+            this.groupBoxGroupMailHandling.Name = "groupBoxGroupMailHandling";
+            this.groupBoxGroupMailHandling.Size = new System.Drawing.Size(291, 240);
+            this.groupBoxGroupMailHandling.TabIndex = 0;
+            this.groupBoxGroupMailHandling.TabStop = false;
+            this.groupBoxGroupMailHandling.Text = "Csoportos levélküldés";
             // 
-            // label12
+            // labelGroupMails
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 61);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Levelek:";
+            this.labelGroupMails.AutoSize = true;
+            this.labelGroupMails.Location = new System.Drawing.Point(3, 61);
+            this.labelGroupMails.Name = "labelGroupMails";
+            this.labelGroupMails.Size = new System.Drawing.Size(48, 13);
+            this.labelGroupMails.TabIndex = 7;
+            this.labelGroupMails.Text = "Levelek:";
             // 
-            // listBox1
+            // listBoxGroupMails
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 77);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(275, 147);
-            this.listBox1.TabIndex = 6;
+            this.listBoxGroupMails.FormattingEnabled = true;
+            this.listBoxGroupMails.Location = new System.Drawing.Point(6, 77);
+            this.listBoxGroupMails.Name = "listBoxGroupMails";
+            this.listBoxGroupMails.Size = new System.Drawing.Size(279, 147);
+            this.listBoxGroupMails.TabIndex = 6;
             // 
-            // button12
+            // buttonGroupDeleteMail
             // 
-            this.button12.Location = new System.Drawing.Point(192, 19);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(87, 30);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "Törlés";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonGroupDeleteMail.Location = new System.Drawing.Point(196, 19);
+            this.buttonGroupDeleteMail.Name = "buttonGroupDeleteMail";
+            this.buttonGroupDeleteMail.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupDeleteMail.TabIndex = 5;
+            this.buttonGroupDeleteMail.Text = "Törlés";
+            this.buttonGroupDeleteMail.UseVisualStyleBackColor = true;
+            this.buttonGroupDeleteMail.Click += new System.EventHandler(this.buttonGroupDeleteMail_Click);
             // 
-            // button13
+            // buttonGroupOpenMail
             // 
-            this.button13.Location = new System.Drawing.Point(99, 19);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(87, 30);
-            this.button13.TabIndex = 4;
-            this.button13.Text = "Megnyitás";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonGroupOpenMail.Location = new System.Drawing.Point(101, 19);
+            this.buttonGroupOpenMail.Name = "buttonGroupOpenMail";
+            this.buttonGroupOpenMail.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupOpenMail.TabIndex = 4;
+            this.buttonGroupOpenMail.Text = "Megnyitás";
+            this.buttonGroupOpenMail.UseVisualStyleBackColor = true;
+            this.buttonGroupOpenMail.Click += new System.EventHandler(this.buttonGroupOpenMail_Click);
             // 
-            // button14
+            // buttonGroupNewMail
             // 
-            this.button14.Location = new System.Drawing.Point(6, 19);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(87, 30);
-            this.button14.TabIndex = 3;
-            this.button14.Text = "Új üzenet";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonGroupNewMail.Location = new System.Drawing.Point(6, 19);
+            this.buttonGroupNewMail.Name = "buttonGroupNewMail";
+            this.buttonGroupNewMail.Size = new System.Drawing.Size(89, 30);
+            this.buttonGroupNewMail.TabIndex = 3;
+            this.buttonGroupNewMail.Text = "Új üzenet";
+            this.buttonGroupNewMail.UseVisualStyleBackColor = true;
+            this.buttonGroupNewMail.Click += new System.EventHandler(this.buttonGroupNewMail_Click);
             // 
             // groupBoxGroupInformation
             // 
-            this.groupBoxGroupInformation.Controls.Add(this.button9);
-            this.groupBoxGroupInformation.Controls.Add(this.button10);
-            this.groupBoxGroupInformation.Controls.Add(this.button11);
-            this.groupBoxGroupInformation.Controls.Add(this.textBox8);
-            this.groupBoxGroupInformation.Controls.Add(this.label10);
-            this.groupBoxGroupInformation.Controls.Add(this.groupBox2);
-            this.groupBoxGroupInformation.Controls.Add(this.dateTimePicker2);
-            this.groupBoxGroupInformation.Controls.Add(this.textBox9);
-            this.groupBoxGroupInformation.Controls.Add(this.label11);
-            this.groupBoxGroupInformation.Controls.Add(this.textBox11);
-            this.groupBoxGroupInformation.Controls.Add(this.label13);
-            this.groupBoxGroupInformation.Controls.Add(this.label14);
-            this.groupBoxGroupInformation.Controls.Add(this.textBox13);
-            this.groupBoxGroupInformation.Controls.Add(this.label16);
-            this.groupBoxGroupInformation.Controls.Add(this.textBox14);
-            this.groupBoxGroupInformation.Controls.Add(this.label17);
+            this.groupBoxGroupInformation.Controls.Add(this.buttonGroupUploadImage);
+            this.groupBoxGroupInformation.Controls.Add(this.buttonGroupSaveData);
+            this.groupBoxGroupInformation.Controls.Add(this.buttonGroupModifyData);
+            this.groupBoxGroupInformation.Controls.Add(this.textBoxGroupDescription);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupDescription);
+            this.groupBoxGroupInformation.Controls.Add(this.groupBoxGroupImage);
+            this.groupBoxGroupInformation.Controls.Add(this.dateTimePickerDateOfFounding);
+            this.groupBoxGroupInformation.Controls.Add(this.textBoxGroupAddress);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupAddress);
+            this.groupBoxGroupInformation.Controls.Add(this.textBoxGroupName);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupName);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupDateOfFounding);
+            this.groupBoxGroupInformation.Controls.Add(this.textBoxGroupMailAdress);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupMailAdress);
+            this.groupBoxGroupInformation.Controls.Add(this.textBoxGroupLeader);
+            this.groupBoxGroupInformation.Controls.Add(this.labelGroupLeader);
             this.groupBoxGroupInformation.Location = new System.Drawing.Point(7, 6);
             this.groupBoxGroupInformation.Name = "groupBoxGroupInformation";
-            this.groupBoxGroupInformation.Size = new System.Drawing.Size(434, 498);
+            this.groupBoxGroupInformation.Size = new System.Drawing.Size(456, 514);
             this.groupBoxGroupInformation.TabIndex = 2;
             this.groupBoxGroupInformation.TabStop = false;
             this.groupBoxGroupInformation.Text = "Csoport Adatok";
             // 
-            // button9
+            // buttonGroupUploadImage
             // 
-            this.button9.Location = new System.Drawing.Point(295, 459);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 40;
-            this.button9.Text = "Kép feltöltés";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonGroupUploadImage.Location = new System.Drawing.Point(6, 485);
+            this.buttonGroupUploadImage.Name = "buttonGroupUploadImage";
+            this.buttonGroupUploadImage.Size = new System.Drawing.Size(75, 23);
+            this.buttonGroupUploadImage.TabIndex = 40;
+            this.buttonGroupUploadImage.Text = "Kép feltöltés";
+            this.buttonGroupUploadImage.UseVisualStyleBackColor = true;
+            this.buttonGroupUploadImage.Click += new System.EventHandler(this.buttonGroupUploadImage_Click);
             // 
-            // button10
+            // buttonGroupSaveData
             // 
-            this.button10.Location = new System.Drawing.Point(128, 459);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(116, 23);
-            this.button10.TabIndex = 39;
-            this.button10.Text = "Adatok mentése";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonGroupSaveData.Location = new System.Drawing.Point(334, 485);
+            this.buttonGroupSaveData.Name = "buttonGroupSaveData";
+            this.buttonGroupSaveData.Size = new System.Drawing.Size(116, 23);
+            this.buttonGroupSaveData.TabIndex = 39;
+            this.buttonGroupSaveData.Text = "Adatok mentése";
+            this.buttonGroupSaveData.UseVisualStyleBackColor = true;
+            this.buttonGroupSaveData.Click += new System.EventHandler(this.buttonGroupSaveData_Click);
             // 
-            // button11
+            // buttonGroupModifyData
             // 
-            this.button11.Location = new System.Drawing.Point(6, 459);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(116, 23);
-            this.button11.TabIndex = 38;
-            this.button11.Text = "Adatok módosítása";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buttonGroupModifyData.Location = new System.Drawing.Point(215, 485);
+            this.buttonGroupModifyData.Name = "buttonGroupModifyData";
+            this.buttonGroupModifyData.Size = new System.Drawing.Size(116, 23);
+            this.buttonGroupModifyData.TabIndex = 38;
+            this.buttonGroupModifyData.Text = "Adatok módosítása";
+            this.buttonGroupModifyData.UseVisualStyleBackColor = true;
+            this.buttonGroupModifyData.Click += new System.EventHandler(this.buttonGroupModifyData_Click);
             // 
-            // textBox8
+            // textBoxGroupDescription
             // 
-            this.textBox8.Location = new System.Drawing.Point(6, 278);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(235, 175);
-            this.textBox8.TabIndex = 37;
+            this.textBoxGroupDescription.Location = new System.Drawing.Point(6, 345);
+            this.textBoxGroupDescription.Multiline = true;
+            this.textBoxGroupDescription.Name = "textBoxGroupDescription";
+            this.textBoxGroupDescription.Size = new System.Drawing.Size(444, 134);
+            this.textBoxGroupDescription.TabIndex = 37;
             // 
-            // label10
+            // labelGroupDescription
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 262);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "A cégről:";
+            this.labelGroupDescription.AutoSize = true;
+            this.labelGroupDescription.Location = new System.Drawing.Point(6, 326);
+            this.labelGroupDescription.Name = "labelGroupDescription";
+            this.labelGroupDescription.Size = new System.Drawing.Size(49, 13);
+            this.labelGroupDescription.TabIndex = 36;
+            this.labelGroupDescription.Text = "A cégről:";
             // 
-            // groupBox2
+            // groupBoxGroupImage
             // 
-            this.groupBox2.Location = new System.Drawing.Point(248, 273);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 180);
-            this.groupBox2.TabIndex = 35;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Cég logó";
+            this.groupBoxGroupImage.Location = new System.Drawing.Point(270, 159);
+            this.groupBoxGroupImage.Name = "groupBoxGroupImage";
+            this.groupBoxGroupImage.Size = new System.Drawing.Size(180, 180);
+            this.groupBoxGroupImage.TabIndex = 35;
+            this.groupBoxGroupImage.TabStop = false;
+            this.groupBoxGroupImage.Text = "Cég logó";
             // 
-            // dateTimePicker2
+            // dateTimePickerDateOfFounding
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(105, 124);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(323, 20);
-            this.dateTimePicker2.TabIndex = 34;
+            this.dateTimePickerDateOfFounding.Location = new System.Drawing.Point(105, 124);
+            this.dateTimePickerDateOfFounding.Name = "dateTimePickerDateOfFounding";
+            this.dateTimePickerDateOfFounding.Size = new System.Drawing.Size(345, 20);
+            this.dateTimePickerDateOfFounding.TabIndex = 34;
             // 
-            // textBox9
+            // textBoxGroupAddress
             // 
-            this.textBox9.Location = new System.Drawing.Point(105, 46);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(323, 20);
-            this.textBox9.TabIndex = 33;
+            this.textBoxGroupAddress.Location = new System.Drawing.Point(105, 46);
+            this.textBoxGroupAddress.Name = "textBoxGroupAddress";
+            this.textBoxGroupAddress.Size = new System.Drawing.Size(345, 20);
+            this.textBoxGroupAddress.TabIndex = 33;
             // 
-            // label11
+            // labelGroupAddress
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 49);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Cég címe:";
+            this.labelGroupAddress.AutoSize = true;
+            this.labelGroupAddress.Location = new System.Drawing.Point(6, 49);
+            this.labelGroupAddress.Name = "labelGroupAddress";
+            this.labelGroupAddress.Size = new System.Drawing.Size(56, 13);
+            this.labelGroupAddress.TabIndex = 32;
+            this.labelGroupAddress.Text = "Cég címe:";
             // 
-            // textBox11
+            // textBoxGroupName
             // 
-            this.textBox11.Location = new System.Drawing.Point(105, 19);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(323, 20);
-            this.textBox11.TabIndex = 29;
+            this.textBoxGroupName.Location = new System.Drawing.Point(105, 19);
+            this.textBoxGroupName.Name = "textBoxGroupName";
+            this.textBoxGroupName.Size = new System.Drawing.Size(345, 20);
+            this.textBoxGroupName.TabIndex = 29;
             // 
-            // label13
+            // labelGroupName
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(29, 13);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Cég:";
+            this.labelGroupName.AutoSize = true;
+            this.labelGroupName.Location = new System.Drawing.Point(6, 22);
+            this.labelGroupName.Name = "labelGroupName";
+            this.labelGroupName.Size = new System.Drawing.Size(29, 13);
+            this.labelGroupName.TabIndex = 28;
+            this.labelGroupName.Text = "Cég:";
             // 
-            // label14
+            // labelGroupDateOfFounding
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 127);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(87, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Alapítás dátuma:";
+            this.labelGroupDateOfFounding.AutoSize = true;
+            this.labelGroupDateOfFounding.Location = new System.Drawing.Point(6, 127);
+            this.labelGroupDateOfFounding.Name = "labelGroupDateOfFounding";
+            this.labelGroupDateOfFounding.Size = new System.Drawing.Size(87, 13);
+            this.labelGroupDateOfFounding.TabIndex = 27;
+            this.labelGroupDateOfFounding.Text = "Alapítás dátuma:";
             // 
-            // textBox13
+            // textBoxGroupMailAdress
             // 
-            this.textBox13.Location = new System.Drawing.Point(105, 98);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(323, 20);
-            this.textBox13.TabIndex = 24;
+            this.textBoxGroupMailAdress.Location = new System.Drawing.Point(105, 98);
+            this.textBoxGroupMailAdress.Name = "textBoxGroupMailAdress";
+            this.textBoxGroupMailAdress.Size = new System.Drawing.Size(345, 20);
+            this.textBoxGroupMailAdress.TabIndex = 24;
             // 
-            // label16
+            // labelGroupMailAdress
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 101);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 13);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Lakhely:";
+            this.labelGroupMailAdress.AutoSize = true;
+            this.labelGroupMailAdress.Location = new System.Drawing.Point(6, 101);
+            this.labelGroupMailAdress.Name = "labelGroupMailAdress";
+            this.labelGroupMailAdress.Size = new System.Drawing.Size(81, 13);
+            this.labelGroupMailAdress.TabIndex = 23;
+            this.labelGroupMailAdress.Text = "Levelezési cím:";
             // 
-            // textBox14
+            // textBoxGroupLeader
             // 
-            this.textBox14.Location = new System.Drawing.Point(105, 72);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(323, 20);
-            this.textBox14.TabIndex = 22;
+            this.textBoxGroupLeader.Location = new System.Drawing.Point(105, 72);
+            this.textBoxGroupLeader.Name = "textBoxGroupLeader";
+            this.textBoxGroupLeader.Size = new System.Drawing.Size(345, 20);
+            this.textBoxGroupLeader.TabIndex = 22;
             // 
-            // label17
+            // labelGroupLeader
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 75);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(88, 13);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Cégvezető neve:";
+            this.labelGroupLeader.AutoSize = true;
+            this.labelGroupLeader.Location = new System.Drawing.Point(6, 75);
+            this.labelGroupLeader.Name = "labelGroupLeader";
+            this.labelGroupLeader.Size = new System.Drawing.Size(88, 13);
+            this.labelGroupLeader.TabIndex = 21;
+            this.labelGroupLeader.Text = "Cégvezető neve:";
             // 
             // tabPageCalendar
             // 
-            this.tabPageCalendar.Controls.Add(this.button2);
+            this.tabPageCalendar.Controls.Add(this.buttonDeleteEvent);
             this.tabPageCalendar.Controls.Add(this.buttonModifyEvent);
             this.tabPageCalendar.Controls.Add(this.labelGroupEvents);
             this.tabPageCalendar.Controls.Add(this.labelPersonalEvents);
@@ -708,23 +738,24 @@
             this.tabPageCalendar.Location = new System.Drawing.Point(4, 22);
             this.tabPageCalendar.Name = "tabPageCalendar";
             this.tabPageCalendar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCalendar.Size = new System.Drawing.Size(752, 511);
+            this.tabPageCalendar.Size = new System.Drawing.Size(778, 526);
             this.tabPageCalendar.TabIndex = 2;
             this.tabPageCalendar.Text = "Események";
             this.tabPageCalendar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonDeleteEvent
             // 
-            this.button2.Location = new System.Drawing.Point(552, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 50);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Esemény törlése";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(574, 140);
+            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(194, 50);
+            this.buttonDeleteEvent.TabIndex = 7;
+            this.buttonDeleteEvent.Text = "Esemény törlése";
+            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
+            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
             // 
             // buttonModifyEvent
             // 
-            this.buttonModifyEvent.Location = new System.Drawing.Point(552, 84);
+            this.buttonModifyEvent.Location = new System.Drawing.Point(574, 84);
             this.buttonModifyEvent.Name = "buttonModifyEvent";
             this.buttonModifyEvent.Size = new System.Drawing.Size(194, 50);
             this.buttonModifyEvent.TabIndex = 6;
@@ -735,7 +766,7 @@
             // labelGroupEvents
             // 
             this.labelGroupEvents.AutoSize = true;
-            this.labelGroupEvents.Location = new System.Drawing.Point(276, 12);
+            this.labelGroupEvents.Location = new System.Drawing.Point(284, 12);
             this.labelGroupEvents.Name = "labelGroupEvents";
             this.labelGroupEvents.Size = new System.Drawing.Size(101, 13);
             this.labelGroupEvents.TabIndex = 5;
@@ -753,9 +784,9 @@
             // listBoxGroupEvents
             // 
             this.listBoxGroupEvents.FormattingEnabled = true;
-            this.listBoxGroupEvents.Location = new System.Drawing.Point(279, 28);
+            this.listBoxGroupEvents.Location = new System.Drawing.Point(287, 28);
             this.listBoxGroupEvents.Name = "listBoxGroupEvents";
-            this.listBoxGroupEvents.Size = new System.Drawing.Size(267, 472);
+            this.listBoxGroupEvents.Size = new System.Drawing.Size(275, 472);
             this.listBoxGroupEvents.TabIndex = 3;
             // 
             // listBoxPersonalEvents
@@ -763,12 +794,12 @@
             this.listBoxPersonalEvents.FormattingEnabled = true;
             this.listBoxPersonalEvents.Location = new System.Drawing.Point(6, 28);
             this.listBoxPersonalEvents.Name = "listBoxPersonalEvents";
-            this.listBoxPersonalEvents.Size = new System.Drawing.Size(267, 472);
+            this.listBoxPersonalEvents.Size = new System.Drawing.Size(275, 472);
             this.listBoxPersonalEvents.TabIndex = 2;
             // 
             // buttonCreateNewEvent
             // 
-            this.buttonCreateNewEvent.Location = new System.Drawing.Point(552, 28);
+            this.buttonCreateNewEvent.Location = new System.Drawing.Point(574, 28);
             this.buttonCreateNewEvent.Name = "buttonCreateNewEvent";
             this.buttonCreateNewEvent.Size = new System.Drawing.Size(194, 50);
             this.buttonCreateNewEvent.TabIndex = 1;
@@ -778,105 +809,242 @@
             // 
             // tabPageSearch
             // 
-            this.tabPageSearch.Controls.Add(this.listBox3);
-            this.tabPageSearch.Controls.Add(this.groupBox5);
+            this.tabPageSearch.Controls.Add(this.buttonClearSearchParameters);
+            this.tabPageSearch.Controls.Add(this.labelSearchGroupOption);
+            this.tabPageSearch.Controls.Add(this.buttonSearch);
+            this.tabPageSearch.Controls.Add(this.comboBoxSearchGroupOption);
+            this.tabPageSearch.Controls.Add(this.listBoxSearchResults);
+            this.tabPageSearch.Controls.Add(this.groupBoxSearchParameters);
             this.tabPageSearch.Location = new System.Drawing.Point(4, 22);
             this.tabPageSearch.Name = "tabPageSearch";
             this.tabPageSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSearch.Size = new System.Drawing.Size(752, 511);
+            this.tabPageSearch.Size = new System.Drawing.Size(778, 526);
             this.tabPageSearch.TabIndex = 3;
             this.tabPageSearch.Text = "Keresés";
             this.tabPageSearch.UseVisualStyleBackColor = true;
             // 
-            // listBox3
+            // buttonClearSearchParameters
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(385, 7);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(361, 498);
-            this.listBox3.TabIndex = 1;
+            this.buttonClearSearchParameters.Location = new System.Drawing.Point(6, 488);
+            this.buttonClearSearchParameters.Name = "buttonClearSearchParameters";
+            this.buttonClearSearchParameters.Size = new System.Drawing.Size(181, 29);
+            this.buttonClearSearchParameters.TabIndex = 5;
+            this.buttonClearSearchParameters.Text = "Feltételek törlése";
+            this.buttonClearSearchParameters.UseVisualStyleBackColor = true;
+            this.buttonClearSearchParameters.Click += new System.EventHandler(this.buttonClearSearchParameters_Click);
             // 
-            // groupBox5
+            // labelSearchGroupOption
             // 
-            this.groupBox5.Controls.Add(this.button17);
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Controls.Add(this.textBox12);
-            this.groupBox5.Controls.Add(this.textBox10);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Location = new System.Drawing.Point(7, 7);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(372, 498);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Keresési feltételek";
+            this.labelSearchGroupOption.AutoSize = true;
+            this.labelSearchGroupOption.Location = new System.Drawing.Point(6, 10);
+            this.labelSearchGroupOption.Name = "labelSearchGroupOption";
+            this.labelSearchGroupOption.Size = new System.Drawing.Size(85, 13);
+            this.labelSearchGroupOption.TabIndex = 12;
+            this.labelSearchGroupOption.Text = "Keresési csoport";
             // 
-            // button17
+            // buttonSearch
             // 
-            this.button17.Location = new System.Drawing.Point(185, 469);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(117, 23);
-            this.button17.TabIndex = 5;
-            this.button17.Text = "Feltételek törlése";
-            this.button17.UseVisualStyleBackColor = true;
+            this.buttonSearch.Location = new System.Drawing.Point(224, 488);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(181, 29);
+            this.buttonSearch.TabIndex = 4;
+            this.buttonSearch.Text = "Keresés";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // button1
+            // comboBoxSearchGroupOption
             // 
-            this.button1.Location = new System.Drawing.Point(62, 469);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Keresés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.comboBoxSearchGroupOption.FormattingEnabled = true;
+            this.comboBoxSearchGroupOption.Items.AddRange(new object[] {
+            "Felhasználó",
+            "Csoport",
+            "Ajánlat",
+            "Esemény"});
+            this.comboBoxSearchGroupOption.Location = new System.Drawing.Point(97, 7);
+            this.comboBoxSearchGroupOption.Name = "comboBoxSearchGroupOption";
+            this.comboBoxSearchGroupOption.Size = new System.Drawing.Size(282, 21);
+            this.comboBoxSearchGroupOption.TabIndex = 11;
             // 
-            // textBox12
+            // listBoxSearchResults
             // 
-            this.textBox12.Location = new System.Drawing.Point(106, 46);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(260, 20);
-            this.textBox12.TabIndex = 3;
+            this.listBoxSearchResults.FormattingEnabled = true;
+            this.listBoxSearchResults.Location = new System.Drawing.Point(411, 7);
+            this.listBoxSearchResults.Name = "listBoxSearchResults";
+            this.listBoxSearchResults.Size = new System.Drawing.Size(361, 511);
+            this.listBoxSearchResults.TabIndex = 1;
             // 
-            // textBox10
+            // groupBoxSearchParameters
             // 
-            this.textBox10.Location = new System.Drawing.Point(106, 20);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(260, 20);
-            this.textBox10.TabIndex = 2;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 49);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Felhasználó név:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 23);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Csoportnév:";
+            this.groupBoxSearchParameters.Location = new System.Drawing.Point(7, 35);
+            this.groupBoxSearchParameters.Name = "groupBoxSearchParameters";
+            this.groupBoxSearchParameters.Size = new System.Drawing.Size(398, 447);
+            this.groupBoxSearchParameters.TabIndex = 0;
+            this.groupBoxSearchParameters.TabStop = false;
+            this.groupBoxSearchParameters.Text = "Keresési feltételek";
             // 
             // tabPageAdmin
             // 
+            this.tabPageAdmin.Controls.Add(this.groupBoxStatistics);
+            this.tabPageAdmin.Controls.Add(this.button5);
+            this.tabPageAdmin.Controls.Add(this.button4);
+            this.tabPageAdmin.Controls.Add(this.button3);
+            this.tabPageAdmin.Controls.Add(this.button2);
+            this.tabPageAdmin.Controls.Add(this.button1);
             this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdmin.Name = "tabPageAdmin";
             this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAdmin.Size = new System.Drawing.Size(752, 511);
+            this.tabPageAdmin.Size = new System.Drawing.Size(778, 526);
             this.tabPageAdmin.TabIndex = 4;
             this.tabPageAdmin.Text = "Adminisztrátor";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bejelentkezveToolStripMenuItem,
+            this.toolStripMenuItemDivider,
+            this.hátralévőIdőToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // bejelentkezveToolStripMenuItem
+            // 
+            this.bejelentkezveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kijelentkezésToolStripMenuItem});
+            this.bejelentkezveToolStripMenuItem.Name = "bejelentkezveToolStripMenuItem";
+            this.bejelentkezveToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.bejelentkezveToolStripMenuItem.Text = "Bejelentkezve: ";
+            // 
+            // kijelentkezésToolStripMenuItem
+            // 
+            this.kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
+            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
+            this.kijelentkezésToolStripMenuItem.Click += new System.EventHandler(this.kijelentkezésToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItemDivider
+            // 
+            this.toolStripMenuItemDivider.Name = "toolStripMenuItemDivider";
+            this.toolStripMenuItemDivider.Size = new System.Drawing.Size(22, 20);
+            this.toolStripMenuItemDivider.Text = "|";
+            // 
+            // hátralévőIdőToolStripMenuItem
+            // 
+            this.hátralévőIdőToolStripMenuItem.Name = "hátralévőIdőToolStripMenuItem";
+            this.hátralévőIdőToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.hátralévőIdőToolStripMenuItem.Text = "Hátralévő Idő: 30:00";
+            this.hátralévőIdőToolStripMenuItem.Click += new System.EventHandler(this.hátralévőIdőToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Felhasználók Kezelése";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(8, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(222, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Csoportok Kezelése";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(8, 64);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(222, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Ajánlatok Kezelése";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(8, 93);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(222, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Események Kezelése";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(8, 122);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(222, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Fájlok Kezelése";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxStatistics
+            // 
+            this.groupBoxStatistics.Controls.Add(this.dataGridViewStat);
+            this.groupBoxStatistics.Location = new System.Drawing.Point(236, 6);
+            this.groupBoxStatistics.Name = "groupBoxStatistics";
+            this.groupBoxStatistics.Size = new System.Drawing.Size(536, 514);
+            this.groupBoxStatistics.TabIndex = 5;
+            this.groupBoxStatistics.TabStop = false;
+            this.groupBoxStatistics.Text = "Statisztika";
+            // 
+            // dataGridViewStat
+            // 
+            this.dataGridViewStat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnName,
+            this.ColumnCreated,
+            this.ColumnActive,
+            this.ColumnDeletes});
+            this.dataGridViewStat.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewStat.Name = "dataGridViewStat";
+            this.dataGridViewStat.Size = new System.Drawing.Size(524, 495);
+            this.dataGridViewStat.TabIndex = 0;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.Frozen = true;
+            this.ColumnName.HeaderText = "";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnCreated
+            // 
+            this.ColumnCreated.Frozen = true;
+            this.ColumnCreated.HeaderText = "Létrehozott";
+            this.ColumnCreated.Name = "ColumnCreated";
+            this.ColumnCreated.ReadOnly = true;
+            // 
+            // ColumnActive
+            // 
+            this.ColumnActive.Frozen = true;
+            this.ColumnActive.HeaderText = "Aktív";
+            this.ColumnActive.Name = "ColumnActive";
+            this.ColumnActive.ReadOnly = true;
+            // 
+            // ColumnDeletes
+            // 
+            this.ColumnDeletes.Frozen = true;
+            this.ColumnDeletes.HeaderText = "Törölt";
+            this.ColumnDeletes.Name = "ColumnDeletes";
+            this.ColumnDeletes.ReadOnly = true;
             // 
             // UserInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 578);
             this.Controls.Add(this.tabControlUserInterface);
+            this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UserInterfaceForm";
             this.Text = "Connecting Companies";
             this.tabControlUserInterface.ResumeLayout(false);
@@ -887,18 +1055,23 @@
             this.groupBoxPersonalInformation.PerformLayout();
             this.tabPageGroupProfile.ResumeLayout(false);
             this.groupBoxGroupFunctions.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxOfferHandling.ResumeLayout(false);
+            this.groupBoxOfferHandling.PerformLayout();
+            this.groupBoxGroupMailHandling.ResumeLayout(false);
+            this.groupBoxGroupMailHandling.PerformLayout();
             this.groupBoxGroupInformation.ResumeLayout(false);
             this.groupBoxGroupInformation.PerformLayout();
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
             this.tabPageSearch.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.tabPageSearch.PerformLayout();
+            this.tabPageAdmin.ResumeLayout(false);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.groupBoxStatistics.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -912,75 +1085,89 @@
         private System.Windows.Forms.GroupBox groupBoxPersonalInformation;
         private System.Windows.Forms.GroupBox groupBoxGroupFunctions;
         private System.Windows.Forms.GroupBox groupBoxGroupInformation;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonDeleteEvent;
         private System.Windows.Forms.Button buttonModifyEvent;
         private System.Windows.Forms.Label labelGroupEvents;
         private System.Windows.Forms.Label labelPersonalEvents;
         private System.Windows.Forms.ListBox listBoxGroupEvents;
         private System.Windows.Forms.ListBox listBoxPersonalEvents;
         private System.Windows.Forms.Button buttonCreateNewEvent;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxUserGroupPost;
+        private System.Windows.Forms.Label labelUserGroupPost;
+        private System.Windows.Forms.TextBox textBoxUserGroupName;
+        private System.Windows.Forms.Label labelUserGroupName;
+        private System.Windows.Forms.Label labelUserBirthDate;
+        private System.Windows.Forms.TextBox textBoxBirthPlace;
+        private System.Windows.Forms.Label labelUserBirthPlace;
+        private System.Windows.Forms.TextBox textBoxUserAddress;
+        private System.Windows.Forms.Label labelUserAddress;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.Button buttonUserUploadImage;
+        private System.Windows.Forms.Button buttonUserSaveData;
+        private System.Windows.Forms.Button buttonUserModifyData;
+        private System.Windows.Forms.TextBox textBoxUserDescription;
+        private System.Windows.Forms.Label labelUserDescription;
+        private System.Windows.Forms.GroupBox groupBoxUserImage;
+        private System.Windows.Forms.DateTimePicker dateTimePickerUserBirthDate;
+        private System.Windows.Forms.TextBox textBoxUserGroupAddress;
+        private System.Windows.Forms.Label labelUserGroupAddress;
+        private System.Windows.Forms.TabPage tabPageSearch;
+        private System.Windows.Forms.Button buttonUserDeleteMail;
+        private System.Windows.Forms.Button buttonUserOpenMail;
+        private System.Windows.Forms.Button buttonUserNewMail;
+        private System.Windows.Forms.Label labelUserMails;
+        private System.Windows.Forms.ListBox listBoxUserMails;
+        private System.Windows.Forms.Button buttonGroupUploadImage;
+        private System.Windows.Forms.Button buttonGroupSaveData;
+        private System.Windows.Forms.Button buttonGroupModifyData;
+        private System.Windows.Forms.TextBox textBoxGroupDescription;
+        private System.Windows.Forms.Label labelGroupDescription;
+        private System.Windows.Forms.GroupBox groupBoxGroupImage;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDateOfFounding;
+        private System.Windows.Forms.TextBox textBoxGroupAddress;
+        private System.Windows.Forms.Label labelGroupAddress;
+        private System.Windows.Forms.TextBox textBoxGroupName;
+        private System.Windows.Forms.Label labelGroupName;
+        private System.Windows.Forms.Label labelGroupDateOfFounding;
+        private System.Windows.Forms.TextBox textBoxGroupMailAdress;
+        private System.Windows.Forms.Label labelGroupMailAdress;
+        private System.Windows.Forms.TextBox textBoxGroupLeader;
+        private System.Windows.Forms.Label labelGroupLeader;
+        private System.Windows.Forms.GroupBox groupBoxOfferHandling;
+        private System.Windows.Forms.Label labelGroupOffers;
+        private System.Windows.Forms.ListBox listBoxGroupOffers;
+        private System.Windows.Forms.Button buttonGroupDeleteOffer;
+        private System.Windows.Forms.Button buttonGroupOpenOffer;
+        private System.Windows.Forms.Button buttonGroupNewOffer;
+        private System.Windows.Forms.GroupBox groupBoxGroupMailHandling;
+        private System.Windows.Forms.Label labelGroupMails;
+        private System.Windows.Forms.ListBox listBoxGroupMails;
+        private System.Windows.Forms.Button buttonGroupDeleteMail;
+        private System.Windows.Forms.Button buttonGroupOpenMail;
+        private System.Windows.Forms.Button buttonGroupNewMail;
+        private System.Windows.Forms.ListBox listBoxSearchResults;
+        private System.Windows.Forms.GroupBox groupBoxSearchParameters;
+        private System.Windows.Forms.Button buttonClearSearchParameters;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TabPage tabPageAdmin;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem bejelentkezveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kijelentkezésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDivider;
+        private System.Windows.Forms.ToolStripMenuItem hátralévőIdőToolStripMenuItem;
+        private System.Windows.Forms.Label labelSearchGroupOption;
+        private System.Windows.Forms.ComboBox comboBoxSearchGroupOption;
+        private System.Windows.Forms.GroupBox groupBoxStatistics;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabPage tabPageSearch;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBoxPersonalMails;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button buttonNewOffer;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TabPage tabPageAdmin;
+        private System.Windows.Forms.DataGridView dataGridViewStat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeletes;
     }
 }

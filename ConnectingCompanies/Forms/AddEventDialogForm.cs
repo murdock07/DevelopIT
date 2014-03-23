@@ -16,5 +16,32 @@ namespace ConnectingCompanies
         {
             InitializeComponent();
         }
+
+        private void buttonSaveNewEvent_Click(object sender, EventArgs e)
+        {
+            //adatok csomagolása
+            //visszajelzés
+            MessageBox.Show("Elküldve");
+            //bezárás
+            this.Close();
+        }
+
+        private void buttonCloseNewEventDialog_Click(object sender, EventArgs e)
+        {
+            //Figyelmeztetés
+            MessageBox.Show("Biztosan bezárja?", "Figyelmeztetés", MessageBoxButtons.YesNo);
+            //Bezárás
+            this.Close();
+        }
+
+        private void buttonInviteUser_Click(object sender, EventArgs e)
+        {
+            //meghívottak hozzáadása
+        }
+
+        private void buttonCancelInvitation_Click(object sender, EventArgs e)
+        {
+            //meghívás visszavonása
+        }
     }
 }

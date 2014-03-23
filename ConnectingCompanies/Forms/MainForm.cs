@@ -27,7 +27,7 @@ namespace ConnectingCompanies
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             //User név alapján kiszedjük db-ből a user-t és azt adjuk át
-            string user = textBoxUserName.Text;
+            string user = textBoxLoginUserName.Text;
             SetStartupScreenByUserType(user);
         }
 
@@ -40,7 +40,7 @@ namespace ConnectingCompanies
         //Normális esetben user-t fogad
         private void SetStartupScreenByUserType(string user)
         {
-            UserInterfaceForm UIF = new UserInterfaceForm();
+            UserInterfaceForm UIF = new UserInterfaceForm(user);
 
             var c = UIF.Controls.Find("tabControlUserInterface", true).ToList();
             TabControl tc = (TabControl)c[0];
@@ -78,6 +78,13 @@ namespace ConnectingCompanies
                 tc.TabPages.Remove(tabPages[4]);    //admin
             }
             UIF.Show();
+        }
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            //Adatok összeszedése
+            //User létrehozása
+            //Beléptetés
         }
     }
 }
