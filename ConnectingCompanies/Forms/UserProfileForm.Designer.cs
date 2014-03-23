@@ -97,14 +97,15 @@
             this.listBoxPersonalEvents = new System.Windows.Forms.ListBox();
             this.buttonCreateNewEvent = new System.Windows.Forms.Button();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button17 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tabPageAdmin = new System.Windows.Forms.TabPage();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -125,6 +126,7 @@
             this.tabControlUserInterface.Controls.Add(this.tabPageGroupProfile);
             this.tabControlUserInterface.Controls.Add(this.tabPageCalendar);
             this.tabControlUserInterface.Controls.Add(this.tabPageSearch);
+            this.tabControlUserInterface.Controls.Add(this.tabPageAdmin);
             this.tabControlUserInterface.Location = new System.Drawing.Point(12, 12);
             this.tabControlUserInterface.Name = "tabControlUserInterface";
             this.tabControlUserInterface.SelectedIndex = 0;
@@ -786,6 +788,14 @@
             this.tabPageSearch.Text = "Keresés";
             this.tabPageSearch.UseVisualStyleBackColor = true;
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(385, 7);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(361, 498);
+            this.listBox3.TabIndex = 1;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.button17);
@@ -801,45 +811,14 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Keresési feltételek";
             // 
-            // listBox3
+            // button17
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(385, 7);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(361, 498);
-            this.listBox3.TabIndex = 1;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 23);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Csoportnév:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 49);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Felhasználó név:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(106, 20);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(260, 20);
-            this.textBox10.TabIndex = 2;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(106, 46);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(260, 20);
-            this.textBox12.TabIndex = 3;
+            this.button17.Location = new System.Drawing.Point(185, 469);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(117, 23);
+            this.button17.TabIndex = 5;
+            this.button17.Text = "Feltételek törlése";
+            this.button17.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -850,14 +829,47 @@
             this.button1.Text = "Keresés";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // textBox12
             // 
-            this.button17.Location = new System.Drawing.Point(185, 469);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(117, 23);
-            this.button17.TabIndex = 5;
-            this.button17.Text = "Feltételek törlése";
-            this.button17.UseVisualStyleBackColor = true;
+            this.textBox12.Location = new System.Drawing.Point(106, 46);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(260, 20);
+            this.textBox12.TabIndex = 3;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(106, 20);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(260, 20);
+            this.textBox10.TabIndex = 2;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 49);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Felhasználó név:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(7, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Csoportnév:";
+            // 
+            // tabPageAdmin
+            // 
+            this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdmin.Name = "tabPageAdmin";
+            this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdmin.Size = new System.Drawing.Size(752, 511);
+            this.tabPageAdmin.TabIndex = 4;
+            this.tabPageAdmin.Text = "Adminisztrátor";
+            this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
             // UserInterfaceForm
             // 
@@ -969,5 +981,6 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TabPage tabPageAdmin;
     }
 }

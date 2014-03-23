@@ -37,10 +37,10 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.buttonRegister = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePickerRegBirth = new System.Windows.Forms.DateTimePicker();
+            this.textBoxRegPlace = new System.Windows.Forms.TextBox();
+            this.textBoxRegUserName = new System.Windows.Forms.TextBox();
+            this.textBoxRegUserAccount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,10 +76,10 @@
             // 
             this.splitContainerLoginScreen.Panel2.AccessibleName = "RegisterPanel";
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.buttonRegister);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.dateTimePicker1);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBox3);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBox2);
-            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBox1);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.dateTimePickerRegBirth);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegPlace);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegUserName);
+            this.splitContainerLoginScreen.Panel2.Controls.Add(this.textBoxRegUserAccount);
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.label5);
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.label4);
             this.splitContainerLoginScreen.Panel2.Controls.Add(this.label3);
@@ -108,6 +108,7 @@
             this.buttonGuestLogin.TabIndex = 11;
             this.buttonGuestLogin.Text = "Vendég Belépés";
             this.buttonGuestLogin.UseVisualStyleBackColor = true;
+            this.buttonGuestLogin.Click += new System.EventHandler(this.buttonGuestLogin_Click);
             // 
             // buttonLogin
             // 
@@ -160,33 +161,33 @@
             this.buttonRegister.Text = "Regisztrálás";
             this.buttonRegister.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dateTimePickerRegBirth
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(137, 221);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
-            this.dateTimePicker1.TabIndex = 21;
+            this.dateTimePickerRegBirth.Location = new System.Drawing.Point(137, 221);
+            this.dateTimePickerRegBirth.Name = "dateTimePickerRegBirth";
+            this.dateTimePickerRegBirth.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePickerRegBirth.TabIndex = 21;
             // 
-            // textBox3
+            // textBoxRegPlace
             // 
-            this.textBox3.Location = new System.Drawing.Point(137, 194);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 20);
-            this.textBox3.TabIndex = 20;
+            this.textBoxRegPlace.Location = new System.Drawing.Point(137, 194);
+            this.textBoxRegPlace.Name = "textBoxRegPlace";
+            this.textBoxRegPlace.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegPlace.TabIndex = 20;
             // 
-            // textBox2
+            // textBoxRegUserName
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 167);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 20);
-            this.textBox2.TabIndex = 19;
+            this.textBoxRegUserName.Location = new System.Drawing.Point(137, 167);
+            this.textBoxRegUserName.Name = "textBoxRegUserName";
+            this.textBoxRegUserName.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegUserName.TabIndex = 19;
             // 
-            // textBox1
+            // textBoxRegUserAccount
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 141);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 18;
+            this.textBoxRegUserAccount.Location = new System.Drawing.Point(137, 141);
+            this.textBoxRegUserAccount.Name = "textBoxRegUserAccount";
+            this.textBoxRegUserAccount.Size = new System.Drawing.Size(159, 20);
+            this.textBoxRegUserAccount.TabIndex = 18;
             // 
             // label5
             // 
@@ -267,10 +268,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRegister;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerRegBirth;
+        private System.Windows.Forms.TextBox textBoxRegPlace;
+        private System.Windows.Forms.TextBox textBoxRegUserName;
+        private System.Windows.Forms.TextBox textBoxRegUserAccount;
         private System.Windows.Forms.Label label5;
     }
 }
