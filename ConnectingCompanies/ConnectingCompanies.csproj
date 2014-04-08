@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alkalmazási réteg\Adatkezelő\Event.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\Group.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\GroupEvent.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\GroupHandler.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\GroupProfile.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\Message.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\Offer.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\Profile.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\User.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\UserEvent.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\UserHandler.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\UserType.cs" />
     <Compile Include="Forms\AddEventDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
