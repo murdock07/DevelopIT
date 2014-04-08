@@ -17,10 +17,10 @@ namespace Adatkezelõ {
 
 		private Group group;
 		private String password;
-		private UserProfile profile; //wtf?
+		private UserProfile profile;
 		private UserType type;
 		private List<UserEvent> userEvents;
-        private UserName userName; //wtf?
+        private String userName;
 		public Group m_Group;
 		public Message m_Message;
 
@@ -77,7 +77,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public UserName UserName{
+		public String UserName{
 			get{
 				return userName;
 			}

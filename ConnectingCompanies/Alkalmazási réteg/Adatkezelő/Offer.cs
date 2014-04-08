@@ -46,7 +46,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public Group destination{
+		public Group Destination{
 			get{
 				return destination;
 			}
@@ -64,7 +64,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public Group source{
+		public Group Source{
 			get{
 				return source;
 			}

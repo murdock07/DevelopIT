@@ -42,7 +42,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public String groupAddress{
+		public String GroupAddress{
 			get{
 				return groupAddress;
 			}
@@ -51,7 +51,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public String groupBoss{
+		public String GroupBoss{
 			get{
 				return groupBoss;
 			}
@@ -60,7 +60,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public String groupName{
+		public String GroupName{
 			get{
 				return groupName;
 			}

@@ -54,7 +54,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public String location{
+		public String Location{
 			get{
 				return location;
 			}

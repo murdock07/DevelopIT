@@ -54,7 +54,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public User sender{
+		public User Sender{
 			get{
 				return sender;
 			}
@@ -63,7 +63,7 @@ namespace Adatkezelõ {
 			}
 		}
 
-		public String subject{
+		public String Subject{
 			get{
 				return subject;
 			}

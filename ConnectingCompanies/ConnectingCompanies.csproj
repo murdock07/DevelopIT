@@ -61,6 +61,7 @@
     <Compile Include="Alkalmazási réteg\Adatkezelő\User.cs" />
     <Compile Include="Alkalmazási réteg\Adatkezelő\UserEvent.cs" />
     <Compile Include="Alkalmazási réteg\Adatkezelő\UserHandler.cs" />
+    <Compile Include="Alkalmazási réteg\Adatkezelő\UserProfile.cs" />
     <Compile Include="Alkalmazási réteg\Adatkezelő\UserType.cs" />
     <Compile Include="Forms\AddEventDialogForm.cs">
       <SubType>Form</SubType>
