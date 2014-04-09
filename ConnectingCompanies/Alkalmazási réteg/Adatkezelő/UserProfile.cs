@@ -24,10 +24,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~UserProfile(){
-
-		}
-
 		public DateTime BirthDate{
 			get{
 				return birthDate;

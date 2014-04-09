@@ -28,10 +28,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~User(){
-
-		}
-
 		public Group Group{
 			get{
 				return group;

@@ -24,10 +24,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~Offer(){
-
-		}
-
 		public DateTime Date{
 			get{
 				return date;

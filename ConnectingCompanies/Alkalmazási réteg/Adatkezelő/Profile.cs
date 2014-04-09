@@ -21,10 +21,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~Profile(){
-
-		}
-
 		public Image Avatar{
 			get{
 				return avatar;

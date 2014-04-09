@@ -24,10 +24,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~GroupProfile(){
-
-		}
-
 		public String getgroupPostAddress(){
 
 			return "";

@@ -28,10 +28,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~Group(){
-
-		}
-
 		public User GroupAdmin{
 			get{
 				return groupAdmin;

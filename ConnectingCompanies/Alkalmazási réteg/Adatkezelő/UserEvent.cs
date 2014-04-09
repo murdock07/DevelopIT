@@ -22,10 +22,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~UserEvent(){
-
-		}
-
 		public User User{
 			get{
 				return user;

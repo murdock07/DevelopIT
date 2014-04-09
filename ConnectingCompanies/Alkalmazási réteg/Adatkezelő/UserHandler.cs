@@ -17,10 +17,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~UserHandler(){
-
-		}
-
 		/// 
 		/// <param name="groupId"></param>
 		/// <param name="userId"></param>

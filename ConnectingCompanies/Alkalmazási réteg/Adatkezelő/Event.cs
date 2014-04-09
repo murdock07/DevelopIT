@@ -23,10 +23,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~Event(){
-
-		}
-
 		public User Creator{
 			get{
 				return creator;

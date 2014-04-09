@@ -22,10 +22,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~GroupEvent(){
-
-		}
-
 		public Group Group{
 			get{
 				return group;

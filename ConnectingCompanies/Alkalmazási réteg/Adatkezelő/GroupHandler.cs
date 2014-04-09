@@ -20,10 +20,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~GroupHandler(){
-
-		}
-
 		public Group CreateGroup(){
 
 			return null;

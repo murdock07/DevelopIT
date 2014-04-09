@@ -23,10 +23,6 @@ namespace Adatkezelõ {
 
 		}
 
-		~Message(){
-
-		}
-
 		public String Body{
 			get{
 				return body;
