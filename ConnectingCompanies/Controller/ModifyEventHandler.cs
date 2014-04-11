@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConnectingCompanies.Controller
 {
-    class NewMailController
+    class ModifyEventHandler
     {
     }
 }

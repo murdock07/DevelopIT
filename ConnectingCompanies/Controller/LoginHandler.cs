@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConnectingCompanies.Controller
 {
-    class LoginController
+    class LoginHandler
     {
         internal static void DoLogin(string user, string password)
         {

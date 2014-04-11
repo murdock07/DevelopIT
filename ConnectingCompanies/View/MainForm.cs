@@ -32,7 +32,7 @@ namespace ConnectingCompanies
             //teszt
             SetStartupScreenByUserType(user);
 
-            Controller.LoginController.DoLogin(user,password);
+            Controller.LoginHandler.DoLogin(user,password);
         }
 
         private void buttonGuestLogin_Click(object sender, EventArgs e)
