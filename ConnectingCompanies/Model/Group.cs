@@ -9,31 +9,58 @@ namespace Adatkezelõ {
 		private List<Group> groups;
 		private List<Offer> offers;
 		private List<User> users;
-		public GroupProfile groupProfile;
+		public GroupEvent m_GroupEvent;
+		public Offer m_Offer;
+		public GroupProfile m_GroupProfile;
 
 		public Group(){
 
 		}
 
 		public User GroupAdmin{
-			get{				return groupAdmin;			}
-			set{				groupAdmin = value;			}
+			get{
+				return groupAdmin;
+			}
+			set{
+				groupAdmin = value;
+			}
 		}
+
 		public List<GroupEvent> GroupEvent{
-			get{				return groupEvent;			}
-			set{				groupEvent = value;			}
+			get{
+				return groupEvent;
+			}
+			set{
+				groupEvent = value;
+			}
 		}
+
 		public List<Group> Groups{
-			get{				return groups;			}
-			set{				groups = value;			}
+			get{
+				return groups;
+			}
+			set{
+				groups = value;
+			}
 		}
+
 		public List<Offer> Offers{
-			get{				return offers;			}
-			set{				offers = value;			}
+			get{
+				return offers;
+			}
+			set{
+				offers = value;
+			}
 		}
+
 		public List<User> Users{
-			get{				return users;			}
-			set{				users = value;			}
+			get{
+				return users;
+			}
+			set{
+				users = value;
+			}
 		}
+
 	}
 }

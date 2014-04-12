@@ -50,21 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\AddEventHandler.cs" />
-    <Compile Include="Controller\LoginHandler.cs" />
-    <Compile Include="Controller\ModifyEventHandler.cs" />
-    <Compile Include="Controller\NewMailHandler.cs" />
-    <Compile Include="Controller\NewOfferHandler.cs" />
-    <Compile Include="Controller\UserInterfaceHandler.cs" />
+    <Compile Include="Controller\AddEventController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ModifyEvenController.cs" />
+    <Compile Include="Controller\NewMailController.cs" />
+    <Compile Include="Controller\NewOfferController.cs" />
+    <Compile Include="Controller\UserInterfaceController.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\GroupEvent.cs" />
+    <Compile Include="Model\GroupHandler.cs" />
     <Compile Include="Model\GroupProfile.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Offer.cs" />
     <Compile Include="Model\Profile.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserEvent.cs" />
+    <Compile Include="Model\UserHandler.cs" />
     <Compile Include="Model\UserProfile.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="View\AddEventDialogForm.cs">

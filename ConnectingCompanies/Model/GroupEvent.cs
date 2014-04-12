@@ -16,13 +16,27 @@ namespace Adatkezelõ
 
         public Group Group
         {
-            get { return group; }
-            set { group = value; }
+            get
+            {
+                return group;
+            }
+            set
+            {
+                group = value;
+            }
         }
+
         public List<Group> Groups
         {
-            get { return groups; }
-            set { groups = value; }
+            get
+            {
+                return groups;
+            }
+            set
+            {
+                groups = value;
+            }
         }
+
     }
 }
