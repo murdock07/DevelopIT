@@ -13,6 +13,7 @@ namespace ConnectingCompanies
 		/// </summary>
 		/*Comment by Huszi*/
         /*Comment by Huszi from VS*/
+        //Viktor 04.12 15:32
 		[STAThread]
 		static void Main()
 		{
