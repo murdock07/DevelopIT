@@ -76,6 +76,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\AddEventHandler.cs" />
+    <Compile Include="Controller\AdminHandler.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
     <Compile Include="Controller\ModifyEventHandler.cs" />
     <Compile Include="Controller\NewMailHandler.cs" />
