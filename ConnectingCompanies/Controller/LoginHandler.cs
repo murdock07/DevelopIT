@@ -16,9 +16,9 @@ namespace ConnectingCompanies.Controller
                 adatbazisEntities entities = new adatbazisEntities();
 
                 var emberek = from x in entities.felhasznalok
-                              select x;
+                              select x.azonosito;
                 var csoportok = from x in entities.csoportok
-                                select x;
+                                select x.cegnev;
 
                 string emeberString = "";
                 foreach (var item in emberek)
@@ -27,7 +27,7 @@ namespace ConnectingCompanies.Controller
                 }
 
                 string csoportString = "";
-                foreach (var item in emberek)
+                foreach (var item in csoportok)
                 {
                     csoportString += (item + "\n");
                 }

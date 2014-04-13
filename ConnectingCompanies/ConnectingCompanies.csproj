@@ -230,7 +230,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>adatbazis.mdf</DependentUpon>
     </Content>
-    <Content Include="Nyilvantartas.sdf">
+    <Content Include="_Nyilvantartas.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
