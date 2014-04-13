@@ -14,7 +14,6 @@ namespace ConnectingCompanies
 		/*Comment by Huszi*/
         /*Comment by Huszi from VS*/
         //Viktor 04.12 15:32
-        //Viktor 04.12 15:38
 		[STAThread]
 		static void Main()
 		{
