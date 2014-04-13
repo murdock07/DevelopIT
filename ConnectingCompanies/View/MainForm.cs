@@ -11,14 +11,7 @@ using System.Windows.Forms;
 namespace ConnectingCompanies
 {
     public partial class MainForm : Form
-    {
-        /// <summary>
-        /// 3 belépési azonosító eset a kipróbáláshoz:
-        /// - admin
-        /// - random név
-        /// - vendég gomb megnyomása
-        /// </summary>
-        
+    {  
         public MainForm()
         {
             InitializeComponent();
@@ -30,7 +23,7 @@ namespace ConnectingCompanies
             string password = textBoxLoginPassword.Text;
 
             //teszt
-            SetStartupScreenByUserType(user);
+            //SetStartupScreenByUserType(user);
 
             Controller.LoginHandler.DoLogin(user,password);
         }
