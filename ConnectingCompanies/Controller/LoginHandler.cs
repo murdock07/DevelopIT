@@ -11,26 +11,34 @@ namespace ConnectingCompanies.Controller
     {
         internal static void DoLogin(string user, string password)
         {
-            adatbazisEntities entities = new adatbazisEntities();
-
-            var emberek = from x in entities.felhasznalok
-                          select x;
-            var csoportok = from x in entities.csoportok
-                            select x;
-
-            string emeberString = "";
-            foreach (var item in emberek)
+            try
             {
-                emeberString += (item + "\n");
-            }
+                adatbazisEntities entities = new adatbazisEntities();
 
-            string csoportString = "";
-            foreach (var item in emberek)
+                var emberek = from x in entities.felhasznalok
+                              select x;
+                var csoportok = from x in entities.csoportok
+                                select x;
+
+                string emeberString = "";
+                foreach (var item in emberek)
+                {
+                    emeberString += (item + "\n");
+                }
+
+                string csoportString = "";
+                foreach (var item in emberek)
+                {
+                    csoportString += (item + "\n");
+                }
+
+                MessageBox.Show("felhasználók:\n" + emeberString + "\ncsoportok:\n" + csoportString);
+            }
+            catch (Exception ex)
             {
-                csoportString += (item + "\n");
+                string currentUser = Environment.UserName;
+                new Logger(ex,currentUser,DateTime.Now);
             }
-
-            MessageBox.Show("felhasználók:\n" + emeberString + "\ncsoportok:\n" + csoportString);
         }
     }
 }
