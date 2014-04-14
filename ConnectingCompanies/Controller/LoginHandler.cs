@@ -36,8 +36,8 @@ namespace ConnectingCompanies.Controller
             }
             catch (Exception ex)
             {
-                string currentUser = Environment.UserName;
-                new Logger(ex, currentUser, DateTime.Now);
+                
+                new Logger(ex, DateTime.Now);
             }
         }
     }

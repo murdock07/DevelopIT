@@ -15,10 +15,10 @@ namespace ConnectingCompanies
 
         string defaultDirectory = "./Logok/";
 
-        public Logger(Exception ex, string user, DateTime timeStamp)
+        public Logger(Exception ex, DateTime timeStamp)
         {
             this.ex = ex;
-            this.user = user;
+            this.user = Environment.UserName;
             this.timeStamp = timeStamp;
 
             string[] logMessage = CreateLogMessage();
@@ -29,10 +29,18 @@ namespace ConnectingCompanies
 
         private string[] CreateLogMessage()
         {
-            string[] log = new string[3];
-            log[0] ="Felhasználó: "+user;
-            log[1]="Időpont: " +timeStamp;
+            string[] log = new string[4];
+            log[0] = "Felhasználó: " + user;
+            log[1] = "Időpont: " + timeStamp;
             log[2] = "Hibaüzenet: " + ex.Message;
+            if (ex.InnerException != null)
+            {
+                log[3] = "Belső kivétel: " + ex.InnerException.Message;
+            }
+            else
+            {
+                log[3] = "Belső kivétel: " + "Nincs belső kivétel";
+            }
             return log;
         }
 
@@ -45,7 +53,7 @@ namespace ConnectingCompanies
         }
         private void LogToFile(string[] logMessage)
         {
-            string idopont = timeStamp.Year + timeStamp.Month + timeStamp.Day + "_" + 
+            string idopont = timeStamp.Year + timeStamp.Month + timeStamp.Day + "_" +
                 timeStamp.Hour + timeStamp.Minute;
             string fileName = user + "_" + idopont;
             string path = defaultDirectory + fileName + ".txt";
