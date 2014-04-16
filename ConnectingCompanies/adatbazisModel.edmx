@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="adatbazisModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="adatbazisModelStoreContainer">
+          <EntitySet Name="ajanlatok" EntityType="adatbazisModel.Store.ajanlatok" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="csoportok" EntityType="adatbazisModel.Store.csoportok" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="esemenyek" EntityType="adatbazisModel.Store.esemenyek" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="felhasznalok" EntityType="adatbazisModel.Store.felhasznalok" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="jogosultsagi_szintek" EntityType="adatbazisModel.Store.jogosultsagi_szintek" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="kepek" EntityType="adatbazisModel.Store.kepek" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="uzenetek" EntityType="adatbazisModel.Store.uzenetek" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ajanlatok_ToCsoportok" Association="adatbazisModel.Store.FK_ajanlatok_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="ajanlatok" EntitySet="ajanlatok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ajanlatok_ToCsoportok2" Association="adatbazisModel.Store.FK_ajanlatok_ToCsoportok2">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="ajanlatok" EntitySet="ajanlatok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_csoportok_ToFelhasznalok" Association="adatbazisModel.Store.FK_csoportok_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="csoportok" EntitySet="csoportok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_csoportok_ToKepek" Association="adatbazisModel.Store.FK_csoportok_ToKepek">
+            <End Role="kepek" EntitySet="kepek" />
+            <End Role="csoportok" EntitySet="csoportok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToCsoportok" Association="adatbazisModel.Store.FK_esemenyek_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToFelhasznalok" Association="adatbazisModel.Store.FK_esemenyek_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToFelhasznalok2" Association="adatbazisModel.Store.FK_esemenyek_ToFelhasznalok2">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToCsoportok" Association="adatbazisModel.Store.FK_felhasznalok_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToJogosultsagok" Association="adatbazisModel.Store.FK_felhasznalok_ToJogosultsagok">
+            <End Role="jogosultsagi_szintek" EntitySet="jogosultsagi_szintek" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToKepek" Association="adatbazisModel.Store.FK_felhasznalok_ToKepek">
+            <End Role="kepek" EntitySet="kepek" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToCsoportok" Association="adatbazisModel.Store.FK_uzenetek_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToFelhasznalok" Association="adatbazisModel.Store.FK_uzenetek_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToFelhasznalok2" Association="adatbazisModel.Store.FK_uzenetek_ToFelhasznalok2">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ajanlatok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="kezdo_ceg" Type="int" Nullable="false" />
+          <Property Name="fogado_ceg" Type="int" Nullable="false" />
+          <Property Name="megnevezes" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="kezdes_datum" Type="date" Nullable="false" />
+          <Property Name="zaras_datum" Type="date" />
+          <Property Name="osszeg" Type="int" Nullable="false" />
+          <Property Name="leiras" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="csoportok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="cegnev" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="telephely" Type="nvarchar" MaxLength="50" />
+          <Property Name="cegvezeto" Type="int" Nullable="false" />
+          <Property Name="levelezesi_cim" Type="nchar" MaxLength="10" />
+          <Property Name="alapitas_datuma" Type="date" />
+          <Property Name="logo" Type="int" />
+          <Property Name="leiras" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="esemenyek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="megnevezes" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idopont" Type="date" Nullable="false" />
+          <Property Name="leiras" Type="nvarchar(max)" />
+          <Property Name="helyszin" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="csoportos" Type="bit" Nullable="false" />
+          <Property Name="letrehozo" Type="int" Nullable="false" />
+          <Property Name="meghivott_szemely" Type="int" />
+          <Property Name="meghivott_csoport" Type="int" />
+        </EntityType>
+        <EntityType Name="felhasznalok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="azonosito" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="jelszo" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="jogosultsagi_szint" Type="int" Nullable="false" />
+          <Property Name="nev" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="lakhely" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="szuletesi_hely" Type="nvarchar" MaxLength="50" />
+          <Property Name="szuletesi_ido" Type="date" Nullable="false" />
+          <Property Name="csoport" Type="int" />
+          <Property Name="beosztas" Type="nvarchar" MaxLength="50" />
+          <Property Name="leiras" Type="nvarchar(max)" />
+          <Property Name="profilkep" Type="int" />
+        </EntityType>
+        <EntityType Name="jogosultsagi_szintek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="megnevezes" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="kepek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="utvonal" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="uzenetek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="felado" Type="int" Nullable="false" />
+          <Property Name="cimzett" Type="int" Nullable="false" />
+          <Property Name="csoportos_level" Type="bit" Nullable="false" />
+          <Property Name="csoport" Type="int" />
+        </EntityType>
+        <Association Name="FK_ajanlatok_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="1" />
+          <End Role="ajanlatok" Type="adatbazisModel.Store.ajanlatok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ajanlatok">
+              <PropertyRef Name="kezdo_ceg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ajanlatok_ToCsoportok2">
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="1" />
+          <End Role="ajanlatok" Type="adatbazisModel.Store.ajanlatok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ajanlatok">
+              <PropertyRef Name="fogado_ceg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_csoportok_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="1" />
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="csoportok">
+              <PropertyRef Name="cegvezeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_csoportok_ToKepek">
+          <End Role="kepek" Type="adatbazisModel.Store.kepek" Multiplicity="0..1" />
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kepek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="csoportok">
+              <PropertyRef Name="logo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="0..1" />
+          <End Role="esemenyek" Type="adatbazisModel.Store.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="meghivott_csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="1" />
+          <End Role="esemenyek" Type="adatbazisModel.Store.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="letrehozo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToFelhasznalok2">
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="0..1" />
+          <End Role="esemenyek" Type="adatbazisModel.Store.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="meghivott_szemely" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="0..1" />
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToJogosultsagok">
+          <End Role="jogosultsagi_szintek" Type="adatbazisModel.Store.jogosultsagi_szintek" Multiplicity="1" />
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jogosultsagi_szintek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="jogosultsagi_szint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToKepek">
+          <End Role="kepek" Type="adatbazisModel.Store.kepek" Multiplicity="0..1" />
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kepek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="profilkep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.Store.csoportok" Multiplicity="0..1" />
+          <End Role="uzenetek" Type="adatbazisModel.Store.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="1" />
+          <End Role="uzenetek" Type="adatbazisModel.Store.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="felado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToFelhasznalok2">
+          <End Role="felhasznalok" Type="adatbazisModel.Store.felhasznalok" Multiplicity="1" />
+          <End Role="uzenetek" Type="adatbazisModel.Store.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="cimzett" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adatbazisModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="adatbazisEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ajanlatok" EntityType="adatbazisModel.ajanlatok" />
+          <EntitySet Name="csoportok" EntityType="adatbazisModel.csoportok" />
+          <EntitySet Name="esemenyek" EntityType="adatbazisModel.esemenyek" />
+          <EntitySet Name="felhasznalok" EntityType="adatbazisModel.felhasznalok" />
+          <EntitySet Name="jogosultsagi_szintek" EntityType="adatbazisModel.jogosultsagi_szintek" />
+          <EntitySet Name="kepek" EntityType="adatbazisModel.kepek" />
+          <EntitySet Name="uzenetek" EntityType="adatbazisModel.uzenetek" />
+          <AssociationSet Name="FK_ajanlatok_ToCsoportok" Association="adatbazisModel.FK_ajanlatok_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="ajanlatok" EntitySet="ajanlatok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ajanlatok_ToCsoportok2" Association="adatbazisModel.FK_ajanlatok_ToCsoportok2">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="ajanlatok" EntitySet="ajanlatok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_csoportok_ToFelhasznalok" Association="adatbazisModel.FK_csoportok_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="csoportok" EntitySet="csoportok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_csoportok_ToKepek" Association="adatbazisModel.FK_csoportok_ToKepek">
+            <End Role="kepek" EntitySet="kepek" />
+            <End Role="csoportok" EntitySet="csoportok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToCsoportok" Association="adatbazisModel.FK_esemenyek_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToCsoportok" Association="adatbazisModel.FK_felhasznalok_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToCsoportok" Association="adatbazisModel.FK_uzenetek_ToCsoportok">
+            <End Role="csoportok" EntitySet="csoportok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToFelhasznalok" Association="adatbazisModel.FK_esemenyek_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_esemenyek_ToFelhasznalok2" Association="adatbazisModel.FK_esemenyek_ToFelhasznalok2">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="esemenyek" EntitySet="esemenyek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToJogosultsagok" Association="adatbazisModel.FK_felhasznalok_ToJogosultsagok">
+            <End Role="jogosultsagi_szintek" EntitySet="jogosultsagi_szintek" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_felhasznalok_ToKepek" Association="adatbazisModel.FK_felhasznalok_ToKepek">
+            <End Role="kepek" EntitySet="kepek" />
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToFelhasznalok" Association="adatbazisModel.FK_uzenetek_ToFelhasznalok">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+          <AssociationSet Name="FK_uzenetek_ToFelhasznalok2" Association="adatbazisModel.FK_uzenetek_ToFelhasznalok2">
+            <End Role="felhasznalok" EntitySet="felhasznalok" />
+            <End Role="uzenetek" EntitySet="uzenetek" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ajanlatok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="kezdo_ceg" Type="Int32" Nullable="false" />
+          <Property Name="fogado_ceg" Type="Int32" Nullable="false" />
+          <Property Name="megnevezes" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="kezdes_datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="zaras_datum" Type="DateTime" Precision="0" />
+          <Property Name="osszeg" Type="Int32" Nullable="false" />
+          <Property Name="leiras" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="csoportok" Relationship="adatbazisModel.FK_ajanlatok_ToCsoportok" FromRole="ajanlatok" ToRole="csoportok" />
+          <NavigationProperty Name="csoportok1" Relationship="adatbazisModel.FK_ajanlatok_ToCsoportok2" FromRole="ajanlatok" ToRole="csoportok" />
+        </EntityType>
+        <EntityType Name="csoportok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="cegnev" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telephely" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cegvezeto" Type="Int32" Nullable="false" />
+          <Property Name="levelezesi_cim" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="alapitas_datuma" Type="DateTime" Precision="0" />
+          <Property Name="logo" Type="Int32" />
+          <Property Name="leiras" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ajanlatok" Relationship="adatbazisModel.FK_ajanlatok_ToCsoportok" FromRole="csoportok" ToRole="ajanlatok" />
+          <NavigationProperty Name="ajanlatok1" Relationship="adatbazisModel.FK_ajanlatok_ToCsoportok2" FromRole="csoportok" ToRole="ajanlatok" />
+          <NavigationProperty Name="felhasznalok" Relationship="adatbazisModel.FK_csoportok_ToFelhasznalok" FromRole="csoportok" ToRole="felhasznalok" />
+          <NavigationProperty Name="kepek" Relationship="adatbazisModel.FK_csoportok_ToKepek" FromRole="csoportok" ToRole="kepek" />
+          <NavigationProperty Name="esemenyek" Relationship="adatbazisModel.FK_esemenyek_ToCsoportok" FromRole="csoportok" ToRole="esemenyek" />
+          <NavigationProperty Name="felhasznalok1" Relationship="adatbazisModel.FK_felhasznalok_ToCsoportok" FromRole="csoportok" ToRole="felhasznalok" />
+          <NavigationProperty Name="uzenetek" Relationship="adatbazisModel.FK_uzenetek_ToCsoportok" FromRole="csoportok" ToRole="uzenetek" />
+        </EntityType>
+        <EntityType Name="esemenyek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="megnevezes" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="idopont" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="leiras" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="helyszin" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="csoportos" Type="Boolean" Nullable="false" />
+          <Property Name="letrehozo" Type="Int32" Nullable="false" />
+          <Property Name="meghivott_szemely" Type="Int32" />
+          <Property Name="meghivott_csoport" Type="Int32" />
+          <NavigationProperty Name="csoportok" Relationship="adatbazisModel.FK_esemenyek_ToCsoportok" FromRole="esemenyek" ToRole="csoportok" />
+          <NavigationProperty Name="felhasznalok" Relationship="adatbazisModel.FK_esemenyek_ToFelhasznalok" FromRole="esemenyek" ToRole="felhasznalok" />
+          <NavigationProperty Name="felhasznalok1" Relationship="adatbazisModel.FK_esemenyek_ToFelhasznalok2" FromRole="esemenyek" ToRole="felhasznalok" />
+        </EntityType>
+        <EntityType Name="felhasznalok">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="azonosito" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="jelszo" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="jogosultsagi_szint" Type="Int32" Nullable="false" />
+          <Property Name="nev" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lakhely" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="szuletesi_hely" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="szuletesi_ido" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="csoport" Type="Int32" />
+          <Property Name="beosztas" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="leiras" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="profilkep" Type="Int32" />
+          <NavigationProperty Name="csoportok" Relationship="adatbazisModel.FK_csoportok_ToFelhasznalok" FromRole="felhasznalok" ToRole="csoportok" />
+          <NavigationProperty Name="csoportok1" Relationship="adatbazisModel.FK_felhasznalok_ToCsoportok" FromRole="felhasznalok" ToRole="csoportok" />
+          <NavigationProperty Name="esemenyek" Relationship="adatbazisModel.FK_esemenyek_ToFelhasznalok" FromRole="felhasznalok" ToRole="esemenyek" />
+          <NavigationProperty Name="esemenyek1" Relationship="adatbazisModel.FK_esemenyek_ToFelhasznalok2" FromRole="felhasznalok" ToRole="esemenyek" />
+          <NavigationProperty Name="jogosultsagi_szintek" Relationship="adatbazisModel.FK_felhasznalok_ToJogosultsagok" FromRole="felhasznalok" ToRole="jogosultsagi_szintek" />
+          <NavigationProperty Name="kepek" Relationship="adatbazisModel.FK_felhasznalok_ToKepek" FromRole="felhasznalok" ToRole="kepek" />
+          <NavigationProperty Name="uzenetek" Relationship="adatbazisModel.FK_uzenetek_ToFelhasznalok" FromRole="felhasznalok" ToRole="uzenetek" />
+          <NavigationProperty Name="uzenetek1" Relationship="adatbazisModel.FK_uzenetek_ToFelhasznalok2" FromRole="felhasznalok" ToRole="uzenetek" />
+        </EntityType>
+        <EntityType Name="jogosultsagi_szintek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="megnevezes" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="felhasznalok" Relationship="adatbazisModel.FK_felhasznalok_ToJogosultsagok" FromRole="jogosultsagi_szintek" ToRole="felhasznalok" />
+        </EntityType>
+        <EntityType Name="kepek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="utvonal" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="csoportok" Relationship="adatbazisModel.FK_csoportok_ToKepek" FromRole="kepek" ToRole="csoportok" />
+          <NavigationProperty Name="felhasznalok" Relationship="adatbazisModel.FK_felhasznalok_ToKepek" FromRole="kepek" ToRole="felhasznalok" />
+        </EntityType>
+        <EntityType Name="uzenetek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="felado" Type="Int32" Nullable="false" />
+          <Property Name="cimzett" Type="Int32" Nullable="false" />
+          <Property Name="csoportos_level" Type="Boolean" Nullable="false" />
+          <Property Name="csoport" Type="Int32" />
+          <NavigationProperty Name="csoportok" Relationship="adatbazisModel.FK_uzenetek_ToCsoportok" FromRole="uzenetek" ToRole="csoportok" />
+          <NavigationProperty Name="felhasznalok" Relationship="adatbazisModel.FK_uzenetek_ToFelhasznalok" FromRole="uzenetek" ToRole="felhasznalok" />
+          <NavigationProperty Name="felhasznalok1" Relationship="adatbazisModel.FK_uzenetek_ToFelhasznalok2" FromRole="uzenetek" ToRole="felhasznalok" />
+        </EntityType>
+        <Association Name="FK_ajanlatok_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="1" />
+          <End Role="ajanlatok" Type="adatbazisModel.ajanlatok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ajanlatok">
+              <PropertyRef Name="kezdo_ceg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ajanlatok_ToCsoportok2">
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="1" />
+          <End Role="ajanlatok" Type="adatbazisModel.ajanlatok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ajanlatok">
+              <PropertyRef Name="fogado_ceg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_csoportok_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="1" />
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="csoportok">
+              <PropertyRef Name="cegvezeto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_csoportok_ToKepek">
+          <End Role="kepek" Type="adatbazisModel.kepek" Multiplicity="0..1" />
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kepek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="csoportok">
+              <PropertyRef Name="logo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="0..1" />
+          <End Role="esemenyek" Type="adatbazisModel.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="meghivott_csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="0..1" />
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToCsoportok">
+          <End Role="csoportok" Type="adatbazisModel.csoportok" Multiplicity="0..1" />
+          <End Role="uzenetek" Type="adatbazisModel.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="csoportok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="csoport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="1" />
+          <End Role="esemenyek" Type="adatbazisModel.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="letrehozo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_esemenyek_ToFelhasznalok2">
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="0..1" />
+          <End Role="esemenyek" Type="adatbazisModel.esemenyek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="esemenyek">
+              <PropertyRef Name="meghivott_szemely" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToJogosultsagok">
+          <End Role="jogosultsagi_szintek" Type="adatbazisModel.jogosultsagi_szintek" Multiplicity="1" />
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jogosultsagi_szintek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="jogosultsagi_szint" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_felhasznalok_ToKepek">
+          <End Role="kepek" Type="adatbazisModel.kepek" Multiplicity="0..1" />
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kepek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="felhasznalok">
+              <PropertyRef Name="profilkep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToFelhasznalok">
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="1" />
+          <End Role="uzenetek" Type="adatbazisModel.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="felado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_uzenetek_ToFelhasznalok2">
+          <End Role="felhasznalok" Type="adatbazisModel.felhasznalok" Multiplicity="1" />
+          <End Role="uzenetek" Type="adatbazisModel.uzenetek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="felhasznalok">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="uzenetek">
+              <PropertyRef Name="cimzett" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities">
+          <EntitySetMapping Name="ajanlatok">
+            <EntityTypeMapping TypeName="adatbazisModel.ajanlatok">
+              <MappingFragment StoreEntitySet="ajanlatok">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="kezdo_ceg" ColumnName="kezdo_ceg" />
+                <ScalarProperty Name="fogado_ceg" ColumnName="fogado_ceg" />
+                <ScalarProperty Name="megnevezes" ColumnName="megnevezes" />
+                <ScalarProperty Name="kezdes_datum" ColumnName="kezdes_datum" />
+                <ScalarProperty Name="zaras_datum" ColumnName="zaras_datum" />
+                <ScalarProperty Name="osszeg" ColumnName="osszeg" />
+                <ScalarProperty Name="leiras" ColumnName="leiras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="csoportok">
+            <EntityTypeMapping TypeName="adatbazisModel.csoportok">
+              <MappingFragment StoreEntitySet="csoportok">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cegnev" ColumnName="cegnev" />
+                <ScalarProperty Name="telephely" ColumnName="telephely" />
+                <ScalarProperty Name="cegvezeto" ColumnName="cegvezeto" />
+                <ScalarProperty Name="levelezesi_cim" ColumnName="levelezesi_cim" />
+                <ScalarProperty Name="alapitas_datuma" ColumnName="alapitas_datuma" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="leiras" ColumnName="leiras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="esemenyek">
+            <EntityTypeMapping TypeName="adatbazisModel.esemenyek">
+              <MappingFragment StoreEntitySet="esemenyek">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="megnevezes" ColumnName="megnevezes" />
+                <ScalarProperty Name="idopont" ColumnName="idopont" />
+                <ScalarProperty Name="leiras" ColumnName="leiras" />
+                <ScalarProperty Name="helyszin" ColumnName="helyszin" />
+                <ScalarProperty Name="csoportos" ColumnName="csoportos" />
+                <ScalarProperty Name="letrehozo" ColumnName="letrehozo" />
+                <ScalarProperty Name="meghivott_szemely" ColumnName="meghivott_szemely" />
+                <ScalarProperty Name="meghivott_csoport" ColumnName="meghivott_csoport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="felhasznalok">
+            <EntityTypeMapping TypeName="adatbazisModel.felhasznalok">
+              <MappingFragment StoreEntitySet="felhasznalok">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="azonosito" ColumnName="azonosito" />
+                <ScalarProperty Name="jelszo" ColumnName="jelszo" />
+                <ScalarProperty Name="jogosultsagi_szint" ColumnName="jogosultsagi_szint" />
+                <ScalarProperty Name="nev" ColumnName="nev" />
+                <ScalarProperty Name="lakhely" ColumnName="lakhely" />
+                <ScalarProperty Name="szuletesi_hely" ColumnName="szuletesi_hely" />
+                <ScalarProperty Name="szuletesi_ido" ColumnName="szuletesi_ido" />
+                <ScalarProperty Name="csoport" ColumnName="csoport" />
+                <ScalarProperty Name="beosztas" ColumnName="beosztas" />
+                <ScalarProperty Name="leiras" ColumnName="leiras" />
+                <ScalarProperty Name="profilkep" ColumnName="profilkep" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jogosultsagi_szintek">
+            <EntityTypeMapping TypeName="adatbazisModel.jogosultsagi_szintek">
+              <MappingFragment StoreEntitySet="jogosultsagi_szintek">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="megnevezes" ColumnName="megnevezes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kepek">
+            <EntityTypeMapping TypeName="adatbazisModel.kepek">
+              <MappingFragment StoreEntitySet="kepek">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="utvonal" ColumnName="utvonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uzenetek">
+            <EntityTypeMapping TypeName="adatbazisModel.uzenetek">
+              <MappingFragment StoreEntitySet="uzenetek">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="felado" ColumnName="felado" />
+                <ScalarProperty Name="cimzett" ColumnName="cimzett" />
+                <ScalarProperty Name="csoportos_level" ColumnName="csoportos_level" />
+                <ScalarProperty Name="csoport" ColumnName="csoport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

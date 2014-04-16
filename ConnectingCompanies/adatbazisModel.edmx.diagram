@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="064eefbce21f46ebaaf1c9f48753e75c" Name="Diagram1">
+        <EntityTypeShape EntityType="adatbazisModel.ajanlatok" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.csoportok" Width="1.5" PointX="2.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.esemenyek" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.felhasznalok" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.jogosultsagi_szintek" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.kepek" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="adatbazisModel.uzenetek" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="adatbazisModel.FK_ajanlatok_ToCsoportok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_ajanlatok_ToCsoportok2" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_csoportok_ToFelhasznalok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_csoportok_ToKepek" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_esemenyek_ToCsoportok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_felhasznalok_ToCsoportok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_uzenetek_ToCsoportok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_esemenyek_ToFelhasznalok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_esemenyek_ToFelhasznalok2" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_felhasznalok_ToJogosultsagok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_felhasznalok_ToKepek" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_uzenetek_ToFelhasznalok" ManuallyRouted="false" />
+        <AssociationConnector Association="adatbazisModel.FK_uzenetek_ToFelhasznalok2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
