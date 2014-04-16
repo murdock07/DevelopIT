@@ -124,6 +124,7 @@
     <Compile Include="Model\UserEvent.cs" />
     <Compile Include="Model\UserProfile.cs" />
     <Compile Include="Model\UserType.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="uzenetek.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
