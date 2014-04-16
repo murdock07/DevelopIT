@@ -11,7 +11,9 @@ namespace ConnectingCompanies
     public class Session
     {
         Timer timer;
+        public Timer Timer { get { return timer; } }
         User currentUser;
+        public User CurrentUser { get { return currentUser; } }
         int ticks;
 
         public Session(User cu)
@@ -30,6 +32,7 @@ namespace ConnectingCompanies
             if (ticks < timer.Interval * 30)
             {
                 timer.Stop();
+                //TODO: kiléptetés
                 //jelzés hogy lejártunk
                 //kiléptetés indítása
             }

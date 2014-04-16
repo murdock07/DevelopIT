@@ -39,6 +39,7 @@ namespace Adatkezelõ {
 
         internal void SetAttributesFromDB(csoportok cs)
         {
+            //TODO: get csoportadatok + set attr
             throw new NotImplementedException();
         }
     }

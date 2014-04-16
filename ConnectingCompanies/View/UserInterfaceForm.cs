@@ -1,4 +1,5 @@
-﻿using ConnectingCompanies.Forms;
+﻿using Adatkezelő;
+using ConnectingCompanies.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,10 @@ namespace ConnectingCompanies
 {
     public partial class UserInterfaceForm : Form
     {
-        public UserInterfaceForm(string user)
+        public UserInterfaceForm(Session cs)
         {
             InitializeComponent();
-            GetUserName(user);
+            var vmi = cs;
         }
 
         private void GetUserName(string user)

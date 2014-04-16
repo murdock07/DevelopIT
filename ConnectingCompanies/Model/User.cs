@@ -76,19 +76,19 @@ namespace Adatkezelõ {
         public void SetAttributesFromDB(felhasznalok felhasznalo)
         {
             //csoport kiválasztása a felhasználóhoz
-            if (felhasznalo.csoport != null)
-	        {
-                var cs = from x in MainForm.entities.csoportok
-                         where x.Id == (int)felhasznalo.csoport
-                         select x;
+            //if (felhasznalo.csoport != null)
+            //{
+            //    var cs = from x in MainForm.entities.csoportok
+            //             where x.Id == (int)felhasznalo.csoport
+            //             select x;
 
-                this.group = new Group();
-                this.Group.SetAttributesFromDB((csoportok)cs);
-	        }
-            else
-            {
-                this.group = null;
-            }            
+            //    this.group = new Group();
+            //    this.Group.SetAttributesFromDB((csoportok)cs);
+            //}
+            //else
+            //{
+            //    this.group = null;
+            //}            
             //jelszó
             this.password = felhasznalo.jelszo;
             //felhasználós típus meghatározása
