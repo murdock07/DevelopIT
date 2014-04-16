@@ -1,5 +1,7 @@
+using ConnectingCompanies;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Adatkezelõ {
 	public class User {
@@ -71,5 +73,30 @@ namespace Adatkezelõ {
 			}
 		}
 
+        public void SetAttributesFromDB(felhasznalok felhasznalo)
+        {
+            //csoport kiválasztása a felhasználóhoz
+            if (felhasznalo.csoport != null)
+	        {
+                var cs = from x in MainForm.entities.csoportok
+                         where x.Id == (int)felhasznalo.csoport
+                         select x;
+
+                this.group = new Group();
+                this.Group.SetAttributesFromDB((csoportok)cs);
+	        }
+            else
+            {
+                this.group = null;
+            }            
+            //jelszó
+            this.password = felhasznalo.jelszo;
+            //felhasználós típus meghatározása
+            this.type = (UserType)Enum.GetValues(typeof(UserType)).GetValue(felhasznalo.jogosultsagi_szint-1);
+            //azonosító
+            this.userName = felhasznalo.azonosito;
+            this.profile = new UserProfile();
+            this.profile.SetAttributesFromDB(felhasznalo);
+        }
 	}
 }

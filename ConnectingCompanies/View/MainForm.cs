@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConnectingCompanies.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,10 +12,14 @@ using System.Windows.Forms;
 namespace ConnectingCompanies
 {
     public partial class MainForm : Form
-    {  
+    {
+        public static adatbazisEntities entities;
+        public Session currentSession;
+
         public MainForm()
         {
             InitializeComponent();
+            entities = new adatbazisEntities();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -25,7 +30,15 @@ namespace ConnectingCompanies
             //teszt
             //SetStartupScreenByUserType(user);
 
-            Controller.LoginHandler.DoLogin(user,password);
+            try
+            {
+                currentSession = Controller.LoginHandler.CheckCredentials(user, password);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(((LoginHandlerException)ex).Uzenet);
+                new Logger(ex);
+            }            
         }
 
         private void buttonGuestLogin_Click(object sender, EventArgs e)

@@ -1,3 +1,4 @@
+using ConnectingCompanies;
 using System;
 using System.Collections.Generic;
 
@@ -35,5 +36,10 @@ namespace Adatkezelõ {
 			get{				return users;			}
 			set{				users = value;			}
 		}
-	}
+
+        internal void SetAttributesFromDB(csoportok cs)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -15,11 +15,11 @@ namespace ConnectingCompanies
 
         string defaultDirectory = "./Logok/";
 
-        public Logger(Exception ex, DateTime timeStamp)
+        public Logger(Exception ex)
         {
             this.ex = ex;
             this.user = Environment.UserName;
-            this.timeStamp = timeStamp;
+            this.timeStamp = DateTime.Now;
 
             string[] logMessage = CreateLogMessage();
 

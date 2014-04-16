@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ConnectingCompanies
 {
-    class Session
+    public class Session
     {
         Timer timer;
         User currentUser;

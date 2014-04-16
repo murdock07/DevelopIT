@@ -78,6 +78,7 @@
     <Compile Include="Controller\AddEventHandler.cs" />
     <Compile Include="Controller\AdminHandler.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
+    <Compile Include="Controller\LoginHandlerException.cs" />
     <Compile Include="Controller\ModifyEventHandler.cs" />
     <Compile Include="Controller\NewMailHandler.cs" />
     <Compile Include="Controller\NewOfferHandler.cs" />
