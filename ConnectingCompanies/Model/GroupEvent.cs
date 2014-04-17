@@ -24,5 +24,10 @@ namespace Adatkezelõ
             get { return groups; }
             set { groups = value; }
         }
+
+        internal void SetAttributesFromDB(ConnectingCompanies.esemenyek ge)
+        {
+            //TODO: group esemeny tulajdonságok
+        }
     }
 }

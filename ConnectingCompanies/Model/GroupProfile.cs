@@ -15,11 +15,6 @@ namespace Adatkezelõ
 
         }
 
-        public String getgroupPostAddress()
-        {
-
-            return "";
-        }
         public Group Group
         {
             get { return group; }
@@ -40,13 +35,17 @@ namespace Adatkezelõ
             get { return groupName; }
             set { groupName = value; }
         }
-
-        /// 
-        /// <param name="newVal"></param>
-        public void setgroupPostAddress(String newVal)
+        public String GroupPostAddress
         {
-
+            get { return groupPostAddress; }
+            set { groupPostAddress = value; }
         }
 
+        internal void SetAttributesFromDB(ConnectingCompanies.csoportok cs)
+        {
+            this.group = new Group();
+            this.group.SetAttributesFromDB(cs);
+            //this
+        }
     }
 }
