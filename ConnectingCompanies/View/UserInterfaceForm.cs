@@ -14,36 +14,62 @@ namespace ConnectingCompanies
 {
     public partial class UserInterfaceForm : Form
     {
+        private Session currentSession;
+        private Timer sessionTimer;
+        List<ToolStripItem> menuItems;
+
         public UserInterfaceForm(Session cs)
         {
             InitializeComponent();
-            var vmi = cs;
+            currentSession = cs;
+            GetMenuStripItems();
+            GetUserName();
+            sessionTimer = currentSession.Timer;
+            sessionTimer.Tick += sessionTimer_Tick;
+
         }
 
-        private void GetUserName(string user)
+        void sessionTimer_Tick(object sender, EventArgs e)
+        {
+            if (currentSession.SessionTimeOut)
+            {
+                this.Close();
+            }
+            else
+            {
+                string min = (currentSession.Sec == 0) ? (currentSession.Min + 1).ToString() : currentSession.Min.ToString();
+                string sec = (currentSession.Sec < 10) ? ("0" + currentSession.Sec) : currentSession.Sec.ToString();
+                menuItems[2].Text = "Hátralévő idő: " + min + ":" + sec;
+            }
+        }
+
+        private void GetMenuStripItems()
         {
             var menu = this.Controls.Find("menuStrip", true);
             MenuStrip ms = (MenuStrip)menu[0];
-            Console.WriteLine(menu);
 
-            List<ToolStripItem> menuItems = new List<ToolStripItem>();
+            menuItems = new List<ToolStripItem>();
             foreach (ToolStripItem item in ms.Items)
             {
                 menuItems.Add(item);
             }
-            Console.WriteLine(menuItems);
-            menuItems[0].Text = "Bejelentkezve: " + user;
+        }
+        private void GetUserName()
+        {
+            menuItems[0].Text = "Bejelentkezve: " + currentSession.CurrentUser.UserName;
         }
 
         private void kijelentkezésToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            currentSession.Timer.Stop();
+            currentSession.Timer.Dispose();
             this.Close();
         }
         private void hátralévőIdőToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //reset timer
-        }   
-        
+            currentSession.ResetSession();
+        }
+
         #region Felhasználó
         //----------------------
         private void buttonUserNewMail_Click(object sender, EventArgs e)

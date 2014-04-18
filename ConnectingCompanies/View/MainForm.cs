@@ -44,7 +44,7 @@ namespace ConnectingCompanies
                     MessageBox.Show(ex.Message);
                 }
                 new Logger(ex);
-            }            
+            }
         }
 
         private void buttonGuestLogin_Click(object sender, EventArgs e)
@@ -58,9 +58,14 @@ namespace ConnectingCompanies
                 Form UI = Controller.LoginHandler.SetUIByUserType(currentSession);
                 UI.Show();
             }
+            catch (LoginHandlerException lhex)
+            {
+                MessageBox.Show(lhex.Uzenet);
+                new Logger(lhex);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(((LoginHandlerException)ex).Uzenet);
+                MessageBox.Show(ex.Message);
                 new Logger(ex);
             }
         }
@@ -69,7 +74,7 @@ namespace ConnectingCompanies
         private void SetStartupScreenByUserType(string user)
         {
             /* <----------------------TEST---------------------->  */
-            
+
         }
 
         private void buttonRegister_Click(object sender, EventArgs e)

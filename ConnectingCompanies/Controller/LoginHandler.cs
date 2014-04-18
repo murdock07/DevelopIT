@@ -42,13 +42,11 @@ namespace ConnectingCompanies.Controller
 
             var c = UIF.Controls.Find("tabControlUserInterface", true).ToList();
             TabControl tc = (TabControl)c[0];
-            Console.WriteLine(tc);
             List<TabPage> tabPages = new List<TabPage>();
             foreach (TabPage page in tc.TabPages)
             {
                 tabPages.Add(page);
             }
-            Console.WriteLine(tabPages);
 
             //user type alapján jogosultság belövés
             if (cs.CurrentUser.Type == UserType.SysAdmin)

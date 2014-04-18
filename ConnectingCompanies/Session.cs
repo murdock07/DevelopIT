@@ -16,12 +16,30 @@ namespace ConnectingCompanies
         public User CurrentUser { get { return currentUser; } }
         int ticks;
 
+        bool sessionTimeOut;
+        public bool SessionTimeOut
+        {
+            get { return sessionTimeOut; }
+        }
+
+        private int min;
+        public int Min
+        {
+            get { return min; }
+        }
+        private int sec;
+        public int Sec
+        {
+            get { return sec; }
+        }
+
         public Session(User cu)
         {
             this.currentUser = cu;
+            sessionTimeOut = false;
             ticks = 0;
             timer = new Timer();
-            timer.Interval = 60000;
+            timer.Interval = 1000; //1mp egy tick
             timer.Tick += timer_Tick;
 
             timer.Start();
@@ -29,17 +47,26 @@ namespace ConnectingCompanies
 
         void timer_Tick(object sender, EventArgs e)
         {
-            if (ticks < timer.Interval * 30)
+            if (ticks == 1800)
             {
                 timer.Stop();
-                //TODO: kiléptetés
-                //jelzés hogy lejártunk
-                //kiléptetés indítása
+                sessionTimeOut = true;
             }
             else
             {
                 ticks++;
+                this.min = ticks / 60;
+                this.sec = ticks - min * 60;
+                this.min = 29 - min;
+                this.sec = (sec == 0) ? 0 : 60 - sec;
             }
         }
+        public void ResetSession()
+        {
+            this.timer.Stop();
+            ticks = 0;
+            this.timer.Start();
+        }
+
     }
 }

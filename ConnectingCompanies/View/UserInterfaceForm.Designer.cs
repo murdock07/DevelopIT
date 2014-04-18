@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControlUserInterface = new System.Windows.Forms.TabControl();
             this.tabPageUserProfile = new System.Windows.Forms.TabPage();
             this.groupBoxPersonalMailing = new System.Windows.Forms.GroupBox();
@@ -104,22 +105,23 @@
             this.listBoxSearchResults = new System.Windows.Forms.ListBox();
             this.groupBoxSearchParameters = new System.Windows.Forms.GroupBox();
             this.tabPageAdmin = new System.Windows.Forms.TabPage();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.bejelentkezveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kijelentkezésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
-            this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBoxStatistics = new System.Windows.Forms.GroupBox();
             this.dataGridViewStat = new System.Windows.Forms.DataGridView();
             this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDeletes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.bejelentkezveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kijelentkezésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
+            this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerSession = new System.Windows.Forms.Timer(this.components);
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -132,9 +134,9 @@
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             this.tabPageAdmin.SuspendLayout();
-            this.menuStrip.SuspendLayout();
             this.groupBoxStatistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -898,91 +900,6 @@
             this.tabPageAdmin.Text = "Adminisztrátor";
             this.tabPageAdmin.UseVisualStyleBackColor = true;
             // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bejelentkezveToolStripMenuItem,
-            this.toolStripMenuItemDivider,
-            this.hátralévőIdőToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(784, 24);
-            this.menuStrip.TabIndex = 1;
-            this.menuStrip.Text = "menuStrip";
-            // 
-            // bejelentkezveToolStripMenuItem
-            // 
-            this.bejelentkezveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kijelentkezésToolStripMenuItem});
-            this.bejelentkezveToolStripMenuItem.Name = "bejelentkezveToolStripMenuItem";
-            this.bejelentkezveToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.bejelentkezveToolStripMenuItem.Text = "Bejelentkezve: ";
-            // 
-            // kijelentkezésToolStripMenuItem
-            // 
-            this.kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
-            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
-            this.kijelentkezésToolStripMenuItem.Click += new System.EventHandler(this.kijelentkezésToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItemDivider
-            // 
-            this.toolStripMenuItemDivider.Name = "toolStripMenuItemDivider";
-            this.toolStripMenuItemDivider.Size = new System.Drawing.Size(22, 20);
-            this.toolStripMenuItemDivider.Text = "|";
-            // 
-            // hátralévőIdőToolStripMenuItem
-            // 
-            this.hátralévőIdőToolStripMenuItem.Name = "hátralévőIdőToolStripMenuItem";
-            this.hátralévőIdőToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
-            this.hátralévőIdőToolStripMenuItem.Text = "Hátralévő Idő: 30:00";
-            this.hátralévőIdőToolStripMenuItem.Click += new System.EventHandler(this.hátralévőIdőToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(8, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Felhasználók Kezelése";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(8, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Csoportok Kezelése";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(8, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(222, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Ajánlatok Kezelése";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(8, 93);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(222, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Események Kezelése";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(8, 122);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(222, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Fájlok Kezelése";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // groupBoxStatistics
             // 
             this.groupBoxStatistics.Controls.Add(this.dataGridViewStat);
@@ -1034,6 +951,95 @@
             this.ColumnDeletes.Name = "ColumnDeletes";
             this.ColumnDeletes.ReadOnly = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(8, 122);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(222, 23);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Fájlok Kezelése";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(8, 93);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(222, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Események Kezelése";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(8, 64);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(222, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Ajánlatok Kezelése";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(8, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(222, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Csoportok Kezelése";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(8, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Felhasználók Kezelése";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bejelentkezveToolStripMenuItem,
+            this.toolStripMenuItemDivider,
+            this.hátralévőIdőToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip";
+            // 
+            // bejelentkezveToolStripMenuItem
+            // 
+            this.bejelentkezveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kijelentkezésToolStripMenuItem});
+            this.bejelentkezveToolStripMenuItem.Name = "bejelentkezveToolStripMenuItem";
+            this.bejelentkezveToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.bejelentkezveToolStripMenuItem.Text = "Bejelentkezve: ";
+            // 
+            // kijelentkezésToolStripMenuItem
+            // 
+            this.kijelentkezésToolStripMenuItem.Name = "kijelentkezésToolStripMenuItem";
+            this.kijelentkezésToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.kijelentkezésToolStripMenuItem.Text = "Kijelentkezés";
+            this.kijelentkezésToolStripMenuItem.Click += new System.EventHandler(this.kijelentkezésToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItemDivider
+            // 
+            this.toolStripMenuItemDivider.Name = "toolStripMenuItemDivider";
+            this.toolStripMenuItemDivider.Size = new System.Drawing.Size(22, 20);
+            this.toolStripMenuItemDivider.Text = "|";
+            // 
+            // hátralévőIdőToolStripMenuItem
+            // 
+            this.hátralévőIdőToolStripMenuItem.Name = "hátralévőIdőToolStripMenuItem";
+            this.hátralévőIdőToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
+            this.hátralévőIdőToolStripMenuItem.Text = "Hátralévő Idő: 30:00";
+            this.hátralévőIdőToolStripMenuItem.Click += new System.EventHandler(this.hátralévőIdőToolStripMenuItem_Click);
+            // 
+            // timerSession
+            // 
+            this.timerSession.Interval = 1000;
+            // 
             // UserInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1066,10 +1072,10 @@
             this.tabPageSearch.ResumeLayout(false);
             this.tabPageSearch.PerformLayout();
             this.tabPageAdmin.ResumeLayout(false);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.groupBoxStatistics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1169,5 +1175,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCreated;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeletes;
+        private System.Windows.Forms.Timer timerSession;
     }
 }
