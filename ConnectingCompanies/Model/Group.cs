@@ -1,13 +1,12 @@
 using ConnectingCompanies;
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Adatkezelõ
 {
     public class Group
     {
-
         private User groupAdmin;
         private List<GroupEvent> groupEvent;
         private List<Offer> offers;
@@ -15,7 +14,6 @@ namespace Adatkezelõ
 
         public Group()
         {
-
         }
 
         public User GroupAdmin
@@ -23,11 +21,13 @@ namespace Adatkezelõ
             get { return groupAdmin; }
             set { groupAdmin = value; }
         }
+
         public List<GroupEvent> GEvent
         {
             get { return groupEvent; }
             set { groupEvent = value; }
         }
+
         public List<Offer> Offers
         {
             get { return offers; }
@@ -36,13 +36,21 @@ namespace Adatkezelõ
 
         internal void SetAttributesFromDB(csoportok cs)
         {
-            //TODO: get csoportadatok + set attr
             var u = from x in MainForm.entities.felhasznalok
-                     where x.Id == (int)cs.cegvezeto
-                     select x;
-
-            this.groupAdmin = new User();
-            this.groupAdmin.SetAttributesFromDB((felhasznalok)u);
+                    where x.Id == cs.cegvezeto
+                    select x;
+            try
+            {
+                List<felhasznalok> lista = u.ToList();
+                this.groupAdmin = new User();
+                groupAdmin.admin = true;
+                this.groupAdmin.SetAttributesFromDB(lista[0]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
 
             this.groupProfile = new GroupProfile();
             this.groupProfile.SetAttributesFromDB(cs);
@@ -59,8 +67,8 @@ namespace Adatkezelõ
                     GroupEvent ne = new GroupEvent();
                     ne.SetAttributesFromDB(ge);
                     groupEvent.Add(ne);
-                } 
-            }            
+                }
+            }
         }
     }
 }

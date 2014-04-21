@@ -46,7 +46,6 @@ namespace ConnectingCompanies
                 new Logger(ex);
             }
         }
-
         private void buttonGuestLogin_Click(object sender, EventArgs e)
         {
             string user = "guest";
@@ -70,18 +69,36 @@ namespace ConnectingCompanies
             }
         }
 
-        //Normális esetben user-t fogad
-        private void SetStartupScreenByUserType(string user)
-        {
-            /* <----------------------TEST---------------------->  */
-
-        }
-
         private void buttonRegister_Click(object sender, EventArgs e)
         {
-            //Adatok összeszedése
-            //User létrehozása
-            //Beléptetés
+            try
+            {
+                string account = textBoxRegUserTag.Text;
+                string password = textBoxRegPassword.Text;
+                string name = textBoxRegUserName.Text;
+                string address = textBoxRegAddress.Text;
+                DateTime birthDate = dateTimePickerRegBirthDate.Value;
+
+                currentSession = LoginHandler.DoRegister(account, password, name, address, birthDate);
+                MessageBox.Show("Sikeres regisztráció!\nKattintson az 'OK' gombra a továbblépéshez.");
+                Form UI = Controller.LoginHandler.SetUIByUserType(currentSession);
+                UI.Show();
+            }
+            catch (UserExistsException ueeex)
+            {
+                MessageBox.Show(ueeex.Uzenet);
+                new Logger(ueeex);
+            }
+            catch (LoginHandlerException lhex)
+            {
+                MessageBox.Show(lhex.Uzenet);
+                new Logger(lhex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                new Logger(ex);
+            }
         }
     }
 }

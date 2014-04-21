@@ -53,7 +53,7 @@ namespace ConnectingCompanies
         }
         private void LogToFile(string[] logMessage)
         {
-            string idopont = timeStamp.Year + timeStamp.Month + timeStamp.Day + "_" +
+            string idopont = timeStamp.Year.ToString() + timeStamp.Month.ToString() + timeStamp.Day.ToString() + "_" +
                 timeStamp.Hour + timeStamp.Minute;
             string fileName = user + "_" + idopont;
             string path = defaultDirectory + fileName + ".txt";

@@ -23,8 +23,10 @@ namespace ConnectingCompanies.Controller
             else
             {
                 User currentUser = new User();
+                currentUser.admin = false;
                 currentUser.SetAttributesFromDB(lista[0]);
-                if (currentUser.Password.Equals(password))
+                string pwd = currentUser.Password.Trim();
+                if (!pwd.Equals(password))
                 {
                     throw new PasswordMismatchException(password);
                 }
@@ -36,8 +38,7 @@ namespace ConnectingCompanies.Controller
         }
 
         internal static Form SetUIByUserType(Session cs)
-        {
-            //TODO: UI felépítése típus szerint
+        {            
             UserInterfaceForm UIF = new UserInterfaceForm(cs);
 
             var c = UIF.Controls.Find("tabControlUserInterface", true).ToList();
@@ -74,6 +75,40 @@ namespace ConnectingCompanies.Controller
                 tc.TabPages.Remove(tabPages[4]);    //admin
             }
             return UIF;
+        }
+
+        internal static Session DoRegister(string account, string password, string name, string address, DateTime birthDate)
+        {
+            //1.  -  ellenőrizni, hogy foglalt-e a felhasználó azonosító
+            var usr = from x in MainForm.entities.felhasznalok
+                      where x.azonosito == account
+                      select x;
+            //1a. -  ha foglalt akkor-> exception
+            //1b. -  ha szabad, akkor továbblépés a felhasználó mentéséhez
+            if (usr.Count() > 0)
+            {
+                throw new UserExistsException(account);
+            }
+            else
+            {
+                //2.  -  felhaszáló összeállítása
+                //3.  -  felhasználó mentése adatbázisba
+                felhasznalok flhsznl = new felhasznalok();
+                flhsznl.Id = MainForm.entities.felhasznalok.Count() + 1;
+                flhsznl.azonosito = account;
+                flhsznl.jelszo = password;
+                flhsznl.jogosultsagi_szint = 1;
+                flhsznl.nev = name;
+                flhsznl.szuletesi_ido = birthDate;
+                flhsznl.lakhely = address;
+
+                MainForm.entities.felhasznalok.Add(flhsznl);
+                MainForm.entities.SaveChanges();
+
+                User currentUser = new User();
+                currentUser.SetAttributesFromDB(flhsznl);
+                return new Session(currentUser);
+            }           
         }
     }
 }

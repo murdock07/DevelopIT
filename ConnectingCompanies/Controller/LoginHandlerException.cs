@@ -42,4 +42,19 @@ namespace ConnectingCompanies.Controller
             this.password = password;
         }
     }
+
+    class UserExistsException : LoginHandlerException
+    {
+        string user;
+        public string User
+        {
+            get { return user; }
+        }
+
+        public UserExistsException(string user)
+            : base("Az adott felhasználó már létezik!")
+        {
+            this.user = user;
+        }
+    }
 }
