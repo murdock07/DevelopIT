@@ -22,6 +22,7 @@ namespace ConnectingCompanies
         public Nullable<System.DateTime> zaras_datum { get; set; }
         public int osszeg { get; set; }
         public string leiras { get; set; }
+        public bool aktiv { get; set; }
     
         public virtual csoportok csoportok { get; set; }
         public virtual csoportok csoportok1 { get; set; }

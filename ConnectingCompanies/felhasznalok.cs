@@ -35,6 +35,7 @@ namespace ConnectingCompanies
         public string beosztas { get; set; }
         public string leiras { get; set; }
         public Nullable<int> profilkep { get; set; }
+        public bool aktiv { get; set; }
     
         public virtual ICollection<csoportok> csoportok { get; set; }
         public virtual csoportok csoportok1 { get; set; }

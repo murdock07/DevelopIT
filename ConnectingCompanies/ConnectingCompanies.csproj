@@ -73,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ajanlatok.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\AddEventHandler.cs" />
     <Compile Include="Controller\AdminHandler.cs" />
@@ -84,36 +84,21 @@
     <Compile Include="Controller\NewOfferHandler.cs" />
     <Compile Include="Controller\UserInterfaceHandler.cs" />
     <Compile Include="csoportok.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="esemenyek.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="felhasznalok.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="jogosultsagi_szintek.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="kepek.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="adatbazisModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>adatbazisModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\GroupEvent.cs" />
@@ -125,9 +110,24 @@
     <Compile Include="Model\UserEvent.cs" />
     <Compile Include="Model\UserProfile.cs" />
     <Compile Include="Model\UserType.cs" />
+    <Compile Include="nyilvantartasModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nyilvantartasModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nyilvantartasModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nyilvantartasModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nyilvantartasModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="uzenetek.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="View\AddEventDialogForm.cs">
       <SubType>Form</SubType>
@@ -194,22 +194,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="adatbazisModel.edmx">
+    <EntityDeploy Include="nyilvantartasModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>adatbazisModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>nyilvantartasModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.Context.tt">
+    <None Include="nyilvantartasModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>adatbazisModel.edmx</DependentUpon>
+      <DependentUpon>nyilvantartasModel.edmx</DependentUpon>
+      <LastGenOutput>nyilvantartasModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="adatbazisModel.edmx.diagram">
-      <DependentUpon>adatbazisModel.edmx</DependentUpon>
+    <None Include="nyilvantartasModel.edmx.diagram">
+      <DependentUpon>nyilvantartasModel.edmx</DependentUpon>
     </None>
-    <None Include="Model1.tt">
+    <None Include="nyilvantartasModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-      <DependentUpon>adatbazisModel.edmx</DependentUpon>
+      <DependentUpon>nyilvantartasModel.edmx</DependentUpon>
+      <LastGenOutput>nyilvantartasModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

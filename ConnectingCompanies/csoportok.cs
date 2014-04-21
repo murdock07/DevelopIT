@@ -26,11 +26,12 @@ namespace ConnectingCompanies
         public int Id { get; set; }
         public string cegnev { get; set; }
         public string telephely { get; set; }
-        public int cegvezeto { get; set; }
+        public Nullable<int> cegvezeto { get; set; }
         public string levelezesi_cim { get; set; }
         public Nullable<System.DateTime> alapitas_datuma { get; set; }
         public Nullable<int> logo { get; set; }
         public string leiras { get; set; }
+        public Nullable<bool> aktiv { get; set; }
     
         public virtual ICollection<ajanlatok> ajanlatok { get; set; }
         public virtual ICollection<ajanlatok> ajanlatok1 { get; set; }

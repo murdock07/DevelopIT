@@ -19,6 +19,7 @@ namespace ConnectingCompanies
         public int cimzett { get; set; }
         public bool csoportos_level { get; set; }
         public Nullable<int> csoport { get; set; }
+        public bool aktiv { get; set; }
     
         public virtual csoportok csoportok { get; set; }
         public virtual felhasznalok felhasznalok { get; set; }

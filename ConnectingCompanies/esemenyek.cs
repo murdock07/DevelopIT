@@ -23,6 +23,7 @@ namespace ConnectingCompanies
         public int letrehozo { get; set; }
         public Nullable<int> meghivott_szemely { get; set; }
         public Nullable<int> meghivott_csoport { get; set; }
+        public bool aktiv { get; set; }
     
         public virtual csoportok csoportok { get; set; }
         public virtual felhasznalok felhasznalok { get; set; }

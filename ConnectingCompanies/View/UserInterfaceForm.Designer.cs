@@ -111,11 +111,11 @@
             this.ColumnCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDeletes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAdminFiles = new System.Windows.Forms.Button();
+            this.buttonAdminEvents = new System.Windows.Forms.Button();
+            this.buttonAdminOffers = new System.Windows.Forms.Button();
+            this.buttonAdminGroups = new System.Windows.Forms.Button();
+            this.buttonAdminUsers = new System.Windows.Forms.Button();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.bejelentkezveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kijelentkezésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -887,11 +887,11 @@
             // tabPageAdmin
             // 
             this.tabPageAdmin.Controls.Add(this.groupBoxStatistics);
-            this.tabPageAdmin.Controls.Add(this.button5);
-            this.tabPageAdmin.Controls.Add(this.button4);
-            this.tabPageAdmin.Controls.Add(this.button3);
-            this.tabPageAdmin.Controls.Add(this.button2);
-            this.tabPageAdmin.Controls.Add(this.button1);
+            this.tabPageAdmin.Controls.Add(this.buttonAdminFiles);
+            this.tabPageAdmin.Controls.Add(this.buttonAdminEvents);
+            this.tabPageAdmin.Controls.Add(this.buttonAdminOffers);
+            this.tabPageAdmin.Controls.Add(this.buttonAdminGroups);
+            this.tabPageAdmin.Controls.Add(this.buttonAdminUsers);
             this.tabPageAdmin.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdmin.Name = "tabPageAdmin";
             this.tabPageAdmin.Padding = new System.Windows.Forms.Padding(3);
@@ -909,6 +909,7 @@
             this.groupBoxStatistics.TabIndex = 5;
             this.groupBoxStatistics.TabStop = false;
             this.groupBoxStatistics.Text = "Statisztika";
+            this.groupBoxStatistics.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBoxStatistics_Paint);
             // 
             // dataGridViewStat
             // 
@@ -951,50 +952,55 @@
             this.ColumnDeletes.Name = "ColumnDeletes";
             this.ColumnDeletes.ReadOnly = true;
             // 
-            // button5
+            // buttonAdminFiles
             // 
-            this.button5.Location = new System.Drawing.Point(8, 122);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(222, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Fájlok Kezelése";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonAdminFiles.Location = new System.Drawing.Point(8, 122);
+            this.buttonAdminFiles.Name = "buttonAdminFiles";
+            this.buttonAdminFiles.Size = new System.Drawing.Size(222, 23);
+            this.buttonAdminFiles.TabIndex = 4;
+            this.buttonAdminFiles.Text = "Fájlok Kezelése";
+            this.buttonAdminFiles.UseVisualStyleBackColor = true;
+            this.buttonAdminFiles.Click += new System.EventHandler(this.buttonAdminFiles_Click);
             // 
-            // button4
+            // buttonAdminEvents
             // 
-            this.button4.Location = new System.Drawing.Point(8, 93);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(222, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Események Kezelése";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAdminEvents.Location = new System.Drawing.Point(8, 93);
+            this.buttonAdminEvents.Name = "buttonAdminEvents";
+            this.buttonAdminEvents.Size = new System.Drawing.Size(222, 23);
+            this.buttonAdminEvents.TabIndex = 3;
+            this.buttonAdminEvents.Text = "Események Kezelése";
+            this.buttonAdminEvents.UseVisualStyleBackColor = true;
+            this.buttonAdminEvents.Click += new System.EventHandler(this.buttonAdminEvents_Click);
             // 
-            // button3
+            // buttonAdminOffers
             // 
-            this.button3.Location = new System.Drawing.Point(8, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(222, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Ajánlatok Kezelése";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonAdminOffers.Location = new System.Drawing.Point(8, 64);
+            this.buttonAdminOffers.Name = "buttonAdminOffers";
+            this.buttonAdminOffers.Size = new System.Drawing.Size(222, 23);
+            this.buttonAdminOffers.TabIndex = 2;
+            this.buttonAdminOffers.Text = "Ajánlatok Kezelése";
+            this.buttonAdminOffers.UseVisualStyleBackColor = true;
+            this.buttonAdminOffers.Click += new System.EventHandler(this.buttonAdminOffers_Click);
             // 
-            // button2
+            // buttonAdminGroups
             // 
-            this.button2.Location = new System.Drawing.Point(8, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(222, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Csoportok Kezelése";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAdminGroups.Location = new System.Drawing.Point(8, 35);
+            this.buttonAdminGroups.Name = "buttonAdminGroups";
+            this.buttonAdminGroups.Size = new System.Drawing.Size(222, 23);
+            this.buttonAdminGroups.TabIndex = 1;
+            this.buttonAdminGroups.Text = "Csoportok Kezelése";
+            this.buttonAdminGroups.UseVisualStyleBackColor = true;
+            this.buttonAdminGroups.Click += new System.EventHandler(this.buttonAdminGroups_Click);
             // 
-            // button1
+            // buttonAdminUsers
             // 
-            this.button1.Location = new System.Drawing.Point(8, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Felhasználók Kezelése";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAdminUsers.Location = new System.Drawing.Point(8, 6);
+            this.buttonAdminUsers.Name = "buttonAdminUsers";
+            this.buttonAdminUsers.Size = new System.Drawing.Size(222, 23);
+            this.buttonAdminUsers.TabIndex = 0;
+            this.buttonAdminUsers.Text = "Felhasználók Kezelése";
+            this.buttonAdminUsers.UseVisualStyleBackColor = true;
+            this.buttonAdminUsers.Click += new System.EventHandler(this.buttonAdminUsers_Click);
             // 
             // menuStrip
             // 
@@ -1165,11 +1171,11 @@
         private System.Windows.Forms.Label labelSearchGroupOption;
         private System.Windows.Forms.ComboBox comboBoxSearchGroupOption;
         private System.Windows.Forms.GroupBox groupBoxStatistics;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdminFiles;
+        private System.Windows.Forms.Button buttonAdminEvents;
+        private System.Windows.Forms.Button buttonAdminOffers;
+        private System.Windows.Forms.Button buttonAdminGroups;
+        private System.Windows.Forms.Button buttonAdminUsers;
         private System.Windows.Forms.DataGridView dataGridViewStat;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCreated;

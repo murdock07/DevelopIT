@@ -1,4 +1,5 @@
 ﻿using Adatkezelő;
+using ConnectingCompanies.Controller;
 using ConnectingCompanies.Forms;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace ConnectingCompanies
     {
         private Session currentSession;
         private Timer sessionTimer;
-        List<ToolStripItem> menuItems;
+        private List<ToolStripItem> menuItems;
 
         public UserInterfaceForm(Session cs)
         {
@@ -26,10 +27,9 @@ namespace ConnectingCompanies
             GetUserName();
             sessionTimer = currentSession.Timer;
             sessionTimer.Tick += sessionTimer_Tick;
-
         }
 
-        void sessionTimer_Tick(object sender, EventArgs e)
+        private void sessionTimer_Tick(object sender, EventArgs e)
         {
             if (currentSession.SessionTimeOut)
             {
@@ -54,6 +54,7 @@ namespace ConnectingCompanies
                 menuItems.Add(item);
             }
         }
+
         private void GetUserName()
         {
             menuItems[0].Text = "Bejelentkezve: " + currentSession.CurrentUser.UserName;
@@ -65,119 +66,158 @@ namespace ConnectingCompanies
             currentSession.Timer.Dispose();
             this.Close();
         }
+
         private void hátralévőIdőToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentSession.ResetSession();
         }
 
         #region Felhasználó
+
         //----------------------
         private void buttonUserNewMail_Click(object sender, EventArgs e)
         {
             NewMailForm NMF = new NewMailForm();
             NMF.Show();
         }
+
         private void buttonUserOpenMail_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonUserDeleteMail_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonUserModifyData_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonUserSaveData_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonUserUploadImage_Click(object sender, EventArgs e)
         {
-
         }
+
         //----------------------
-        #endregion
+
+        #endregion Felhasználó
 
         #region Csoport
+
         //----------------------
         private void buttonGroupNewMail_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupOpenMail_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupDeleteMail_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupOpenOffer_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupDeleteOffer_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupUploadImage_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupModifyData_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupSaveData_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonGroupNewOffer_Click(object sender, EventArgs e)
         {
             NewOfferForm NOF = new NewOfferForm();
             NOF.Show();
         }
+
         //----------------------
-        #endregion
+
+        #endregion Csoport
 
         #region Naptár
+
         //----------------------
         private void buttonCreateNewEvent_Click(object sender, EventArgs e)
         {
             AddEventDialogForm AEDF = new AddEventDialogForm();
             AEDF.Show();
         }
+
         private void buttonModifyEvent_Click(object sender, EventArgs e)
         {
             ModifyEventDialogForm MEDF = new ModifyEventDialogForm();
             MEDF.Show();
         }
+
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
         {
-
         }
+
         //----------------------
-        #endregion
+
+        #endregion Naptár
 
         #region Keresés
+
         //----------------------
         private void buttonClearSearchParameters_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-
         }
+
         //----------------------
-        #endregion
+
+        #endregion Keresés
 
         #region Admin
-        //----------------------
 
         //----------------------
-        #endregion
+        private void buttonAdminUsers_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonAdminGroups_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonAdminOffers_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonAdminEvents_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonAdminFiles_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void groupBoxStatistics_Paint(object sender, PaintEventArgs e)
+        {
+            AdminHandler.CreateStatistics(sender, e, dataGridViewStat);
+        }
+
+        //----------------------
+
+        #endregion Admin
     }
 }

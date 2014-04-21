@@ -13,13 +13,13 @@ namespace ConnectingCompanies
 {
     public partial class MainForm : Form
     {
-        public static adatbazisEntities entities;
+        public static nyilvantartasEntities entities;
         public Session currentSession;
 
         public MainForm()
         {
             InitializeComponent();
-            entities = new adatbazisEntities();
+            entities = new nyilvantartasEntities();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -46,6 +46,7 @@ namespace ConnectingCompanies
                 new Logger(ex);
             }
         }
+
         private void buttonGuestLogin_Click(object sender, EventArgs e)
         {
             string user = "guest";
