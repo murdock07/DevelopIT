@@ -11,6 +11,13 @@ namespace Adatkezelõ
         private List<GroupEvent> groupEvent;
         private List<Offer> offers;
         public GroupProfile groupProfile;
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public Group()
         {

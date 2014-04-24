@@ -18,7 +18,8 @@ namespace ConnectingCompanies
         private Session currentSession;
         private Timer sessionTimer;
         private List<ToolStripItem> menuItems;
-
+        private bool buttonModifyDataClicked = false;
+        private bool buttonModifyGroupDataClicked = false;
         public UserInterfaceForm(Session cs)
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace ConnectingCompanies
             GetUserName();
             sessionTimer = currentSession.Timer;
             sessionTimer.Tick += sessionTimer_Tick;
+            //--// pictureBoxUserPicture image-ét beállít
         }
 
         private void sessionTimer_Tick(object sender, EventArgs e)
@@ -91,14 +93,53 @@ namespace ConnectingCompanies
 
         private void buttonUserModifyData_Click(object sender, EventArgs e)
         {
+            if (!buttonModifyDataClicked)//ha még nem akart módosítani akkor engedjük a módosítást
+            {
+                textBoxUserName.Enabled = true;
+                textBoxUserAddress.Enabled = true;
+                textBoxUserDescription.Enabled = true;
+                buttonModifyDataClicked = true;
+            }
+            else//ha mégse akar módosítani
+            {    //--//módosítható mezők értékének újbóli beállítása, ha belenyúlt
+                textBoxUserName.Enabled = false;
+                textBoxUserAddress.Enabled = false;
+                textBoxUserDescription.Enabled = false;
+                buttonModifyDataClicked = false;
+            }
         }
 
         private void buttonUserSaveData_Click(object sender, EventArgs e)
         {
+            if (buttonModifyDataClicked)//ha módosított, vagy legalábbis akart
+            {
+                //--//
+                //textBoxUserAddress.Text;      //tartalmainak mentése db-be
+                //textBoxUserDescription.Text;
+                //textBoxUserName.Text;
+            }
         }
 
         private void buttonUserUploadImage_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.FileOk += ofd_FileOk;
+                ofd.ShowDialog();
+
+                if (newUserPicture != "")//ha választott ki valamit
+                {
+                    //--//új kép hozzárendelése a felhasználóhoz
+                    //--//picturebox frissítése
+                    newUserPicture = "";//ha később akar..
+                }
+            }
+        }
+        string newUserPicture = "";
+        void ofd_FileOk(object sender, CancelEventArgs e)
+        {//megkapja a kiválasztott elérési utat az adattag
+            if (!e.Cancel)//ha választott ki valamit
+            { newUserPicture = (sender as OpenFileDialog).FileName; }
         }
 
         //----------------------
@@ -127,13 +168,29 @@ namespace ConnectingCompanies
         private void buttonGroupDeleteOffer_Click(object sender, EventArgs e)
         {
         }
-
+        string newCompanyPicutre = "";
         private void buttonGroupUploadImage_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.FileOk += ofd_FileOkCompany;
+                ofd.ShowDialog();
+                if (newCompanyPicutre != "")//ha választott ki valamit
+                {
+                    //--//kép mentése a céghez
+                    //--//pictureBoxCompany frissítése
+                    newCompanyPicutre = "";//ha akar még módosítani
+                }
+            }
         }
-
+        void ofd_FileOkCompany(object sender, CancelEventArgs e)
+        {//megkapja a kiválasztott elérési utat az adattag
+            if (!e.Cancel)//ha választott ki valamit
+            { newCompanyPicutre = (sender as OpenFileDialog).FileName; }
+        }
         private void buttonGroupModifyData_Click(object sender, EventArgs e)
         {
+
         }
 
         private void buttonGroupSaveData_Click(object sender, EventArgs e)
@@ -214,6 +271,11 @@ namespace ConnectingCompanies
         private void groupBoxStatistics_Paint(object sender, PaintEventArgs e)
         {
             AdminHandler.CreateStatistics(sender, e, dataGridViewStat);
+        }
+
+        private void tabControlUserInterface_TabIndexChanged(object sender, EventArgs e)
+        {
+          
         }
 
         //----------------------

@@ -16,12 +16,21 @@ namespace Adatkezelõ
         private String userName;
         public Group m_Group;
         public Message m_Message;
+        private int id;
 
+        public int Id
+        {
+            get { return id; }
+            //  set { id = value; }
+        }
         public User()
         {
 
         }
-
+        public User(int userId)
+        {
+ 
+        }
         public Group Group
         {
             get

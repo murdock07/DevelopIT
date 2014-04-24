@@ -122,21 +122,27 @@
             this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
             this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerSession = new System.Windows.Forms.Timer(this.components);
+            this.pictureUserPicutre = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCompany = new System.Windows.Forms.PictureBox();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
+            this.groupBoxUserImage.SuspendLayout();
             this.tabPageGroupProfile.SuspendLayout();
             this.groupBoxGroupFunctions.SuspendLayout();
             this.groupBoxOfferHandling.SuspendLayout();
             this.groupBoxGroupMailHandling.SuspendLayout();
             this.groupBoxGroupInformation.SuspendLayout();
+            this.groupBoxGroupImage.SuspendLayout();
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             this.tabPageAdmin.SuspendLayout();
             this.groupBoxStatistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).BeginInit();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -151,6 +157,7 @@
             this.tabControlUserInterface.SelectedIndex = 0;
             this.tabControlUserInterface.Size = new System.Drawing.Size(786, 552);
             this.tabControlUserInterface.TabIndex = 0;
+            this.tabControlUserInterface.TabIndexChanged += new System.EventHandler(this.tabControlUserInterface_TabIndexChanged);
             // 
             // tabPageUserProfile
             // 
@@ -304,6 +311,7 @@
             // 
             // groupBoxUserImage
             // 
+            this.groupBoxUserImage.Controls.Add(this.pictureUserPicutre);
             this.groupBoxUserImage.Location = new System.Drawing.Point(270, 275);
             this.groupBoxUserImage.Name = "groupBoxUserImage";
             this.groupBoxUserImage.Size = new System.Drawing.Size(180, 200);
@@ -632,6 +640,7 @@
             // 
             // textBoxGroupDescription
             // 
+            this.textBoxGroupDescription.Enabled = false;
             this.textBoxGroupDescription.Location = new System.Drawing.Point(6, 345);
             this.textBoxGroupDescription.Multiline = true;
             this.textBoxGroupDescription.Name = "textBoxGroupDescription";
@@ -649,6 +658,7 @@
             // 
             // groupBoxGroupImage
             // 
+            this.groupBoxGroupImage.Controls.Add(this.pictureBoxCompany);
             this.groupBoxGroupImage.Location = new System.Drawing.Point(270, 159);
             this.groupBoxGroupImage.Name = "groupBoxGroupImage";
             this.groupBoxGroupImage.Size = new System.Drawing.Size(180, 180);
@@ -658,6 +668,7 @@
             // 
             // dateTimePickerDateOfFounding
             // 
+            this.dateTimePickerDateOfFounding.Enabled = false;
             this.dateTimePickerDateOfFounding.Location = new System.Drawing.Point(105, 124);
             this.dateTimePickerDateOfFounding.Name = "dateTimePickerDateOfFounding";
             this.dateTimePickerDateOfFounding.Size = new System.Drawing.Size(345, 20);
@@ -665,6 +676,7 @@
             // 
             // textBoxGroupAddress
             // 
+            this.textBoxGroupAddress.Enabled = false;
             this.textBoxGroupAddress.Location = new System.Drawing.Point(105, 46);
             this.textBoxGroupAddress.Name = "textBoxGroupAddress";
             this.textBoxGroupAddress.Size = new System.Drawing.Size(345, 20);
@@ -681,6 +693,7 @@
             // 
             // textBoxGroupName
             // 
+            this.textBoxGroupName.Enabled = false;
             this.textBoxGroupName.Location = new System.Drawing.Point(105, 19);
             this.textBoxGroupName.Name = "textBoxGroupName";
             this.textBoxGroupName.Size = new System.Drawing.Size(345, 20);
@@ -706,6 +719,7 @@
             // 
             // textBoxGroupMailAdress
             // 
+            this.textBoxGroupMailAdress.Enabled = false;
             this.textBoxGroupMailAdress.Location = new System.Drawing.Point(105, 98);
             this.textBoxGroupMailAdress.Name = "textBoxGroupMailAdress";
             this.textBoxGroupMailAdress.Size = new System.Drawing.Size(345, 20);
@@ -722,6 +736,7 @@
             // 
             // textBoxGroupLeader
             // 
+            this.textBoxGroupLeader.Enabled = false;
             this.textBoxGroupLeader.Location = new System.Drawing.Point(105, 72);
             this.textBoxGroupLeader.Name = "textBoxGroupLeader";
             this.textBoxGroupLeader.Size = new System.Drawing.Size(345, 20);
@@ -1054,6 +1069,22 @@
             // 
             this.timerSession.Interval = 1000;
             // 
+            // pictureUserPicutre
+            // 
+            this.pictureUserPicutre.Location = new System.Drawing.Point(6, 19);
+            this.pictureUserPicutre.Name = "pictureUserPicutre";
+            this.pictureUserPicutre.Size = new System.Drawing.Size(168, 175);
+            this.pictureUserPicutre.TabIndex = 0;
+            this.pictureUserPicutre.TabStop = false;
+            // 
+            // pictureBoxCompany
+            // 
+            this.pictureBoxCompany.Location = new System.Drawing.Point(6, 19);
+            this.pictureBoxCompany.Name = "pictureBoxCompany";
+            this.pictureBoxCompany.Size = new System.Drawing.Size(168, 155);
+            this.pictureBoxCompany.TabIndex = 0;
+            this.pictureBoxCompany.TabStop = false;
+            // 
             // UserInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1073,6 +1104,7 @@
             this.groupBoxPersonalMailing.PerformLayout();
             this.groupBoxPersonalInformation.ResumeLayout(false);
             this.groupBoxPersonalInformation.PerformLayout();
+            this.groupBoxUserImage.ResumeLayout(false);
             this.tabPageGroupProfile.ResumeLayout(false);
             this.groupBoxGroupFunctions.ResumeLayout(false);
             this.groupBoxOfferHandling.ResumeLayout(false);
@@ -1081,6 +1113,7 @@
             this.groupBoxGroupMailHandling.PerformLayout();
             this.groupBoxGroupInformation.ResumeLayout(false);
             this.groupBoxGroupInformation.PerformLayout();
+            this.groupBoxGroupImage.ResumeLayout(false);
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
             this.tabPageSearch.ResumeLayout(false);
@@ -1090,6 +1123,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1190,5 +1225,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActive;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeletes;
         private System.Windows.Forms.Timer timerSession;
+        private System.Windows.Forms.PictureBox pictureUserPicutre;
+        private System.Windows.Forms.PictureBox pictureBoxCompany;
     }
 }
