@@ -24,9 +24,16 @@ namespace ConnectingCompanies
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string user = textBoxLoginUserName.Text;
+           string user = textBoxLoginUserName.Text;
             string password = textBoxLoginPassword.Text;
-
+           /* string s = "";
+            var v = from x in entities.felhasznalok//majd tötöld ki
+                    select x;
+            foreach (var item in v)
+            {
+                s += (item as felhasznalok).azonosito + (item as felhasznalok).jelszo+"\n";
+            }
+            MessageBox.Show(s);*/
             try
             {
                 currentSession = Controller.LoginHandler.CheckCredentials(user, password);

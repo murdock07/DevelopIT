@@ -286,6 +286,7 @@
             // 
             // textBoxUserDescription
             // 
+            this.textBoxUserDescription.Enabled = false;
             this.textBoxUserDescription.Location = new System.Drawing.Point(7, 281);
             this.textBoxUserDescription.Multiline = true;
             this.textBoxUserDescription.Name = "textBoxUserDescription";
@@ -312,6 +313,7 @@
             // 
             // dateTimePickerUserBirthDate
             // 
+            this.dateTimePickerUserBirthDate.Enabled = false;
             this.dateTimePickerUserBirthDate.Location = new System.Drawing.Point(105, 123);
             this.dateTimePickerUserBirthDate.Name = "dateTimePickerUserBirthDate";
             this.dateTimePickerUserBirthDate.Size = new System.Drawing.Size(345, 20);
@@ -319,6 +321,7 @@
             // 
             // textBoxUserGroupAddress
             // 
+            this.textBoxUserGroupAddress.Enabled = false;
             this.textBoxUserGroupAddress.Location = new System.Drawing.Point(105, 195);
             this.textBoxUserGroupAddress.Name = "textBoxUserGroupAddress";
             this.textBoxUserGroupAddress.Size = new System.Drawing.Size(345, 20);
@@ -335,6 +338,7 @@
             // 
             // textBoxUserGroupPost
             // 
+            this.textBoxUserGroupPost.Enabled = false;
             this.textBoxUserGroupPost.Location = new System.Drawing.Point(105, 222);
             this.textBoxUserGroupPost.Name = "textBoxUserGroupPost";
             this.textBoxUserGroupPost.Size = new System.Drawing.Size(345, 20);
@@ -351,6 +355,7 @@
             // 
             // textBoxUserGroupName
             // 
+            this.textBoxUserGroupName.Enabled = false;
             this.textBoxUserGroupName.Location = new System.Drawing.Point(105, 168);
             this.textBoxUserGroupName.Name = "textBoxUserGroupName";
             this.textBoxUserGroupName.Size = new System.Drawing.Size(345, 20);
@@ -376,6 +381,7 @@
             // 
             // textBoxBirthPlace
             // 
+            this.textBoxBirthPlace.Enabled = false;
             this.textBoxBirthPlace.Location = new System.Drawing.Point(105, 97);
             this.textBoxBirthPlace.Name = "textBoxBirthPlace";
             this.textBoxBirthPlace.Size = new System.Drawing.Size(345, 20);
@@ -392,6 +398,7 @@
             // 
             // textBoxUserAddress
             // 
+            this.textBoxUserAddress.Enabled = false;
             this.textBoxUserAddress.Location = new System.Drawing.Point(105, 52);
             this.textBoxUserAddress.Name = "textBoxUserAddress";
             this.textBoxUserAddress.Size = new System.Drawing.Size(345, 20);
@@ -408,6 +415,7 @@
             // 
             // textBoxUserName
             // 
+            this.textBoxUserName.Enabled = false;
             this.textBoxUserName.Location = new System.Drawing.Point(105, 26);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(345, 20);
