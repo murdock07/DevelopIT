@@ -18,8 +18,7 @@ namespace ConnectingCompanies
         private Session currentSession;
         private Timer sessionTimer;
         private List<ToolStripItem> menuItems;
-        private bool buttonModifyDataClicked = false;
-        private bool buttonModifyGroupDataClicked = false;
+
         public UserInterfaceForm(Session cs)
         {
             InitializeComponent();
@@ -79,8 +78,6 @@ namespace ConnectingCompanies
         //----------------------
         private void buttonUserNewMail_Click(object sender, EventArgs e)
         {
-            NewMailForm NMF = new NewMailForm();
-            NMF.Show();
         }
 
         private void buttonUserOpenMail_Click(object sender, EventArgs e)
@@ -93,26 +90,36 @@ namespace ConnectingCompanies
 
         private void buttonUserModifyData_Click(object sender, EventArgs e)
         {
-            if (!buttonModifyDataClicked)//ha még nem akart módosítani akkor engedjük a módosítást
+            if (!buttonUserSaveData.Enabled)//ha még nem akart módosítani akkor engedjük a módosítást
             {
                 textBoxUserName.Enabled = true;
                 textBoxUserAddress.Enabled = true;
+                textBoxUserBirthPlace.Enabled = true;
+                dateTimePickerUserBirthDate.Enabled = true;
                 textBoxUserDescription.Enabled = true;
-                buttonModifyDataClicked = true;
-            }
-            else//ha mégse akar módosítani
-            {    //--//módosítható mezők értékének újbóli beállítása, ha belenyúlt
-                textBoxUserName.Enabled = false;
-                textBoxUserAddress.Enabled = false;
-                textBoxUserDescription.Enabled = false;
-                buttonModifyDataClicked = false;
+
+                buttonUserUploadImage.Enabled = true;
+                buttonUserSaveData.Enabled = true;
+
+                buttonUserModifyData.Enabled = false;
             }
         }
 
         private void buttonUserSaveData_Click(object sender, EventArgs e)
         {
-            if (buttonModifyDataClicked)//ha módosított, vagy legalábbis akart
+            if (!buttonUserModifyData.Enabled)//ha módosított, vagy legalábbis akart
             {
+                textBoxUserName.Enabled = false;
+                textBoxUserAddress.Enabled = false;
+                textBoxUserBirthPlace.Enabled = false;
+                dateTimePickerUserBirthDate.Enabled = false;
+                textBoxUserDescription.Enabled = false;
+
+                buttonUserUploadImage.Enabled = false;
+                buttonUserSaveData.Enabled = false;
+
+                buttonUserModifyData.Enabled = true;
+
                 //--//
                 //textBoxUserAddress.Text;      //tartalmainak mentése db-be
                 //textBoxUserDescription.Text;
@@ -135,8 +142,10 @@ namespace ConnectingCompanies
                 }
             }
         }
-        string newUserPicture = "";
-        void ofd_FileOk(object sender, CancelEventArgs e)
+
+        private string newUserPicture = ""; //Viktornak: ez mi?
+
+        private void ofd_FileOk(object sender, CancelEventArgs e)
         {//megkapja a kiválasztott elérési utat az adattag
             if (!e.Cancel)//ha választott ki valamit
             { newUserPicture = (sender as OpenFileDialog).FileName; }
@@ -168,7 +177,9 @@ namespace ConnectingCompanies
         private void buttonGroupDeleteOffer_Click(object sender, EventArgs e)
         {
         }
-        string newCompanyPicutre = "";
+
+        private string newCompanyPicutre = "";
+
         private void buttonGroupUploadImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
@@ -183,14 +194,15 @@ namespace ConnectingCompanies
                 }
             }
         }
-        void ofd_FileOkCompany(object sender, CancelEventArgs e)
+
+        private void ofd_FileOkCompany(object sender, CancelEventArgs e)
         {//megkapja a kiválasztott elérési utat az adattag
             if (!e.Cancel)//ha választott ki valamit
             { newCompanyPicutre = (sender as OpenFileDialog).FileName; }
         }
+
         private void buttonGroupModifyData_Click(object sender, EventArgs e)
         {
-
         }
 
         private void buttonGroupSaveData_Click(object sender, EventArgs e)
@@ -212,14 +224,10 @@ namespace ConnectingCompanies
         //----------------------
         private void buttonCreateNewEvent_Click(object sender, EventArgs e)
         {
-            AddEventDialogForm AEDF = new AddEventDialogForm();
-            AEDF.Show();
         }
 
         private void buttonModifyEvent_Click(object sender, EventArgs e)
         {
-            ModifyEventDialogForm MEDF = new ModifyEventDialogForm();
-            MEDF.Show();
         }
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
@@ -275,7 +283,6 @@ namespace ConnectingCompanies
 
         private void tabControlUserInterface_TabIndexChanged(object sender, EventArgs e)
         {
-          
         }
 
         //----------------------

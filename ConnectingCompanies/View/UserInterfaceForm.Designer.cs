@@ -44,6 +44,7 @@
             this.textBoxUserDescription = new System.Windows.Forms.TextBox();
             this.labelUserDescription = new System.Windows.Forms.Label();
             this.groupBoxUserImage = new System.Windows.Forms.GroupBox();
+            this.pictureUserPicutre = new System.Windows.Forms.PictureBox();
             this.dateTimePickerUserBirthDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxUserGroupAddress = new System.Windows.Forms.TextBox();
             this.labelUserGroupAddress = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.textBoxUserGroupName = new System.Windows.Forms.TextBox();
             this.labelUserGroupName = new System.Windows.Forms.Label();
             this.labelUserBirthDate = new System.Windows.Forms.Label();
-            this.textBoxBirthPlace = new System.Windows.Forms.TextBox();
+            this.textBoxUserBirthPlace = new System.Windows.Forms.TextBox();
             this.labelUserBirthPlace = new System.Windows.Forms.Label();
             this.textBoxUserAddress = new System.Windows.Forms.TextBox();
             this.labelUserAddress = new System.Windows.Forms.Label();
@@ -79,6 +80,7 @@
             this.textBoxGroupDescription = new System.Windows.Forms.TextBox();
             this.labelGroupDescription = new System.Windows.Forms.Label();
             this.groupBoxGroupImage = new System.Windows.Forms.GroupBox();
+            this.pictureBoxCompany = new System.Windows.Forms.PictureBox();
             this.dateTimePickerDateOfFounding = new System.Windows.Forms.DateTimePicker();
             this.textBoxGroupAddress = new System.Windows.Forms.TextBox();
             this.labelGroupAddress = new System.Windows.Forms.Label();
@@ -122,27 +124,25 @@
             this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
             this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerSession = new System.Windows.Forms.Timer(this.components);
-            this.pictureUserPicutre = new System.Windows.Forms.PictureBox();
-            this.pictureBoxCompany = new System.Windows.Forms.PictureBox();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
             this.groupBoxPersonalInformation.SuspendLayout();
             this.groupBoxUserImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).BeginInit();
             this.tabPageGroupProfile.SuspendLayout();
             this.groupBoxGroupFunctions.SuspendLayout();
             this.groupBoxOfferHandling.SuspendLayout();
             this.groupBoxGroupMailHandling.SuspendLayout();
             this.groupBoxGroupInformation.SuspendLayout();
             this.groupBoxGroupImage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).BeginInit();
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
             this.tabPageAdmin.SuspendLayout();
             this.groupBoxStatistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).BeginInit();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlUserInterface
@@ -248,7 +248,7 @@
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserGroupName);
             this.groupBoxPersonalInformation.Controls.Add(this.labelUserGroupName);
             this.groupBoxPersonalInformation.Controls.Add(this.labelUserBirthDate);
-            this.groupBoxPersonalInformation.Controls.Add(this.textBoxBirthPlace);
+            this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserBirthPlace);
             this.groupBoxPersonalInformation.Controls.Add(this.labelUserBirthPlace);
             this.groupBoxPersonalInformation.Controls.Add(this.textBoxUserAddress);
             this.groupBoxPersonalInformation.Controls.Add(this.labelUserAddress);
@@ -263,6 +263,7 @@
             // 
             // buttonUserUploadImage
             // 
+            this.buttonUserUploadImage.Enabled = false;
             this.buttonUserUploadImage.Location = new System.Drawing.Point(320, 481);
             this.buttonUserUploadImage.Name = "buttonUserUploadImage";
             this.buttonUserUploadImage.Size = new System.Drawing.Size(75, 23);
@@ -273,6 +274,7 @@
             // 
             // buttonUserSaveData
             // 
+            this.buttonUserSaveData.Enabled = false;
             this.buttonUserSaveData.Location = new System.Drawing.Point(140, 481);
             this.buttonUserSaveData.Name = "buttonUserSaveData";
             this.buttonUserSaveData.Size = new System.Drawing.Size(124, 23);
@@ -318,6 +320,14 @@
             this.groupBoxUserImage.TabIndex = 15;
             this.groupBoxUserImage.TabStop = false;
             this.groupBoxUserImage.Text = "Profil kép";
+            // 
+            // pictureUserPicutre
+            // 
+            this.pictureUserPicutre.Location = new System.Drawing.Point(6, 19);
+            this.pictureUserPicutre.Name = "pictureUserPicutre";
+            this.pictureUserPicutre.Size = new System.Drawing.Size(168, 175);
+            this.pictureUserPicutre.TabIndex = 0;
+            this.pictureUserPicutre.TabStop = false;
             // 
             // dateTimePickerUserBirthDate
             // 
@@ -389,11 +399,11 @@
             // 
             // textBoxBirthPlace
             // 
-            this.textBoxBirthPlace.Enabled = false;
-            this.textBoxBirthPlace.Location = new System.Drawing.Point(105, 97);
-            this.textBoxBirthPlace.Name = "textBoxBirthPlace";
-            this.textBoxBirthPlace.Size = new System.Drawing.Size(345, 20);
-            this.textBoxBirthPlace.TabIndex = 5;
+            this.textBoxUserBirthPlace.Enabled = false;
+            this.textBoxUserBirthPlace.Location = new System.Drawing.Point(105, 97);
+            this.textBoxUserBirthPlace.Name = "textBoxBirthPlace";
+            this.textBoxUserBirthPlace.Size = new System.Drawing.Size(345, 20);
+            this.textBoxUserBirthPlace.TabIndex = 5;
             // 
             // labelUserBirthPlace
             // 
@@ -665,6 +675,14 @@
             this.groupBoxGroupImage.TabIndex = 35;
             this.groupBoxGroupImage.TabStop = false;
             this.groupBoxGroupImage.Text = "Cég logó";
+            // 
+            // pictureBoxCompany
+            // 
+            this.pictureBoxCompany.Location = new System.Drawing.Point(6, 19);
+            this.pictureBoxCompany.Name = "pictureBoxCompany";
+            this.pictureBoxCompany.Size = new System.Drawing.Size(168, 155);
+            this.pictureBoxCompany.TabIndex = 0;
+            this.pictureBoxCompany.TabStop = false;
             // 
             // dateTimePickerDateOfFounding
             // 
@@ -1069,22 +1087,6 @@
             // 
             this.timerSession.Interval = 1000;
             // 
-            // pictureUserPicutre
-            // 
-            this.pictureUserPicutre.Location = new System.Drawing.Point(6, 19);
-            this.pictureUserPicutre.Name = "pictureUserPicutre";
-            this.pictureUserPicutre.Size = new System.Drawing.Size(168, 175);
-            this.pictureUserPicutre.TabIndex = 0;
-            this.pictureUserPicutre.TabStop = false;
-            // 
-            // pictureBoxCompany
-            // 
-            this.pictureBoxCompany.Location = new System.Drawing.Point(6, 19);
-            this.pictureBoxCompany.Name = "pictureBoxCompany";
-            this.pictureBoxCompany.Size = new System.Drawing.Size(168, 155);
-            this.pictureBoxCompany.TabIndex = 0;
-            this.pictureBoxCompany.TabStop = false;
-            // 
             // UserInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1105,6 +1107,7 @@
             this.groupBoxPersonalInformation.ResumeLayout(false);
             this.groupBoxPersonalInformation.PerformLayout();
             this.groupBoxUserImage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).EndInit();
             this.tabPageGroupProfile.ResumeLayout(false);
             this.groupBoxGroupFunctions.ResumeLayout(false);
             this.groupBoxOfferHandling.ResumeLayout(false);
@@ -1114,6 +1117,7 @@
             this.groupBoxGroupInformation.ResumeLayout(false);
             this.groupBoxGroupInformation.PerformLayout();
             this.groupBoxGroupImage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).EndInit();
             this.tabPageCalendar.ResumeLayout(false);
             this.tabPageCalendar.PerformLayout();
             this.tabPageSearch.ResumeLayout(false);
@@ -1123,8 +1127,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUserPicutre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1152,7 +1154,7 @@
         private System.Windows.Forms.TextBox textBoxUserGroupName;
         private System.Windows.Forms.Label labelUserGroupName;
         private System.Windows.Forms.Label labelUserBirthDate;
-        private System.Windows.Forms.TextBox textBoxBirthPlace;
+        private System.Windows.Forms.TextBox textBoxUserBirthPlace;
         private System.Windows.Forms.Label labelUserBirthPlace;
         private System.Windows.Forms.TextBox textBoxUserAddress;
         private System.Windows.Forms.Label labelUserAddress;
