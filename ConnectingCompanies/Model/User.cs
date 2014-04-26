@@ -17,11 +17,18 @@ namespace Adatkezelõ
         public Group m_Group;
         public Message m_Message;
         private int id;
+        private String rank;
+
+        public String Rank
+        {
+            get { return rank; }
+            set { rank = value; }
+        }
 
         public int Id
         {
             get { return id; }
-            //  set { id = value; }
+            //set { id = value; }
         }
         public User()
         {
@@ -128,6 +135,8 @@ namespace Adatkezelõ
             this.type = (UserType)Enum.GetValues(typeof(UserType)).GetValue(felhasznalo.jogosultsagi_szint - 1);
             //azonosító
             this.userName = felhasznalo.azonosito;
+            this.rank = felhasznalo.beosztas;
+            this.id = felhasznalo.Id;
             this.profile = new UserProfile();
             this.profile.SetAttributesFromDB(felhasznalo);
         }

@@ -57,7 +57,10 @@ namespace ConnectingCompanies
                 timeStamp.Hour + timeStamp.Minute;
             string fileName = user + "_" + idopont;
             string path = defaultDirectory + fileName + ".txt";
-
+            if (!Directory.Exists(defaultDirectory))
+            {
+                Directory.CreateDirectory(defaultDirectory);
+            }
             using (StreamWriter sw = new StreamWriter(path))
             {
                 foreach (var item in logMessage)

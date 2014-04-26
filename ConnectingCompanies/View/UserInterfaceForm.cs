@@ -1,6 +1,7 @@
 ﻿using Adatkezelő;
 using ConnectingCompanies.Controller;
 using ConnectingCompanies.Forms;
+using ConnectingCompanies.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,24 @@ namespace ConnectingCompanies
             GetUserName();
             sessionTimer = currentSession.Timer;
             sessionTimer.Tick += sessionTimer_Tick;
+            setUserProfileDatas();
             //--// pictureBoxUserPicture image-ét beállít
+        }
+
+        private void setUserProfileDatas()
+        {
+            textBoxUserName.Text = currentSession.CurrentUser.Profile.DisplayName;
+            textBoxUserAddress.Text = currentSession.CurrentUser.Profile.PersonalAddress;
+            textBoxUserBirthPlace.Text = currentSession.CurrentUser.Profile.BirthPlace;
+            dateTimePickerUserBirthDate.Value = currentSession.CurrentUser.Profile.BirthDate;
+            textBoxUserDescription.Text = currentSession.CurrentUser.Profile.Description;
+            textBoxUserGroupPost.Text = currentSession.CurrentUser.Rank;
+            if (currentSession.CurrentUser.Profile.Group != null)
+            {
+                textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
+                textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
+            }
+            
         }
 
         private void sessionTimer_Tick(object sender, EventArgs e)
@@ -88,42 +106,36 @@ namespace ConnectingCompanies
         {
         }
 
+        private void setUserProfileFields(bool enable)
+        {
+            textBoxUserName.Enabled = enable;
+            textBoxUserAddress.Enabled = enable;
+            textBoxUserBirthPlace.Enabled = enable;
+            dateTimePickerUserBirthDate.Enabled = enable;
+            textBoxUserDescription.Enabled = enable;
+            textBoxUserGroupPost.Enabled = enable;
+        }
+
         private void buttonUserModifyData_Click(object sender, EventArgs e)
         {
-            if (!buttonUserSaveData.Enabled)//ha még nem akart módosítani akkor engedjük a módosítást
+            if (buttonUserModifyData.Enabled)
             {
-                textBoxUserName.Enabled = true;
-                textBoxUserAddress.Enabled = true;
-                textBoxUserBirthPlace.Enabled = true;
-                dateTimePickerUserBirthDate.Enabled = true;
-                textBoxUserDescription.Enabled = true;
-
-                buttonUserUploadImage.Enabled = true;
-                buttonUserSaveData.Enabled = true;
-
                 buttonUserModifyData.Enabled = false;
+                buttonUserSaveData.Enabled = true;
+                setUserProfileFields(true);
             }
         }
 
         private void buttonUserSaveData_Click(object sender, EventArgs e)
         {
-            if (!buttonUserModifyData.Enabled)//ha módosított, vagy legalábbis akart
+            if (buttonUserSaveData.Enabled)
             {
-                textBoxUserName.Enabled = false;
-                textBoxUserAddress.Enabled = false;
-                textBoxUserBirthPlace.Enabled = false;
-                dateTimePickerUserBirthDate.Enabled = false;
-                textBoxUserDescription.Enabled = false;
-
-                buttonUserUploadImage.Enabled = false;
                 buttonUserSaveData.Enabled = false;
-
                 buttonUserModifyData.Enabled = true;
-
-                //--//
-                //textBoxUserAddress.Text;      //tartalmainak mentése db-be
-                //textBoxUserDescription.Text;
-                //textBoxUserName.Text;
+                setUserProfileFields(false);
+                IUserHandler iuh = new UserHandler();
+                iuh.saveUserProfileDatas(currentSession.CurrentUser.Id, textBoxUserName.Text, textBoxUserAddress.Text, textBoxUserBirthPlace.Text,
+                    dateTimePickerUserBirthDate.Value, textBoxUserDescription.Text, textBoxUserGroupPost.Text);
             }
         }
 
