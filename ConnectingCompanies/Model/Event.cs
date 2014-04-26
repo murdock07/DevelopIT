@@ -23,7 +23,14 @@ namespace Adatkezelõ
         public Event()
         {
         }
-
+        public Event(ConnectingCompanies.esemenyek es)
+        {//letrejön a generált esemény objektum által az adatkezelõ objektum
+            this.creator = new User(es.letrehozo);
+            this.date = es.idopont;
+            this.description = es.leiras;
+            this.location = es.helyszin;
+            this.name = es.megnevezes;
+        }
         public Event CreatNewEvent()
         {
             return new Event();

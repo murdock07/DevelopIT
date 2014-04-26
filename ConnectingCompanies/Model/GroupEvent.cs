@@ -9,7 +9,7 @@ namespace Adatkezelõ
     {
         private Group group;
         private List<Group> groups;
-
+        //this.groups ---> meghvott csoportok
         public GroupEvent()
         {
         }

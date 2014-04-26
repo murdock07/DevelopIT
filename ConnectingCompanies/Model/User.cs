@@ -17,7 +17,10 @@ namespace Adatkezelõ
         public Group m_Group;
         public Message m_Message;
         private int id;
-
+        public override string ToString()//na itt viszont csak egy group van.. nem egy lsita..?
+        {
+            return this.userName + " " + this.profile.PersonalAddress;
+        }
         public int Id
         {
             get { return id; }
