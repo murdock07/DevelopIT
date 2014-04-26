@@ -124,6 +124,15 @@
             this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
             this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerSession = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -139,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompany)).BeginInit();
             this.tabPageCalendar.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
+            this.groupBoxSearchParameters.SuspendLayout();
             this.tabPageAdmin.SuspendLayout();
             this.groupBoxStatistics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).BeginInit();
@@ -157,6 +167,7 @@
             this.tabControlUserInterface.SelectedIndex = 0;
             this.tabControlUserInterface.Size = new System.Drawing.Size(786, 552);
             this.tabControlUserInterface.TabIndex = 0;
+            this.tabControlUserInterface.SelectedIndexChanged += new System.EventHandler(this.tabControlUserInterface_SelectedIndexChanged);
             this.tabControlUserInterface.TabIndexChanged += new System.EventHandler(this.tabControlUserInterface_TabIndexChanged);
             // 
             // tabPageUserProfile
@@ -397,11 +408,11 @@
             this.labelUserBirthDate.TabIndex = 6;
             this.labelUserBirthDate.Text = "Születési idő:";
             // 
-            // textBoxBirthPlace
+            // textBoxUserBirthPlace
             // 
             this.textBoxUserBirthPlace.Enabled = false;
             this.textBoxUserBirthPlace.Location = new System.Drawing.Point(105, 97);
-            this.textBoxUserBirthPlace.Name = "textBoxBirthPlace";
+            this.textBoxUserBirthPlace.Name = "textBoxUserBirthPlace";
             this.textBoxUserBirthPlace.Size = new System.Drawing.Size(345, 20);
             this.textBoxUserBirthPlace.TabIndex = 5;
             // 
@@ -907,6 +918,7 @@
             this.comboBoxSearchGroupOption.Name = "comboBoxSearchGroupOption";
             this.comboBoxSearchGroupOption.Size = new System.Drawing.Size(282, 21);
             this.comboBoxSearchGroupOption.TabIndex = 11;
+            this.comboBoxSearchGroupOption.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchGroupOption_SelectedIndexChanged);
             // 
             // listBoxSearchResults
             // 
@@ -918,6 +930,15 @@
             // 
             // groupBoxSearchParameters
             // 
+            this.groupBoxSearchParameters.Controls.Add(this.checkBox1);
+            this.groupBoxSearchParameters.Controls.Add(this.label4);
+            this.groupBoxSearchParameters.Controls.Add(this.label3);
+            this.groupBoxSearchParameters.Controls.Add(this.label2);
+            this.groupBoxSearchParameters.Controls.Add(this.label1);
+            this.groupBoxSearchParameters.Controls.Add(this.dateTimePicker1);
+            this.groupBoxSearchParameters.Controls.Add(this.textBox3);
+            this.groupBoxSearchParameters.Controls.Add(this.textBox2);
+            this.groupBoxSearchParameters.Controls.Add(this.textBox1);
             this.groupBoxSearchParameters.Location = new System.Drawing.Point(7, 35);
             this.groupBoxSearchParameters.Name = "groupBoxSearchParameters";
             this.groupBoxSearchParameters.Size = new System.Drawing.Size(398, 447);
@@ -1087,6 +1108,79 @@
             // 
             this.timerSession.Interval = 1000;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(141, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(191, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(141, 82);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(191, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(141, 132);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(191, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(141, 170);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(191, 20);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(30, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(30, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "label4";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(338, 175);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // UserInterfaceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1122,6 +1216,8 @@
             this.tabPageCalendar.PerformLayout();
             this.tabPageSearch.ResumeLayout(false);
             this.tabPageSearch.PerformLayout();
+            this.groupBoxSearchParameters.ResumeLayout(false);
+            this.groupBoxSearchParameters.PerformLayout();
             this.tabPageAdmin.ResumeLayout(false);
             this.groupBoxStatistics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStat)).EndInit();
@@ -1229,5 +1325,14 @@
         private System.Windows.Forms.Timer timerSession;
         private System.Windows.Forms.PictureBox pictureUserPicutre;
         private System.Windows.Forms.PictureBox pictureBoxCompany;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

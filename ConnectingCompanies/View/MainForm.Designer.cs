@@ -1,4 +1,5 @@
-﻿namespace ConnectingCompanies
+﻿
+namespace ConnectingCompanies
 {
     partial class MainForm
     {

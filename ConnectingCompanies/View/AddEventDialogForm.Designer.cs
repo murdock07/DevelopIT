@@ -174,13 +174,14 @@
             this.radioButtonGroup.Name = "radioButtonGroup";
             this.radioButtonGroup.Size = new System.Drawing.Size(72, 17);
             this.radioButtonGroup.TabIndex = 14;
-            this.radioButtonGroup.TabStop = true;
             this.radioButtonGroup.Text = "Csoportos";
             this.radioButtonGroup.UseVisualStyleBackColor = true;
+            this.radioButtonGroup.CheckedChanged += new System.EventHandler(this.radioButtonGroup_CheckedChanged);
             // 
             // radioButtonUser
             // 
             this.radioButtonUser.AutoSize = true;
+            this.radioButtonUser.Checked = true;
             this.radioButtonUser.Location = new System.Drawing.Point(359, 66);
             this.radioButtonUser.Name = "radioButtonUser";
             this.radioButtonUser.Size = new System.Drawing.Size(57, 17);
@@ -188,6 +189,7 @@
             this.radioButtonUser.TabStop = true;
             this.radioButtonUser.Text = "Egyéni";
             this.radioButtonUser.UseVisualStyleBackColor = true;
+            this.radioButtonUser.CheckedChanged += new System.EventHandler(this.radioButtonUser_CheckedChanged);
             // 
             // AddEventDialogForm
             // 

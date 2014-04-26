@@ -97,4 +97,32 @@ namespace ConnectingCompanies.Controller
             return null;
         }
     }
+
+  /**/  public class SearchHandler
+    {
+        nyilvantartasEntities entities = new nyilvantartasEntities();
+        public List<Adatkezelő.User> FindUserByName(string username)
+        {
+            var v = from x in entities.felhasznalok
+                    where x.nev.Contains(username)
+                    select x;
+            List<Adatkezelő.User> output = new List<Adatkezelő.User>();
+            foreach (var item in v)
+            {
+                Adatkezelő.User u = new Adatkezelő.User();
+                u.SetAttributesFromDB(item);
+                output.Add(u);
+            }
+            return output;
+        }
+        public List<Adatkezelő.Offer> FindOfferBySCompany(string cName)
+        {//ha tartalmazza a neve a stringet... persze lehetne máshogy is
+            //var v = from x in entities.csoportok
+            //        where x.cegnev.Contains(cName)
+            //        select x;
+            //var ve=from x in entities.ajanlatok
+            //       where v.Contains(x.
+            return new List<Adatkezelő.Offer>();
+        }
+    }
 }
