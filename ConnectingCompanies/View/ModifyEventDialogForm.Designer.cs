@@ -172,6 +172,7 @@
             // radioButtonUser
             // 
             this.radioButtonUser.AutoSize = true;
+            this.radioButtonUser.Checked = true;
             this.radioButtonUser.Location = new System.Drawing.Point(360, 65);
             this.radioButtonUser.Name = "radioButtonUser";
             this.radioButtonUser.Size = new System.Drawing.Size(57, 17);
@@ -179,6 +180,7 @@
             this.radioButtonUser.TabStop = true;
             this.radioButtonUser.Text = "Egyéni";
             this.radioButtonUser.UseVisualStyleBackColor = true;
+            this.radioButtonUser.CheckedChanged += new System.EventHandler(this.radioButtonUser_CheckedChanged);
             // 
             // radioButtonGroup
             // 
@@ -187,15 +189,15 @@
             this.radioButtonGroup.Name = "radioButtonGroup";
             this.radioButtonGroup.Size = new System.Drawing.Size(72, 17);
             this.radioButtonGroup.TabIndex = 28;
-            this.radioButtonGroup.TabStop = true;
             this.radioButtonGroup.Text = "Csoportos";
             this.radioButtonGroup.UseVisualStyleBackColor = true;
+            this.radioButtonGroup.CheckedChanged += new System.EventHandler(this.radioButtonGroup_CheckedChanged);
             // 
             // ModifyEventDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 311);
+            this.ClientSize = new System.Drawing.Size(624, 312);
             this.Controls.Add(this.radioButtonUser);
             this.Controls.Add(this.radioButtonGroup);
             this.Controls.Add(this.buttonCancelInvitation);

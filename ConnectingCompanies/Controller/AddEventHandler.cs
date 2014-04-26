@@ -115,7 +115,7 @@ namespace ConnectingCompanies.Controller
                     e.megnevezes = name;
                     e.Id = CreateNewEventId();
                     entities.esemenyek.Add(e);//hozzáadás lefut
-                    entities.SaveChanges();//hiba történt a bejegyzések firssítése közben Dbexception
+                    entities.SaveChanges();//hiba történt a bejegyzések firssítése közben Dbexception?!
                 }
             }
         }
@@ -128,6 +128,33 @@ namespace ConnectingCompanies.Controller
                 return v.Max() + 1;
             else
                 return 1;
+        }
+        public void DeleteEvent(Adatkezelő.Event ev)
+        {
+            var v = from x in entities.esemenyek
+                    where x.letrehozo==ev.Creator.Id&&x.helyszin==ev.Location&&x.leiras==ev.Description&&ev.Date.Year+ev.Date.Month+ev.Date.Day==x.idopont.Year+x.idopont.Month+x.idopont.Day
+                    select x;       //létrehozó, időpont és leírás alapján.. ez fals egy kicsit..
+                            
+            foreach (var item in v)
+            {
+                entities.esemenyek.Remove(item);
+                entities.SaveChanges();
+            }
+        }
+        public void ModifyEventsGroup(Adatkezelő.User us,string name,string description, string place, DateTime dTime)
+        {//tfh hogy ha a csoportos van kiválasztva akkor az események közül azt választjuk ki amelyiknek ő a létrehozója és csoportos
+         //ennek az adatait módosítjuk
+            var v = from x in entities.esemenyek
+                    where x.letrehozo == us.Id && x.csoportos == true
+                    select x;
+            if (v.Count() != 0)
+            {
+                (v as List<esemenyek>)[0].helyszin = place;
+                (v as List<esemenyek>)[0].leiras = description;
+                (v as List<esemenyek>)[0].megnevezes = name;
+                (v as List<esemenyek>)[0].idopont = dTime;
+                entities.SaveChanges();//?
+            }
         }
     }
 }

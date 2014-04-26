@@ -1,5 +1,5 @@
 using System;
-
+using System.Linq;
 namespace Adatkezelõ
 {
     public class Offer
@@ -15,7 +15,26 @@ namespace Adatkezelõ
         {
 
         }
+        public Offer(ConnectingCompanies.nyilvantartasEntities entities, ConnectingCompanies.ajanlatok off)
+        {
+            this.date = off.kezdes_datum;
+            this.description = off.leiras;
+            this.name = off.megnevezes;
 
+            var v = from x in entities.csoportok
+                    where x.Id ==off.kezdo_ceg
+                    select x;
+            Adatkezelõ.Group sourceGroup = new Adatkezelõ.Group();
+            sourceGroup.SetAttributesFromDB(v.First());
+            this.source = sourceGroup;
+
+            var w = from x in entities.csoportok
+                    where x.Id == off.fogado_ceg
+                    select x;
+            Adatkezelõ.Group destGroup = new Adatkezelõ.Group();
+            destGroup.SetAttributesFromDB(v.First());
+            this.destination = destGroup;
+        }
         public DateTime Date
         {
             get { return date; }

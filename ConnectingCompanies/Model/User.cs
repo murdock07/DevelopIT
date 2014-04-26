@@ -40,6 +40,7 @@ namespace Adatkezelõ
         }
         public User(int userId)
         {
+      
  
         }
         public Group Group
