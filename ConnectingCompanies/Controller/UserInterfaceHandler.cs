@@ -196,13 +196,69 @@ namespace ConnectingCompanies.Controller
 
     /**/
 
-    public class SearchHandler
+    public class SearchHandler:Interface.ISearchHandler
     {
         //a mainformon már van...
         //nyilvantartasEntities entities = new nyilvantartasEntities();
         //szóval ez nem kell
         //MainForm.entities;
+        public List<Adatkezelő.User> GetUsers(string name, string addr, string bPlace, DateTime birth)
+        {
+            if (name != null)
+                return FindUserByName(name);
+            if (addr != null)
+                return GetUsersByAddr(addr);
+            if (bPlace != null)
+                return GetUserByBPlace(bPlace);
+            if (birth != DateTime.MinValue)
+                return GetUserByBDate(birth);
+            else//ha mind1ik null volt, persze ha többnek volt érték adva akkor sorrendben amelyikre először teljesül, ez kicsit fals
+                throw new Exception("Hibás User keresési feltételek!");
+        }
+        public List<Adatkezelő.Event> GetEvent(string name, string place, string desc, DateTime date)
+        {
+            if (name != null)
+                return GetEventsByName(name);
+            if (place != null)
+                return GetEventsByPlace(place);
+            if (desc != null)
+                return FindEventsByDesc(desc);
+            if (date != DateTime.MinValue)
+                return GetEventsByDate(date);
+            else
+                throw new Exception("Hibás Event keresési felételek!");
+        }
+        public List<Adatkezelő.Group> GetGroups(string name, string CLname, string addr, DateTime cDate)
+        {
+            if (name != null)
+                return GetGroupsByName(name);
+            if (CLname != null)
+                return GetGroupsByCLeader(CLname);
+            if (addr != null)
+                return GetGroupsByAdd(addr);
+            if (cDate != DateTime.MinValue)
+                return GetGroupsByCreateDate(cDate);
+            else
+                throw new Exception("Hibás Group keresési feltételek!");
+        }
+        public List<Adatkezelő.Offer> GetOffers(string name, string sComp, string dComp, DateTime date)
+        {
+            if (name != null)
+                return GetOffersByName(name);
+            if (sComp != null)
+                return FindOfferBySCompany(sComp);
+            if (dComp != null)
+                return GetOffersByDestCompany(dComp);
+            if (date != DateTime.MinValue)
+                return GetOffersByDateTime(date);
+            else
+                throw new Exception("Hibás Offer keresési feltétlek!");
+        }
 
+        public List<Adatkezelő.Event> FindEventsByDesc(string desc)
+        {
+            return new List<Event>();
+        }
         public List<Adatkezelő.User> FindUserByName(string username)
         {
             var v = from x in MainForm.entities.felhasznalok //tessék így...
@@ -217,7 +273,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Offer> FindOfferBySCompany(string cName)
         {
             //ha tartalmazza a neve a stringet... persze lehetne máshogy is
@@ -238,7 +293,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Adatkezelő.Group> GetGroupsByName(string companyName)
         {
             //groupok listája amelyek cégneve tartalmazza az átadott stringet
@@ -254,7 +308,6 @@ namespace ConnectingCompanies.Controller
             }
             return groups;
         }
-
         public List<Event> GetEventsByName(string eventname)
         {
             //események melyek neve tartalmazzák az eventname-t
@@ -274,7 +327,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<User> GetUsersByAddr(string addr)
         {
             //cím alapján adja vissza
@@ -288,7 +340,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Group> GetGroupsByAdd(string add)
         {
             //telephely alapján
@@ -304,7 +355,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Group> GetGroupsByDesc(string desc)
         {
             //leírás alapján keres
@@ -320,7 +370,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<User> GetUserByBPlace(string place)
         {
             List<User> output = new List<User>();
@@ -333,7 +382,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Group> GetGroupsByCLeader(string leaderName)
         {
             List<Group> output = new List<Group>();
@@ -359,7 +407,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Offer> GetOffersByName(string name)
         {
             List<Offer> output = new List<Offer>();
@@ -374,7 +421,6 @@ namespace ConnectingCompanies.Controller
 
             return output;
         }
-
         public List<Offer> GetOffersByDestCompany(string destC)
         {
             List<Offer> output = new List<Offer>();
@@ -396,7 +442,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<User> GetUserByBDate(DateTime bDate)
         {
             List<User> output = new List<User>();
@@ -411,7 +456,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Offer> GetOffersByDateTime(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
             List<Offer> output = new List<Offer>();
@@ -424,7 +468,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Group> GetGroupsByCreateDate(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
             List<Group> output = new List<Group>();
@@ -439,7 +482,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Event> GetEventsByDate(DateTime dateTime)
         {
             List<Event> output = new List<Event>();
@@ -453,7 +495,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-
         public List<Event> GetEventsByPlace(string place)
         {
             List<Event> output = new List<Event>();
