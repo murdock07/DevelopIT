@@ -631,6 +631,7 @@
             // 
             // buttonGroupUploadImage
             // 
+            this.buttonGroupUploadImage.Enabled = false;
             this.buttonGroupUploadImage.Location = new System.Drawing.Point(6, 485);
             this.buttonGroupUploadImage.Name = "buttonGroupUploadImage";
             this.buttonGroupUploadImage.Size = new System.Drawing.Size(75, 23);
@@ -641,6 +642,7 @@
             // 
             // buttonGroupSaveData
             // 
+            this.buttonGroupSaveData.Enabled = false;
             this.buttonGroupSaveData.Location = new System.Drawing.Point(334, 485);
             this.buttonGroupSaveData.Name = "buttonGroupSaveData";
             this.buttonGroupSaveData.Size = new System.Drawing.Size(116, 23);
