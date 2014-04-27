@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConnectingCompanies.Controller
 {
-   /**/ class AddEventHandler
+    /**/
+
+    internal class AddEventHandler
     {
-        nyilvantartasEntities entities = new nyilvantartasEntities();
+        //MainForm.entities !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //private nyilvantartasEntities entities = new nyilvantartasEntities();
 
         public List<Adatkezelő.Event> GetPersonalEvents(Adatkezelő.User us)
         {//visszaadja azokat az adatkezelő.event-eket melyek létrehozója a megadott user
-
             var v = from x in entities.esemenyek
                     where x.letrehozo == us.Id
                     select x;   //van egy listánk ami tárolja azokat az eseményeket amelyeket a felhasználó hozott létre
@@ -25,28 +27,30 @@ namespace ConnectingCompanies.Controller
                 }
             }
             return new List<Adatkezelő.Event>();
-        }    
-        public List<Adatkezelő.GroupEvent> GetGroupEvents(Adatkezelő.User us)
-        {//azon eseményeket adja vissza melyek meghívott csoportjának azonosítóját tartalmazza a felhasználó csoportjainak listája
-         //kikeressük az Adatkezelő.User hez tartotó felhasznalok db objektumot
+        }
+
+        //azon eseményeket adja vissza melyek meghívott csoportjának azonosítóját tartalmazza a felhasználó csoportjainak listája
+        //kikeressük az Adatkezelő.User hez tartotó felhasznalok db objektumot
         //kikeressük azon csoportok db elemeket helyek felhasznalok listájában szerepel a megadott felhasználó
         //események táblából kiválasztjuk azokat melyeknél a kiválasztott csoport megtalálható a felhasználónk csoportjainak listájában
-            
-                var f = from x in entities.felhasznalok
-                        where x.Id == us.Id
-                        select x; // most megvan a felhasználónak megfelelő geneált db objektum;
+        public List<Adatkezelő.GroupEvent> GetGroupEvents(Adatkezelő.User us)
+        {
+            var f = from x in entities.felhasznalok
+                    where x.Id == us.Id
+                    select x; // most megvan a felhasználónak megfelelő geneált db objektum;
 
-                var ve = from x in entities.csoportok
-                         where x.felhasznalok1.Contains(f.First())
-                         select x; //most megvannak azok a generált generált db csoport objektumok melyeknek tagja a felhasználó
+            var ve = from x in entities.csoportok
+                     where x.felhasznalok1.Contains(f.First())
+                     select x; //most megvannak azok a generált generált db csoport objektumok melyeknek tagja a felhasználó
 
-                var v = from x in entities.esemenyek//végigmegyünk az eseményken, ha csoportos és a felhasználó csoportjai között szerepel az a csoport amit meghívtak akkor jó
-                        where x.csoportos == true && ve.ToList().Contains(x.csoportok)
-                        select x;   //megvannak azok a generált esemény objektumok amelyek
-                //System.Windows.Forms.MessageBox.Show(v.ToString());
-                List<Adatkezelő.GroupEvent> output = new List<Adatkezelő.GroupEvent>();
-                #region
-                //if (v != null)
+            var v = from x in entities.esemenyek//végigmegyünk az eseményken, ha csoportos és a felhasználó csoportjai között szerepel az a csoport amit meghívtak akkor jó
+                    where x.csoportos == true && ve.ToList().Contains(x.csoportok)
+                    select x;   //megvannak azok a generált esemény objektumok amelyek
+            //System.Windows.Forms.MessageBox.Show(v.ToString());
+            List<Adatkezelő.GroupEvent> output = new List<Adatkezelő.GroupEvent>();
+            //TODO: viktor ez mi?
+            #region
+            //if (v != null)
             //{
             //    foreach (var item in v.ToList())
             //    {
@@ -56,13 +60,15 @@ namespace ConnectingCompanies.Controller
             //        output.Add(ad);
             //    }//
             //}
-                #endregion
+            #endregion
             return output;//események melynek meghívott csoportjai között szerepel a felhasználó valamely csoportja
-        }      
+        }
+
+        //összes usert visszaadja //kivéve adminokat
         public List<Adatkezelő.User> GetAllUsers()
-        {//összes usert visszaadja //kivéve adminokat
+        {
             var v = from x in entities.felhasznalok
-                    where x.jogosultsagi_szint!=4//nem admin
+                    where x.jogosultsagi_szint != 4//nem admin
                     select x;       //csak a felhasználókat listázza ki nem kell az admin is
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
             if (v != null)
@@ -72,17 +78,19 @@ namespace ConnectingCompanies.Controller
                     var ve = from x in entities.felhasznalok
                              where x.Id == item.Id
                              select x;
-                    Adatkezelő.User usr= new Adatkezelő.User();
+                    Adatkezelő.User usr = new Adatkezelő.User();
                     usr.SetAttributesFromDB(ve.First());
                     output.Add(usr);
                 }
             }
             return output;
-        }   
-        public void CreateEvent(Adatkezelő.User creator,bool group,string name,string desc,string place, DateTime time,List<Adatkezelő.User> invited)
-        {//ha group igaz akkor meghívja a saját csoportjának az összes emberét?
-            //dokumentációban az volt, hogy a felhasználó, csak a saját csoportjában tud eseményt létrehozni
-            //"dolgozók is tudnak eseményeket szervezni, viszont ők csak a csoporton belül."
+        }
+
+        //ha group igaz akkor meghívja a saját csoportjának az összes emberét?
+        //dokumentációban az volt, hogy a felhasználó, csak a saját csoportjában tud eseményt létrehozni
+        //"dolgozók is tudnak eseményeket szervezni, viszont ők csak a csoporton belül."
+        public void CreateEvent(Adatkezelő.User creator, bool group, string name, string desc, string place, DateTime time, List<Adatkezelő.User> invited)
+        {
             if (group)//ha csoportos        //erről volt szó
             {
                 esemenyek e = new esemenyek();
@@ -98,7 +106,7 @@ namespace ConnectingCompanies.Controller
                 e.meghivott_csoport = creator.Group.Id;//creator.goup ==nullreference..
                 e.megnevezes = name;
                 entities.esemenyek.Add(e);
-                entities.SaveChanges();        
+                entities.SaveChanges();
             }
             else//ha egyéni//létrehozunk annyi eseményt ahány emberünk van......
             {
@@ -119,31 +127,34 @@ namespace ConnectingCompanies.Controller
                 }
             }
         }
+
         private int CreateNewEventId()
         {
             var v = from x in entities.esemenyek
                     select x.Id;
 
-            if (v != null&&v.Count()>0)
+            if (v != null && v.Count() > 0)
                 return v.Max() + 1;
             else
                 return 1;
         }
+
         public void DeleteEvent(Adatkezelő.Event ev)
         {
             var v = from x in entities.esemenyek
-                    where x.letrehozo==ev.Creator.Id&&x.helyszin==ev.Location&&x.leiras==ev.Description&&ev.Date.Year+ev.Date.Month+ev.Date.Day==x.idopont.Year+x.idopont.Month+x.idopont.Day
+                    where x.letrehozo == ev.Creator.Id && x.helyszin == ev.Location && x.leiras == ev.Description && ev.Date.Year + ev.Date.Month + ev.Date.Day == x.idopont.Year + x.idopont.Month + x.idopont.Day
                     select x;       //létrehozó, időpont és leírás alapján.. ez fals egy kicsit..
-                            
+
             foreach (var item in v)
             {
                 entities.esemenyek.Remove(item);
                 entities.SaveChanges();
             }
         }
-        public void ModifyEventsGroup(Adatkezelő.User us,string name,string description, string place, DateTime dTime)
+
+        public void ModifyEventsGroup(Adatkezelő.User us, string name, string description, string place, DateTime dTime)
         {//tfh hogy ha a csoportos van kiválasztva akkor az események közül azt választjuk ki amelyiknek ő a létrehozója és csoportos
-         //ennek az adatait módosítjuk
+            //ennek az adatait módosítjuk
             var v = from x in entities.esemenyek
                     where x.letrehozo == us.Id && x.csoportos == true
                     select x;

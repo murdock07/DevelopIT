@@ -15,7 +15,9 @@ namespace Adatkezelõ
         {
 
         }
-        public Offer(ConnectingCompanies.nyilvantartasEntities entities, ConnectingCompanies.ajanlatok off)
+
+        //MainForm.entities !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        public Offer(/*ConnectingCompanies.nyilvantartasEntities entities,*/ ConnectingCompanies.ajanlatok off)
         {
             this.date = off.kezdes_datum;
             this.description = off.leiras;

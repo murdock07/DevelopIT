@@ -7,7 +7,6 @@ namespace Adatkezelõ
 {
     public class User
     {
-
         private Group group;
         private String password;
         private UserProfile profile;
@@ -29,20 +28,20 @@ namespace Adatkezelõ
         {
             return this.userName + " " + this.profile.PersonalAddress;
         }
+
         public int Id
         {
             get { return id; }
-            //set { id = value; }
         }
+
         public User()
         {
-
         }
+
         public User(int userId)
         {
-      
- 
         }
+
         public Group Group
         {
             get

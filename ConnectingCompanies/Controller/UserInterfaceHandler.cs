@@ -1,81 +1,75 @@
 ﻿using Adatkezelő;
+using ConnectingCompanies.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConnectingCompanies.Interface;
-using System.Data;
 
 namespace ConnectingCompanies.Controller
 {
     public class UserHandler : IUserHandler
     {
-
         public UserHandler()
         {
-
         }
 
-        /// 
+        ///
         /// <param name="groupId"></param>
         /// <param name="userId"></param>
         public void CreateGroupAdmin(int groupId, int userId)
         {
-
         }
 
         public User CreateUser()
         {
-
             return null;
         }
 
-        /// 
+        ///
         /// <param name="userId"></param>
         public void DeleteUser(int userId)
         {
-
         }
 
-        /// 
+        ///
         /// <param name="userId"></param>
         public User GetUser(int userId)
         {
-
             return null;
         }
 
         public void saveUserProfileDatas(int userId, string name, string address, string birthPlace, DateTime birthDate, string description, string rank)
         {
-            using (var entity = new nyilvantartasEntities())
-            {
-                var loginUser = from x in entity.felhasznalok
-                                where x.Id == userId
-                                select x;
-                felhasznalok felh = loginUser.First();
-                felh.nev = name;
-                felh.lakhely = address;
-                felh.szuletesi_hely = birthPlace;
-                felh.szuletesi_ido = birthDate;
-                felh.leiras = description;
-                felh.beosztas = rank;
+            //MainForm.entities !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-                entity.felhasznalok.Attach(felh);
-                entity.Entry(felh).State = EntityState.Modified;
-                entity.SaveChanges();
-            }
+            //using (var entity = new nyilvantartasEntities())
+            //{
+            //    var loginUser = from x in entity.felhasznalok
+            //                    where x.Id == userId
+            //                    select x;
+            //    felhasznalok felh = loginUser.First();
+            //    felh.nev = name;
+            //    felh.lakhely = address;
+            //    felh.szuletesi_hely = birthPlace;
+            //    felh.szuletesi_ido = birthDate;
+            //    felh.leiras = description;
+            //    felh.beosztas = rank;
+
+            //    entity.felhasznalok.Attach(felh);
+            //    entity.Entry(felh).State = EntityState.Modified;
+            //    entity.SaveChanges();
+            //}
         }
     }
 
     public class GroupHandler
     {
-
         public Group m_Group;
 
         public GroupHandler()
         {
-
         }
 
         public Group CreateGroup()
@@ -83,14 +77,13 @@ namespace ConnectingCompanies.Controller
             return null;
         }
 
-        /// 
+        ///
         /// <param name="groupId"></param>
         public void DeleteGroup(int groupId)
         {
-
         }
 
-        /// 
+        ///
         /// <param name="groupId"></param>
         public Group getGroup(int groupId)
         {
@@ -98,12 +91,18 @@ namespace ConnectingCompanies.Controller
         }
     }
 
-  /**/  public class SearchHandler
+    /**/
+
+    public class SearchHandler
     {
-        nyilvantartasEntities entities = new nyilvantartasEntities();
+        //a mainformon már van...
+        //nyilvantartasEntities entities = new nyilvantartasEntities();
+        //szóval ez nem kell
+        //MainForm.entities;
+
         public List<Adatkezelő.User> FindUserByName(string username)
         {
-            var v = from x in entities.felhasznalok
+            var v = from x in MainForm.entities.felhasznalok //tessék így...
                     where x.nev.Contains(username)
                     select x;
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
@@ -115,27 +114,31 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Offer> FindOfferBySCompany(string cName)
-        {//ha tartalmazza a neve a stringet... persze lehetne máshogy is
-           List<Adatkezelő.Offer> output=new List<Adatkezelő.Offer>();
-           var w = from x in entities.csoportok
-                   where x.cegnev.Contains(cName)
-                   select x.Id;//cégazonosítók listája melyek nevében szerepel a string
-           if (w.Count() != 0)
-           {
-               var v = from x in entities.ajanlatok
-                       where w.Contains(x.kezdo_ceg)
-                       select x;//ajánlatok listája
-               foreach (var item in v)
-               {
-                   Adatkezelő.Offer o = new Adatkezelő.Offer(entities, item);
-                   output.Add(o);
-               }
-           }
-           return output;
+        {
+            //ha tartalmazza a neve a stringet... persze lehetne máshogy is
+            List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
+            var w = from x in entities.csoportok
+                    where x.cegnev.Contains(cName)
+                    select x.Id;//cégazonosítók listája melyek nevében szerepel a string
+            if (w.Count() != 0)
+            {
+                var v = from x in entities.ajanlatok
+                        where w.Contains(x.kezdo_ceg)
+                        select x;//ajánlatok listája
+                foreach (var item in v)
+                {
+                    Adatkezelő.Offer o = new Adatkezelő.Offer(entities, item);
+                    output.Add(o);
+                }
+            }
+            return output;
         }
+
         public List<Adatkezelő.Group> GetGroupsByName(string companyName)
-        {//groupok listája amelyek cégneve tartalmazza az átadott stringet
+        {
+            //groupok listája amelyek cégneve tartalmazza az átadott stringet
             var v = from x in entities.csoportok
                     where x.cegnev.Contains(companyName)
                     select x;
@@ -148,16 +151,18 @@ namespace ConnectingCompanies.Controller
             }
             return groups;
         }
+
         public List<Adatkezelő.Event> GetEventsByName(string eventname)
-        {//események melyek neve tartalmazzák az eventname-t
+        {
+            //események melyek neve tartalmazzák az eventname-t
             List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();
             var v = from x in entities.esemenyek
                     where x.megnevezes.Contains(eventname)
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Event ev= new Adatkezelő.Event();
-                ev.Creator =new Adatkezelő.User( item.letrehozo);
+                Adatkezelő.Event ev = new Adatkezelő.Event();
+                ev.Creator = new Adatkezelő.User(item.letrehozo);
                 ev.Date = item.idopont;
                 ev.Description = item.leiras;
                 ev.Location = item.helyszin;
@@ -166,8 +171,10 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.User> GetUsersByAddr(string addr)
-        {//cím alapján adja vissza
+        {
+            //cím alapján adja vissza
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
             var v = from x in entities.felhasznalok
                     where x.lakhely.Contains(addr)
@@ -178,8 +185,10 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Group> GetGroupsByAdd(string add)
-        {//telephely alapján
+        {
+            //telephely alapján
             List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
             var v = from x in entities.csoportok
                     where x.telephely.Contains(add)
@@ -192,8 +201,10 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Group> GetGroupsByDesc(string desc)
-        {//leírás alapján keres
+        {
+            //leírás alapján keres
             List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
             var v = from x in entities.csoportok
                     where x.leiras.Contains(desc)
@@ -205,8 +216,8 @@ namespace ConnectingCompanies.Controller
                 output.Add(a);
             }
             return output;
-        
         }
+
         public List<Adatkezelő.User> GetUserByBPlace(string place)
         {
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
@@ -219,6 +230,7 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Group> GetGroupsByCLeader(string leaderName)
         {
             List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
@@ -234,9 +246,9 @@ namespace ConnectingCompanies.Controller
                     if (ve.First() != null)
                     {//létezik a felh
                         var w = from x in entities.csoportok
-                                where x.cegvezeto ==item
+                                where x.cegvezeto == item
                                 select x;//fehasználó objektum
-                        Adatkezelő.Group g= new Adatkezelő.Group();
+                        Adatkezelő.Group g = new Adatkezelő.Group();
                         g.SetAttributesFromDB(w.First());
                         output.Add(g);
                     }
@@ -244,6 +256,7 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Offer> GetOffersByName(string name)
         {
             List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
@@ -252,20 +265,21 @@ namespace ConnectingCompanies.Controller
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Offer o = new Adatkezelő.Offer(entities,item);
+                Adatkezelő.Offer o = new Adatkezelő.Offer(entities, item);
                 output.Add(o);
             }
 
             return output;
         }
+
         public List<Adatkezelő.Offer> GetOffersByDestCompany(string destC)
         {
             List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
-            var v=from x in entities.csoportok  //groupIDk listája amiknek cégeneve tartalmazza a stringet
-                  where x.cegnev.Contains(destC)
-                  select x.Id;
-            
-            if(v.Count()!=0)
+            var v = from x in entities.csoportok  //groupIDk listája amiknek cégeneve tartalmazza a stringet
+                    where x.cegnev.Contains(destC)
+                    select x.Id;
+
+            if (v.Count() != 0)
             {
                 var w = from x in entities.ajanlatok
                         where v.Contains(x.fogado_ceg)
@@ -279,12 +293,13 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.User> GetUserByBDate(DateTime bDate)
         {
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
             var v = from x in entities.felhasznalok
-                    where x.szuletesi_ido.Year+x.szuletesi_ido.Month+x.szuletesi_ido.Day==bDate.Year+bDate.Month+bDate.Day//!!!!nem datetime=datetime
-                    select x;              
+                    where x.szuletesi_ido.Year + x.szuletesi_ido.Month + x.szuletesi_ido.Day == bDate.Year + bDate.Month + bDate.Day//!!!!nem datetime=datetime
+                    select x;
             foreach (var item in v)
             {
                 Adatkezelő.User usr = new Adatkezelő.User();
@@ -293,38 +308,41 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Offer> GetOffersByDateTime(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
-            List<Adatkezelő.Offer> output=new List<Adatkezelő.Offer>();
+            List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
             var v = from x in entities.ajanlatok
                     where x.kezdes_datum >= dTime && x.zaras_datum != null && x.zaras_datum <= dTime
                     select x;
             foreach (var item in v)
             {
-                output.Add( new Adatkezelő.Offer(entities, item));
+                output.Add(new Adatkezelő.Offer(entities, item));
             }
             return output;
         }
+
         public List<Adatkezelő.Group> GetGroupsByCreateDate(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
             List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
             var v = from x in entities.csoportok
-                    where x.alapitas_datuma==dTime//OK?
+                    where x.alapitas_datuma == dTime//OK?
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Group g= new Adatkezelő.Group();
+                Adatkezelő.Group g = new Adatkezelő.Group();
                 g.SetAttributesFromDB(item);
                 output.Add(g);
             }
             return output;
         }
+
         public List<Adatkezelő.Event> GetEventsByDate(DateTime dateTime)
         {
             List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();
 
             var v = from x in entities.esemenyek
-                    where x.idopont.Year+x.idopont.Month+x.idopont.Day==dateTime.Year+dateTime.Month+dateTime.Day//!!! óra eltérés miatt
+                    where x.idopont.Year + x.idopont.Month + x.idopont.Day == dateTime.Year + dateTime.Month + dateTime.Day//!!! óra eltérés miatt
                     select x;
             foreach (var item in v)
             {
@@ -332,6 +350,7 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
+
         public List<Adatkezelő.Event> GetEventsByPlace(string place)
         {
             List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();

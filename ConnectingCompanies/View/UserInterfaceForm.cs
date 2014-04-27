@@ -21,7 +21,7 @@ namespace ConnectingCompanies
         private List<ToolStripItem> menuItems;
 
         /**/
-        Controller.AddEventHandler aeh = new Controller.AddEventHandler();//interface...
+        private Controller.AddEventHandler aeh = new Controller.AddEventHandler();//interface...
 
         public UserInterfaceForm(Session cs)
         {
@@ -37,7 +37,7 @@ namespace ConnectingCompanies
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
             HideLabels();//kezdetben nincs kiválasztva semmi, ne legyenek fals labelek
             setUserProfileDatas();
-            
+
             //--// pictureBoxUserPicture image-ét beállítani
         }
 
@@ -54,7 +54,6 @@ namespace ConnectingCompanies
                 textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
                 textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
             }
-
         }
 
         private void sessionTimer_Tick(object sender, EventArgs e)
@@ -131,6 +130,7 @@ namespace ConnectingCompanies
             {
                 buttonUserModifyData.Enabled = false;
                 buttonUserSaveData.Enabled = true;
+                buttonUserUploadImage.Enabled = true;
                 setUserProfileFields(true);
             }
         }
@@ -140,6 +140,7 @@ namespace ConnectingCompanies
             if (buttonUserSaveData.Enabled)
             {
                 buttonUserSaveData.Enabled = false;
+                buttonUserUploadImage.Enabled = false;
                 buttonUserModifyData.Enabled = true;
                 setUserProfileFields(false);
                 IUserHandler iuh = new UserHandler();
@@ -265,13 +266,13 @@ namespace ConnectingCompanies
         {
             //tegyük fel,hogy csak azokat az eseményeket tudja törölni melyeket ő hozott létre
             //ha egy csoport tagja és meg van hívva, akkor nem tudja törölni, szal csak az első listboxban tud nyúkálni
-           if(listBoxPersonalEvents.SelectedIndex!=-1)
-           {
-               aeh.DeleteEvent(listBoxPersonalEvents.SelectedItem as Adatkezelő.Event);
-               listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);//frissül a listbox
-           }
-           else
-               MessageBox.Show("Nincs kiválasztott esemény!");
+            if (listBoxPersonalEvents.SelectedIndex != -1)
+            {
+                aeh.DeleteEvent(listBoxPersonalEvents.SelectedItem as Adatkezelő.Event);
+                listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);//frissül a listbox
+            }
+            else
+                MessageBox.Show("Nincs kiválasztott esemény!");
         }
 
         //----------------------
@@ -283,6 +284,7 @@ namespace ConnectingCompanies
         //----------------------
 
         /**/
+
         private void buttonClearSearchParameters_Click(object sender, EventArgs e)
         {//szerintem..
             textBox1.Text = "";
@@ -291,7 +293,9 @@ namespace ConnectingCompanies
             checkBox1.Checked = false;
             listBoxSearchResults.DataSource = null;
         }
+
         /**/
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {//tegyük fel, hogy egyszerre csak 1 mező alapján lehet keresni
             //ha több bementi adato adott meg akkor nem keresünk, talán így a legegyszerűbb
@@ -304,7 +308,7 @@ namespace ConnectingCompanies
                 {
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")//ha felhasználót akar keresni
                         listBoxSearchResults.DataSource = sh.FindUserByName(textBox1.Text);
-                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")//ha ajánlatot keres//keződ cég alapján 
+                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")//ha ajánlatot keres//keződ cég alapján
                         listBoxSearchResults.DataSource = sh.FindOfferBySCompany(textBox1.Text);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Csoport")
                         listBoxSearchResults.DataSource = sh.GetGroupsByName(textBox1.Text);
@@ -332,7 +336,7 @@ namespace ConnectingCompanies
                         listBoxSearchResults.DataSource = sh.GetGroupsByCLeader(textBox3.Text);//cégvezető
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Esemény")
                         listBoxSearchResults.DataSource = sh.GetEventsByPlace(textBox3.Text);
-                }//harmadik textbox alapján akar keresni/többi üres és nincs checked 
+                }//harmadik textbox alapján akar keresni/többi üres és nincs checked
                 else if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" & checkBox1.Checked)
                 {
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")
@@ -347,7 +351,9 @@ namespace ConnectingCompanies
                 else MessageBox.Show("Hibás keresés!");//több helyre adott meg értéket
             }
         }
+
         /**/
+
         private void tabControlUserInterface_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((sender as TabControl).SelectedTab.Name == "tabPageSearch")
@@ -355,7 +361,9 @@ namespace ConnectingCompanies
                 BuildGui();
             }
         }
+
         /**/
+
         private void BuildGui()//labelek tartalmának beállítása, ha kell elrejtés
         {
             if (tabControlUserInterface.SelectedTab.Name == "tabPageSearch")
@@ -397,7 +405,9 @@ namespace ConnectingCompanies
                 { HideLabels(); }
             }
         }
+
         /**/
+
         private void ShowLabels()
         {
             label1.Show();
@@ -405,7 +415,9 @@ namespace ConnectingCompanies
             label3.Show();
             label4.Show();     //intervallumon belül
         }
+
         /**/
+
         private void HideLabels()//elrejti
         {
             label1.Hide();
@@ -413,7 +425,9 @@ namespace ConnectingCompanies
             label3.Hide();
             label4.Hide();     //intervallumon belül
         }
+
         /**/
+
         private void comboBoxSearchGroupOption_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuildGui();//labelek tartalmának beállítása szempont szerint
@@ -455,8 +469,8 @@ namespace ConnectingCompanies
         {
         }
 
-
         //----------------------
+
         #endregion Admin
     }
 }
