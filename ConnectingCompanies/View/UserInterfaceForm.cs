@@ -41,6 +41,7 @@ namespace ConnectingCompanies
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
             HideLabels();//kezdetben nincs kiválasztva semmi, ne legyenek fals labelek
             setUserProfileDatas();
+            setGroupPrilfeDatas();
 
             //--// pictureBoxUserPicture image-ét beállítani
         }
@@ -62,6 +63,21 @@ namespace ConnectingCompanies
             if (avatarPath != null)
             {
                 pictureUserPicutre.ImageLocation = avatarPath;
+            }
+        }
+
+        private void setGroupPrilfeDatas()
+        {
+            if (currentSession.CurrentUser.Group != null)
+            {
+                Group userGroup = currentSession.CurrentUser.Group;
+                textBoxGroupName.Text = userGroup.Name;
+                textBoxGroupAddress.Text = userGroup.Address;
+                Console.WriteLine("GROUPADMIN: " + userGroup.GroupAdmin.Id);
+                textBoxGroupLeader.Text = userGroup.GroupAdmin.Profile.DisplayName;
+                textBoxGroupMailAdress.Text = userGroup.MailAddress;
+                dateTimePickerDateOfFounding.Value = userGroup.DateOfFounding == null ? DateTime.Now : (DateTime)userGroup.DateOfFounding;
+                textBoxGroupDescription.Text = userGroup.Description;
             }
         }
 
@@ -166,7 +182,7 @@ namespace ConnectingCompanies
         }
 
         private void ofd_FileOk(object sender, CancelEventArgs e)
-        {//megkapja a kiválasztott elérési utat az adattag
+        {
             String pictureUrl = "";
             if (!e.Cancel)
             {
@@ -184,14 +200,13 @@ namespace ConnectingCompanies
 
         private void setGroupProfileFields(bool enable)
         {
-            /*
-            textBoxUserName.Enabled = enable;
-            textBoxUserAddress.Enabled = enable;
-            textBoxUserBirthPlace.Enabled = enable;
-            dateTimePickerUserBirthDate.Enabled = enable;
-            textBoxUserDescription.Enabled = enable;
-            textBoxUserGroupPost.Enabled = enable;
-            */
+            
+            textBoxGroupName.Enabled = enable;
+            textBoxGroupAddress.Enabled = enable;
+            textBoxGroupMailAdress.Enabled = enable;
+            dateTimePickerDateOfFounding.Enabled = enable;
+            textBoxGroupDescription.Enabled = enable;
+            
         }
 
         //----------------------
@@ -247,6 +262,7 @@ namespace ConnectingCompanies
                 {
                     buttonGroupModifyData.Enabled = false;
                     buttonGroupSaveData.Enabled = true;
+                    setGroupProfileFields(true);
                 }
             }
             catch (PermissionDeniedException ex)
@@ -272,6 +288,7 @@ namespace ConnectingCompanies
                 {
                     buttonGroupSaveData.Enabled = false;
                     buttonGroupModifyData.Enabled = true;
+                    setGroupProfileFields(false);
                 }
             }
         }

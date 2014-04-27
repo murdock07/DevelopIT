@@ -14,13 +14,12 @@ namespace ConnectingCompanies
     public partial class
         MainForm : Form
     {
-        public static nyilvantartasEntities entities;
+        public static nyilvantartasEntities entities = new nyilvantartasEntities();
         public Session currentSession;
 
         public MainForm()
         {
             InitializeComponent();
-            entities = new nyilvantartasEntities();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)

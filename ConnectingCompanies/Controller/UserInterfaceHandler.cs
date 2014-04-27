@@ -75,7 +75,6 @@ namespace ConnectingCompanies.Controller
             felh.leiras = description;
             felh.beosztas = rank;
 
-            MainForm.entities.felhasznalok.Attach(felh);
             MainForm.entities.Entry(felh).State = EntityState.Modified;
             MainForm.entities.SaveChanges();
         }
@@ -84,15 +83,12 @@ namespace ConnectingCompanies.Controller
         {
             if (File.Exists(url))
             {
-                
-
                 if (!Directory.Exists(destionationDir))
                 {
                     Directory.CreateDirectory(destionationDir);
                 }
                 String extension = url.Substring(url.LastIndexOf(".") + 1);
-                Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970,1,1))).TotalMilliseconds;
-                String destinationFileName = userId.ToString() + "" + unixTimestamp + "." + extension;
+                String destinationFileName = userId.ToString() + "_avatar." + extension;
                 String destinationPath = Path.Combine(destionationDir, destinationFileName);
 
                 File.Copy(@url, destinationPath, true);
@@ -175,7 +171,8 @@ namespace ConnectingCompanies.Controller
                             select x;
             User user = new User();
             user.SetAttributesFromDB(loginUser.First());
-            if (!user.GetType().Equals(UserType.GroupAdmin) && !user.GetType().Equals(UserType.SysAdmin))
+            
+            if (user.GetType().Equals(UserType.GroupUser) || user.GetType().Equals(UserType.Guest))
             {
                 throw new PermissionDeniedException("Hozzáférés megtagadva! Csak a group adminnak van joga a csoport adatlapot módosítani!");
             }

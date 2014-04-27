@@ -116,10 +116,17 @@ namespace Adatkezelõ
 
         public void SetAttributesFromDB(felhasznalok felhasznalo)
         {
+            //GroupAdmin lekérésnél körkörös hivatkaozásba került, mert mindig be akarta állítani a groupo, azonbelül a groupadmin és így tovább.
+            //Magyará mondva végelen függvényhívás.
+            SetAttributesFromDB(felhasznalo, true);
+        }
+
+        public void SetAttributesFromDB(felhasznalok felhasznalo, bool setGroup)
+        {
             //csoport kiválasztása a felhasználóhoz
             if (!admin)
             {
-                if (felhasznalo.csoport != null)
+                if (felhasznalo.csoport != null && setGroup)
                 {
                     var cs = from x in MainForm.entities.csoportok
                              where x.Id == (int)felhasznalo.csoport
