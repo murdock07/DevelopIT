@@ -31,6 +31,7 @@ namespace ConnectingCompanies
             GetUserName();
             sessionTimer = currentSession.Timer;
             sessionTimer.Tick += sessionTimer_Tick;
+
             //feltöltjük a listboxPersonalEventset azokkal az eseményekkel melyeket ő hozott létre
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
             //feltöltjük a listát azokkal az eseményekkel melyek kapcsolatosak az ő csoportjaival

@@ -12,14 +12,17 @@ namespace ConnectingCompanies
 {
     public partial class AddEventDialogForm : Form
     {
+        private Session sess;
+
         public AddEventDialogForm(Session sess)
         {
             InitializeComponent();
             listBoxUsersToInvite.DataSource = aeh.GetAllUsers();//megjelenítjük az összes felhasználót//vagy csak azokat akikkel egy csoportban van?
             this.sess = sess;
         }
-        Session sess;
-        Controller.AddEventHandler aeh = new Controller.AddEventHandler();
+
+        //nem példányosítunk....
+        //Controller.AddEventHandler aeh = new Controller.AddEventHandler();
         private void buttonSaveNewEvent_Click(object sender, EventArgs e)
         {
             if (textBoxEventPlace.Text == "" || textBoxEventName.Text == "" || textBoxDescription.Text == "" || invitedUsers.Count() < 2 && !radioButtonGroup.Checked)
@@ -44,7 +47,9 @@ namespace ConnectingCompanies
             }
         }
 
-       /*OK*/ private void buttonCloseNewEventDialog_Click(object sender, EventArgs e)
+        /*OK*/
+
+        private void buttonCloseNewEventDialog_Click(object sender, EventArgs e)
         {
             //Figyelmeztetés
             MessageBox.Show("Biztosan bezárja?", "Figyelmeztetés", MessageBoxButtons.YesNo);
@@ -52,8 +57,10 @@ namespace ConnectingCompanies
             this.Close();
         }
 
-        List<Adatkezelő.User> invitedUsers = new List<Adatkezelő.User>();
-        /*OK*/private void buttonInviteUser_Click(object sender, EventArgs e)
+        private List<Adatkezelő.User> invitedUsers = new List<Adatkezelő.User>();
+        /*OK*/
+
+        private void buttonInviteUser_Click(object sender, EventArgs e)
         {
             if (listBoxUsersToInvite.SelectedIndex != -1)//ha kiválasztott usert
             {
@@ -66,7 +73,10 @@ namespace ConnectingCompanies
             }
             //meghívottak hozzáadása
         }
-       /*OK*/ private void buttonCancelInvitation_Click(object sender, EventArgs e)
+
+        /*OK*/
+
+        private void buttonCancelInvitation_Click(object sender, EventArgs e)
         {
             if (listBoxUsersInvited.SelectedIndex != -1)//ha választott ki visszavonandó usert
             {
@@ -76,7 +86,10 @@ namespace ConnectingCompanies
             }
             //meghívás visszavonása
         }
-        /*OK*/private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)
+
+        /*OK*/
+
+        private void radioButtonGroup_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonGroup.Checked)//ha csoportos akkor ne válasszon ki emereeket
             {
@@ -86,7 +99,10 @@ namespace ConnectingCompanies
                 buttonInviteUser.Enabled = false;
             }
         }
-       /*OK*/ private void radioButtonUser_CheckedChanged(object sender, EventArgs e)
+
+        /*OK*/
+
+        private void radioButtonUser_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonUser.Checked)
             {

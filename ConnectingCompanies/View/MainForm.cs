@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ConnectingCompanies
 {
-    public partial class 
+    public partial class
         MainForm : Form
     {
         public static nyilvantartasEntities entities;
@@ -25,8 +25,9 @@ namespace ConnectingCompanies
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-           string user = textBoxLoginUserName.Text;
+            string user = textBoxLoginUserName.Text;
             string password = textBoxLoginPassword.Text;
+            //???????????????????????????????
             #region
             /* string s = "";
              var v = from x in entities.felhasznalok//majd tötöld ki

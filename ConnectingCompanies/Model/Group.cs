@@ -11,13 +11,15 @@ namespace Adatkezelõ
         private List<GroupEvent> groupEvent;
         private List<Offer> offers;
         public GroupProfile groupProfile;
-       /**/ private int id;
+        /**/
+        private int id;
 
         public int Id
         {
             get { return id; }
-          //  set { id = value; }
+            //  set { id = value; }
         }
+
         public Group()
         {
         }
@@ -42,6 +44,7 @@ namespace Adatkezelõ
 
         internal void SetAttributesFromDB(csoportok cs)
         {
+            //TODO: kijavítani
             //var u = from x in MainForm.entities.felhasznalok
             //        where x.Id == cs.cegvezeto
             //        select x;
