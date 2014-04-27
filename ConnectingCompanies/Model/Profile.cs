@@ -4,14 +4,14 @@ using System.Drawing;
 namespace Adatkezelõ {
 	public class Profile {
 
-		private Image avatar;
+		private int? avatar;
 		private String description;
 
 		public Profile(){
 
 		}
 
-		public Image Avatar{
+		public int? Avatar{
 			get{
 				return avatar;
 			}

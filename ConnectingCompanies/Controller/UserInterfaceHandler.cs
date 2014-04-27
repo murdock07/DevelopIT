@@ -1,17 +1,26 @@
 ﻿using Adatkezelő;
-using ConnectingCompanies.Interface;
 using ConnectingCompanies;
+using ConnectingCompanies.Interface;
+using ConnectingCompanies.Exection;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ConnectingCompanies.Controller
 {
     public class UserHandler : IUserHandler
     {
+        private static String destionationDir = ".\\uploads";
+
+        public static String DestionationDir
+        {
+            get { return UserHandler.destionationDir; }
+            //set { UserHandler.destionationDir = value; }
+        }
         public UserHandler()
         {
         }
@@ -38,12 +47,23 @@ namespace ConnectingCompanies.Controller
         /// <param name="userId"></param>
         public User GetUser(int userId)
         {
-            return null;
+            var loginUser = from x in MainForm.entities.felhasznalok
+                            where x.Id == userId
+                            select x;
+            if (loginUser.Count() == 0)
+            {
+                return null;
+            }
+            else
+            {
+                User user = new User();
+                user.SetAttributesFromDB(loginUser.First());
+                return user;
+            }
         }
 
         public void saveUserProfileDatas(int userId, string name, string address, string birthPlace, DateTime birthDate, string description, string rank)
         {
-
             var loginUser = from x in MainForm.entities.felhasznalok
                             where x.Id == userId
                             select x;
@@ -59,9 +79,70 @@ namespace ConnectingCompanies.Controller
             MainForm.entities.Entry(felh).State = EntityState.Modified;
             MainForm.entities.SaveChanges();
         }
+
+        public String saveUserAvatar(int userId, String url)
+        {
+            if (File.Exists(url))
+            {
+                
+
+                if (!Directory.Exists(destionationDir))
+                {
+                    Directory.CreateDirectory(destionationDir);
+                }
+                String extension = url.Substring(url.LastIndexOf(".") + 1);
+                Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970,1,1))).TotalMilliseconds;
+                String destinationFileName = userId.ToString() + "" + unixTimestamp + "." + extension;
+                String destinationPath = Path.Combine(destionationDir, destinationFileName);
+
+                File.Copy(@url, destinationPath, true);
+                
+                kepek kep = new kepek();
+                kep.Id = MainForm.entities.kepek.Count() + 1;
+                kep.utvonal = destinationFileName;
+                MainForm.entities.kepek.Add(kep);
+
+                var loginUser = from x in MainForm.entities.felhasznalok
+                                where x.Id == userId
+                                select x;
+                felhasznalok felh = loginUser.First();
+                felh.profilkep = kep.Id;
+                MainForm.entities.felhasznalok.Attach(felh);
+                
+                MainForm.entities.Entry(felh).State = EntityState.Modified;
+                MainForm.entities.SaveChanges();
+
+                return destinationPath;
+            }
+            else
+            {
+                throw new FileNotFoundException("A megadott fájl nem létezik!");
+            }
+        }
+
+        public String getUserAvatarPath(int userId)
+        {
+            var loginUser = from x in MainForm.entities.felhasznalok
+                            where x.Id == userId
+                            select x;
+            User user = new User();
+            user.SetAttributesFromDB(loginUser.First());
+
+            var userAvatar = from x in MainForm.entities.kepek
+                             where x.Id == user.Profile.Avatar
+                             select x;
+            String avatarPath = null;
+
+            if (userAvatar.Count() > 0)
+            {
+                avatarPath = Path.Combine(destionationDir, userAvatar.First().utvonal);
+            }
+
+            return avatarPath;
+        }
     }
 
-    public class GroupHandler
+    public class GroupHandler : IGroupHandler
     {
         public Group m_Group;
 
@@ -86,6 +167,31 @@ namespace ConnectingCompanies.Controller
         {
             return null;
         }
+
+        public void userHavePermission(int userId)
+        {
+            var loginUser = from x in MainForm.entities.felhasznalok
+                            where x.Id == userId
+                            select x;
+            User user = new User();
+            user.SetAttributesFromDB(loginUser.First());
+            if (!user.GetType().Equals(UserType.GroupAdmin) && !user.GetType().Equals(UserType.SysAdmin))
+            {
+                throw new PermissionDeniedException("Hozzáférés megtagadva! Csak a group adminnak van joga a csoport adatlapot módosítani!");
+            }
+        }
+
+        public void saveGroupDatas(int userId)
+        {
+            try
+            {
+                this.userHavePermission(userId);
+            }
+            catch (PermissionDeniedException ex)
+            {
+                throw ex;
+            }
+        }
     }
 
     /**/
@@ -102,7 +208,7 @@ namespace ConnectingCompanies.Controller
             var v = from x in MainForm.entities.felhasznalok //tessék így...
                     where x.nev.Contains(username)
                     select x;
-            List<Adatkezelő.User> output = new List<Adatkezelő.User>();
+            List<User> output = new List<User>();
             foreach (var item in v)
             {
                 Adatkezelő.User u = new Adatkezelő.User();
@@ -112,10 +218,10 @@ namespace ConnectingCompanies.Controller
             return output;
         }
 
-        public List<Adatkezelő.Offer> FindOfferBySCompany(string cName)
+        public List<Offer> FindOfferBySCompany(string cName)
         {
             //ha tartalmazza a neve a stringet... persze lehetne máshogy is
-            List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
+            List<Offer> output = new List<Offer>();
             var w = from x in MainForm.entities.csoportok
                     where x.cegnev.Contains(cName)
                     select x.Id;//cégazonosítók listája melyek nevében szerepel a string
@@ -126,7 +232,7 @@ namespace ConnectingCompanies.Controller
                         select x;//ajánlatok listája
                 foreach (var item in v)
                 {
-                    Adatkezelő.Offer o = new Adatkezelő.Offer(item);
+                    Offer o = new Offer(item);
                     output.Add(o);
                 }
             }
@@ -139,27 +245,27 @@ namespace ConnectingCompanies.Controller
             var v = from x in MainForm.entities.csoportok
                     where x.cegnev.Contains(companyName)
                     select x;
-            List<Adatkezelő.Group> groups = new List<Group>();
+            List<Group> groups = new List<Group>();
             foreach (var item in v)
             {
-                Adatkezelő.Group newgroup = new Adatkezelő.Group();
+                Group newgroup = new Group();
                 newgroup.SetAttributesFromDB(item);
                 groups.Add(newgroup);
             }
             return groups;
         }
 
-        public List<Adatkezelő.Event> GetEventsByName(string eventname)
+        public List<Event> GetEventsByName(string eventname)
         {
             //események melyek neve tartalmazzák az eventname-t
-            List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();
+            List<Event> output = new List<Event>();
             var v = from x in MainForm.entities.esemenyek
                     where x.megnevezes.Contains(eventname)
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Event ev = new Adatkezelő.Event();
-                ev.Creator = new Adatkezelő.User(item.letrehozo);
+                Event ev = new Event();
+                ev.Creator = new User(item.letrehozo);
                 ev.Date = item.idopont;
                 ev.Description = item.leiras;
                 ev.Location = item.helyszin;
@@ -169,10 +275,10 @@ namespace ConnectingCompanies.Controller
             return output;
         }
 
-        public List<Adatkezelő.User> GetUsersByAddr(string addr)
+        public List<User> GetUsersByAddr(string addr)
         {
             //cím alapján adja vissza
-            List<Adatkezelő.User> output = new List<Adatkezelő.User>();
+            List<User> output = new List<User>();
             var v = from x in MainForm.entities.felhasznalok
                     where x.lakhely.Contains(addr)
                     select x;
@@ -183,54 +289,54 @@ namespace ConnectingCompanies.Controller
             return output;
         }
 
-        public List<Adatkezelő.Group> GetGroupsByAdd(string add)
+        public List<Group> GetGroupsByAdd(string add)
         {
             //telephely alapján
-            List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
+            List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
                     where x.telephely.Contains(add)
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Group a = new Adatkezelő.Group();
+                Group a = new Group();
                 a.SetAttributesFromDB(item);
                 output.Add(a);
             }
             return output;
         }
 
-        public List<Adatkezelő.Group> GetGroupsByDesc(string desc)
+        public List<Group> GetGroupsByDesc(string desc)
         {
             //leírás alapján keres
-            List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
+            List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
                     where x.leiras.Contains(desc)
                     select x;
             foreach (var item in v)
             {
-                Adatkezelő.Group a = new Adatkezelő.Group();
+                Group a = new Group();
                 a.SetAttributesFromDB(item);
                 output.Add(a);
             }
             return output;
         }
 
-        public List<Adatkezelő.User> GetUserByBPlace(string place)
+        public List<User> GetUserByBPlace(string place)
         {
-            List<Adatkezelő.User> output = new List<Adatkezelő.User>();
+            List<User> output = new List<User>();
             var v = from x in MainForm.entities.felhasznalok
                     where x.szuletesi_hely.Contains(place)
                     select x;
             foreach (var item in v)
             {
-                output.Add(new Adatkezelő.User(item.Id));
+                output.Add(new User(item.Id));
             }
             return output;
         }
 
-        public List<Adatkezelő.Group> GetGroupsByCLeader(string leaderName)
+        public List<Group> GetGroupsByCLeader(string leaderName)
         {
-            List<Adatkezelő.Group> output = new List<Adatkezelő.Group>();
+            List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
                     select x.cegvezeto;//csoportok cégvezetőinek listája
             foreach (var item in v)
@@ -245,7 +351,7 @@ namespace ConnectingCompanies.Controller
                         var w = from x in MainForm.entities.csoportok
                                 where x.cegvezeto == item
                                 select x;//fehasználó objektum
-                        Adatkezelő.Group g = new Adatkezelő.Group();
+                        Group g = new Group();
                         g.SetAttributesFromDB(w.First());
                         output.Add(g);
                     }
@@ -254,9 +360,9 @@ namespace ConnectingCompanies.Controller
             return output;
         }
 
-        public List<Adatkezelő.Offer> GetOffersByName(string name)
+        public List<Offer> GetOffersByName(string name)
         {
-            List<Adatkezelő.Offer> output = new List<Adatkezelő.Offer>();
+            List<Offer> output = new List<Offer>();
             var v = from x in MainForm.entities.ajanlatok
                     where x.megnevezes.Contains(name)
                     select x;
@@ -319,7 +425,7 @@ namespace ConnectingCompanies.Controller
             return output;
         }
 
-        public List<Adatkezelő.Group> GetGroupsByCreateDate(DateTime dTime)
+        public List<Group> GetGroupsByCreateDate(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok

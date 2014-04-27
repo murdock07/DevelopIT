@@ -89,6 +89,7 @@
     <Compile Include="esemenyek.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Exection\PermissionDeniedException.cs" />
     <Compile Include="felhasznalok.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>

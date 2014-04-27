@@ -1,3 +1,4 @@
+using ConnectingCompanies;
 using System;
 
 namespace Adatkezelõ {
@@ -59,14 +60,14 @@ namespace Adatkezelõ {
 		}
 
 
-        internal void SetAttributesFromDB(ConnectingCompanies.felhasznalok felhasznalo)
+        internal void SetAttributesFromDB(felhasznalok felhasznalo)
         {
             this.birthDate = felhasznalo.szuletesi_ido;
             this.birthPlace = felhasznalo.szuletesi_hely;
             this.displayName = felhasznalo.nev;
             this.Description = felhasznalo.leiras;
             //TODO: kép betöltése útvonal alapján
-            //this.Avatar = felhasznalo.profilkep;
+            this.Avatar = felhasznalo.profilkep;
             this.personalAddress = felhasznalo.lakhely;
         }
     }

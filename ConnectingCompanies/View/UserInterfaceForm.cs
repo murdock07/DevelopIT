@@ -1,5 +1,6 @@
 ﻿using Adatkezelő;
 using ConnectingCompanies.Controller;
+using ConnectingCompanies.Exection;
 using ConnectingCompanies.Forms;
 using ConnectingCompanies.Interface;
 using System;
@@ -19,6 +20,8 @@ namespace ConnectingCompanies
         private Session currentSession;
         private Timer sessionTimer;
         private List<ToolStripItem> menuItems;
+        private IGroupHandler igh = new GroupHandler();
+        private IUserHandler iuh = new UserHandler();
 
         /**/
         private Controller.AddEventHandler aeh = new Controller.AddEventHandler();//interface...
@@ -54,6 +57,11 @@ namespace ConnectingCompanies
             {
                 textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
                 textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
+            }
+            String avatarPath = iuh.getUserAvatarPath(currentSession.CurrentUser.Id);
+            if (avatarPath != null)
+            {
+                pictureUserPicutre.ImageLocation = avatarPath;
             }
         }
 
@@ -123,6 +131,7 @@ namespace ConnectingCompanies
             dateTimePickerUserBirthDate.Enabled = enable;
             textBoxUserDescription.Enabled = enable;
             textBoxUserGroupPost.Enabled = enable;
+            buttonUserUploadImage.Enabled = enable;
         }
 
         private void buttonUserModifyData_Click(object sender, EventArgs e)
@@ -131,7 +140,6 @@ namespace ConnectingCompanies
             {
                 buttonUserModifyData.Enabled = false;
                 buttonUserSaveData.Enabled = true;
-                buttonUserUploadImage.Enabled = true;
                 setUserProfileFields(true);
             }
         }
@@ -141,10 +149,8 @@ namespace ConnectingCompanies
             if (buttonUserSaveData.Enabled)
             {
                 buttonUserSaveData.Enabled = false;
-                buttonUserUploadImage.Enabled = false;
                 buttonUserModifyData.Enabled = true;
                 setUserProfileFields(false);
-                IUserHandler iuh = new UserHandler();
                 iuh.saveUserProfileDatas(currentSession.CurrentUser.Id, textBoxUserName.Text, textBoxUserAddress.Text, textBoxUserBirthPlace.Text,
                     dateTimePickerUserBirthDate.Value, textBoxUserDescription.Text, textBoxUserGroupPost.Text);
             }
@@ -156,22 +162,18 @@ namespace ConnectingCompanies
             {
                 ofd.FileOk += ofd_FileOk;
                 ofd.ShowDialog();
-
-                if (newUserPicture != "")//ha választott ki valamit
-                {
-                    //--//új kép hozzárendelése a felhasználóhoz
-                    //--//picturebox frissítése
-                    newUserPicture = "";//ha később akar..
-                }
             }
         }
 
-        private string newUserPicture = ""; //Viktornak: ez mi?
-
         private void ofd_FileOk(object sender, CancelEventArgs e)
         {//megkapja a kiválasztott elérési utat az adattag
-            if (!e.Cancel)//ha választott ki valamit
-            { newUserPicture = (sender as OpenFileDialog).FileName; }
+            String pictureUrl = "";
+            if (!e.Cancel)
+            {
+                pictureUrl = (sender as OpenFileDialog).FileName;
+                String newPictureUrl = iuh.saveUserAvatar(currentSession.CurrentUser.Id, pictureUrl);
+                pictureUserPicutre.ImageLocation = newPictureUrl;
+            }
         }
 
         //----------------------
@@ -179,6 +181,18 @@ namespace ConnectingCompanies
         #endregion Felhasználó
 
         #region Csoport
+
+        private void setGroupProfileFields(bool enable)
+        {
+            /*
+            textBoxUserName.Enabled = enable;
+            textBoxUserAddress.Enabled = enable;
+            textBoxUserBirthPlace.Enabled = enable;
+            dateTimePickerUserBirthDate.Enabled = enable;
+            textBoxUserDescription.Enabled = enable;
+            textBoxUserGroupPost.Enabled = enable;
+            */
+        }
 
         //----------------------
         private void buttonGroupNewMail_Click(object sender, EventArgs e)
@@ -226,10 +240,40 @@ namespace ConnectingCompanies
 
         private void buttonGroupModifyData_Click(object sender, EventArgs e)
         {
+            try
+            {
+                igh.userHavePermission(currentSession.CurrentUser.Id);
+                if (buttonGroupModifyData.Enabled)
+                {
+                    buttonGroupModifyData.Enabled = false;
+                    buttonGroupSaveData.Enabled = true;
+                }
+            }
+            catch (PermissionDeniedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void buttonGroupSaveData_Click(object sender, EventArgs e)
         {
+            try
+            {
+                igh.saveGroupDatas(currentSession.CurrentUser.Id);
+            }
+            catch (PermissionDeniedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (buttonGroupSaveData.Enabled)
+                {
+                    buttonGroupSaveData.Enabled = false;
+                    buttonGroupModifyData.Enabled = true;
+                }
+            }
         }
 
         private void buttonGroupNewOffer_Click(object sender, EventArgs e)
