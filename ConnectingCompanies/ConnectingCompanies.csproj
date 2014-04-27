@@ -92,6 +92,7 @@
     <Compile Include="felhasznalok.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IAddEventHandler.cs" />
     <Compile Include="Interface\ILoginHandler.cs" />
     <Compile Include="Interface\IUserInterfaceHandler.cs" />
     <Compile Include="jogosultsagi_szintek.cs">

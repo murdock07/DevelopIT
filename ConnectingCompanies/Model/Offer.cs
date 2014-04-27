@@ -1,3 +1,4 @@
+using ConnectingCompanies;
 using System;
 using System.Linq;
 namespace Adatkezelõ
@@ -16,24 +17,23 @@ namespace Adatkezelõ
 
         }
 
-        //MainForm.entities !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        public Offer(/*ConnectingCompanies.nyilvantartasEntities entities,*/ ConnectingCompanies.ajanlatok off)
+        public Offer(ajanlatok off)
         {
             this.date = off.kezdes_datum;
             this.description = off.leiras;
             this.name = off.megnevezes;
-
-            var v = from x in entities.csoportok
+            
+            var v = from x in MainForm.entities.csoportok
                     where x.Id ==off.kezdo_ceg
                     select x;
-            Adatkezelõ.Group sourceGroup = new Adatkezelõ.Group();
+            Group sourceGroup = new Group();
             sourceGroup.SetAttributesFromDB(v.First());
             this.source = sourceGroup;
 
-            var w = from x in entities.csoportok
+            var w = from x in MainForm.entities.csoportok
                     where x.Id == off.fogado_ceg
                     select x;
-            Adatkezelõ.Group destGroup = new Adatkezelõ.Group();
+            Group destGroup = new Group();
             destGroup.SetAttributesFromDB(v.First());
             this.destination = destGroup;
         }

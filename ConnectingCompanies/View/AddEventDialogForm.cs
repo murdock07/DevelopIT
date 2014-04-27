@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConnectingCompanies.Controller;
+using ConnectingCompanies.Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace ConnectingCompanies
     public partial class AddEventDialogForm : Form
     {
         private Session sess;
+        private IAddEventHandler aeh = new AddEventHandler();
 
         public AddEventDialogForm(Session sess)
         {
