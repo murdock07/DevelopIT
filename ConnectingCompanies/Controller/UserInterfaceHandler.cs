@@ -1,7 +1,6 @@
 ﻿using Adatkezelő;
 using ConnectingCompanies;
 using ConnectingCompanies.Interface;
-using ConnectingCompanies.Exection;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ConnectingCompanies.Exceptions;
 
 namespace ConnectingCompanies.Controller
 {
@@ -62,7 +62,7 @@ namespace ConnectingCompanies.Controller
             }
         }
 
-        public void saveUserProfileDatas(int userId, string name, string address, string birthPlace, DateTime birthDate, string description, string rank)
+        public void saveUserProfileDatas(int userId, String name, String address, String birthPlace, DateTime birthDate, String description, String rank)
         {
             var loginUser = from x in MainForm.entities.felhasznalok
                             where x.Id == userId
@@ -88,7 +88,7 @@ namespace ConnectingCompanies.Controller
                     Directory.CreateDirectory(destionationDir);
                 }
                 String extension = url.Substring(url.LastIndexOf(".") + 1);
-                String destinationFileName = userId.ToString() + "_avatar." + extension;
+                String destinationFileName = "u_" + userId.ToString() + "_avatar." + extension;
                 String destinationPath = Path.Combine(destionationDir, destinationFileName);
 
                 File.Copy(@url, destinationPath, true);
@@ -141,6 +141,13 @@ namespace ConnectingCompanies.Controller
     public class GroupHandler : IGroupHandler
     {
         public Group m_Group;
+        private static String destionationDir = ".\\uploads";
+
+        public static String DestionationDir
+        {
+            get { return destionationDir; }
+            //set { UserHandler.destionationDir = value; }
+        }
 
         public GroupHandler()
         {
@@ -174,20 +181,113 @@ namespace ConnectingCompanies.Controller
             
             if (user.GetType().Equals(UserType.GroupUser) || user.GetType().Equals(UserType.Guest))
             {
-                throw new PermissionDeniedException("Hozzáférés megtagadva! Csak a group adminnak van joga a csoport adatlapot módosítani!");
+                throw new PermissionDeniedException("Hozzáférés megtagadva! Csak a csoport adminisztátorának van joga a csoport adatlapot módosítani!");
             }
         }
 
-        public void saveGroupDatas(int userId)
+        public void saveGroupDatas(int userId, int groupId, String groupName, String groupAddress, String groupMailAddress, DateTime dateOfFounding, String groupDescription)
         {
             try
             {
                 this.userHavePermission(userId);
+                var groupQuery = from x in MainForm.entities.csoportok
+                                 where x.Id == groupId
+                                 select x;
+                if (groupQuery.Count() > 0)
+                {
+                    csoportok csoport = groupQuery.First();
+                    csoport.cegnev = groupName;
+                    csoport.telephely = groupAddress;
+                    csoport.levelezesi_cim = groupMailAddress;
+                    csoport.alapitas_datuma = dateOfFounding;
+                    csoport.leiras = groupDescription;
+
+                    MainForm.entities.Entry(csoport).State = EntityState.Modified;
+                    MainForm.entities.SaveChanges();
+                }
+                else
+                {
+                    throw new GroupNotFoundException("A módosítani kívánt csoport nem létezik!");
+                }
             }
             catch (PermissionDeniedException ex)
             {
                 throw ex;
             }
+        }
+
+        public String saveGroupAvatar(int userId, int groupId, String url)
+        {
+            try
+            {
+                this.userHavePermission(userId);
+
+                var groupQuery = from x in MainForm.entities.csoportok
+                                 where x.Id == groupId
+                                 select x;
+                if (groupQuery.Count() > 0)
+                {
+
+                    if (File.Exists(url))
+                    {
+                        if (!Directory.Exists(destionationDir))
+                        {
+                            Directory.CreateDirectory(destionationDir);
+                        }
+                        String extension = url.Substring(url.LastIndexOf(".") + 1);
+                        String destinationFileName = "g_" + groupId.ToString() + "_avatar." + extension;
+                        String destinationPath = Path.Combine(destionationDir, destinationFileName);
+
+                        File.Copy(@url, destinationPath, true);
+
+                        kepek kep = new kepek();
+                        kep.Id = MainForm.entities.kepek.Count() + 1;
+                        kep.utvonal = destinationFileName;
+                        MainForm.entities.kepek.Add(kep);
+
+                        csoportok csoport = groupQuery.First();
+                        csoport.logo = kep.Id;
+
+                        MainForm.entities.Entry(csoport).State = EntityState.Modified;
+                        MainForm.entities.SaveChanges();
+
+                        return destinationPath;
+                    }
+                    else
+                    {
+                        throw new FileNotFoundException("A megadott fájl nem létezik!");
+                    }
+                }
+                else
+                {
+                    throw new GroupNotFoundException("A módosítani kívánt csoport nem létezik!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public String getGroupAvatarPath(int groupId)
+        {
+            var groupQuery = from x in MainForm.entities.csoportok
+                             where x.Id == groupId
+                             select x;
+            Group groupM = new Group();
+            groupM.SetAttributesFromDB(groupQuery.First());
+
+            var groupAvatar = from x in MainForm.entities.kepek
+                             where x.Id == groupM.Logo
+                             select x;
+            String avatarPath = null;
+
+            if (groupAvatar.Count() > 0)
+            {
+                avatarPath = Path.Combine(destionationDir, groupAvatar.First().utvonal);
+            }
+
+            return avatarPath;
         }
     }
 
@@ -204,7 +304,7 @@ namespace ConnectingCompanies.Controller
             if (birth != DateTime.MinValue)
                 return GetUserByBDate(birth);
             else//ha mind1ik null volt, persze ha többnek volt érték adva akkor sorrendben amelyikre először teljesül, ez kicsit fals
-                throw new Exception("Hibás User keresési feltételek!");
+                throw new InvalidSearchParameterException("Hibás User keresési feltételek!");
         }
         public List<Adatkezelő.Event> GetEvent(string name, string place, string desc, DateTime date)
         {
@@ -217,7 +317,7 @@ namespace ConnectingCompanies.Controller
             if (date != DateTime.MinValue)
                 return GetEventsByDate(date);
             else
-                throw new Exception("Hibás Event keresési felételek!");
+                throw new InvalidSearchParameterException("Hibás Event keresési felételek!");
         }
         public List<Adatkezelő.Group> GetGroups(string name, string CLname, string addr, DateTime cDate)
         {
@@ -230,7 +330,7 @@ namespace ConnectingCompanies.Controller
             if (cDate != DateTime.MinValue)
                 return GetGroupsByCreateDate(cDate);
             else
-                throw new Exception("Hibás Group keresési feltételek!");
+                throw new InvalidSearchParameterException("Hibás Group keresési feltételek!");
         }
         public List<Adatkezelő.Offer> GetOffers(string name, string sComp, string dComp, DateTime date)
         {
@@ -243,7 +343,7 @@ namespace ConnectingCompanies.Controller
             if (date != DateTime.MinValue)
                 return GetOffersByDateTime(date);
             else
-                throw new Exception("Hibás Offer keresési feltétlek!");
+                throw new InvalidSearchParameterException("Hibás Offer keresési feltétlek!");
         }
 
 

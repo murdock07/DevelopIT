@@ -78,7 +78,9 @@
     <Compile Include="Controller\AddEventHandler.cs" />
     <Compile Include="Controller\AdminHandler.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
-    <Compile Include="Exception\LoginHandlerException.cs" />
+    <Compile Include="Exceptions\GroupNotFoundException.cs" />
+    <Compile Include="Exceptions\InvalidSearchParameterException.cs" />
+    <Compile Include="Exceptions\LoginHandlerException.cs" />
     <Compile Include="Controller\ModifyEventHandler.cs" />
     <Compile Include="Controller\NewMailHandler.cs" />
     <Compile Include="Controller\NewOfferHandler.cs" />
@@ -89,7 +91,7 @@
     <Compile Include="esemenyek.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Exception\PermissionDeniedException.cs" />
+    <Compile Include="Exceptions\PermissionDeniedException.cs" />
     <Compile Include="felhasznalok.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>

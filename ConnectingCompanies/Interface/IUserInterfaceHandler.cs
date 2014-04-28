@@ -13,7 +13,7 @@ namespace ConnectingCompanies.Interface
         User CreateUser();
         void DeleteUser(int userId);
         User GetUser(int userId);
-        void saveUserProfileDatas(int userId, string name, string address, string birthPlace, DateTime birthDate, string description, string rank);
+        void saveUserProfileDatas(int userId, String name, String address, String birthPlace, DateTime birthDate, String description, String rank);
         String saveUserAvatar(int userId, String url);
         String getUserAvatarPath(int userId);
     }
@@ -23,7 +23,9 @@ namespace ConnectingCompanies.Interface
         Group CreateGroup();
         void DeleteGroup(int groupId);
         Group getGroup(int groupId);
-        void saveGroupDatas(int userId);
+        void saveGroupDatas(int userId, int groupId, String groupName, String groupAddress, String groupMailAddress, DateTime dateOfFounding, String groupDescription);
         void userHavePermission(int userId);
+        String saveGroupAvatar(int userId, int groupId, String url);
+        String getGroupAvatarPath(int groupId);
     }
 }

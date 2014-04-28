@@ -1,4 +1,5 @@
 ﻿using ConnectingCompanies.Controller;
+using ConnectingCompanies.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

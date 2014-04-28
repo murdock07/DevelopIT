@@ -695,6 +695,7 @@
             this.pictureBoxCompany.Location = new System.Drawing.Point(6, 19);
             this.pictureBoxCompany.Name = "pictureBoxCompany";
             this.pictureBoxCompany.Size = new System.Drawing.Size(168, 155);
+            this.pictureBoxCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCompany.TabIndex = 0;
             this.pictureBoxCompany.TabStop = false;
             // 

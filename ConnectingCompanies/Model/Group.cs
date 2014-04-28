@@ -16,6 +16,7 @@ namespace Adatkezelõ
         private DateTime? dateOfFounding;
         private String description;
         private String mailAddress;
+        private int? logo;
 
         private int id;
 
@@ -79,6 +80,12 @@ namespace Adatkezelõ
             set { mailAddress = value; }
         }
 
+        public int? Logo
+        {
+            get { return logo; }
+            set { logo = value; }
+        }
+
         internal void SetAttributesFromDB(csoportok cs)
         {
             this.id = cs.Id;
@@ -87,7 +94,7 @@ namespace Adatkezelõ
             this.MailAddress = cs.levelezesi_cim;
             this.DateOfFounding = cs.alapitas_datuma;
             this.Description = cs.leiras;
-
+            this.Logo = cs.logo;
 
             var ga = from x in MainForm.entities.felhasznalok
                      where x.Id == cs.cegvezeto

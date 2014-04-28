@@ -1,6 +1,6 @@
 ﻿using Adatkezelő;
 using ConnectingCompanies.Controller;
-using ConnectingCompanies.Exection;
+using ConnectingCompanies.Exceptions;
 using ConnectingCompanies.Forms;
 using ConnectingCompanies.Interface;
 using System;
@@ -56,11 +56,13 @@ namespace ConnectingCompanies
             dateTimePickerUserBirthDate.Value = currentSession.CurrentUser.Profile.BirthDate;
             textBoxUserDescription.Text = currentSession.CurrentUser.Profile.Description;
             textBoxUserGroupPost.Text = currentSession.CurrentUser.Rank;
+
             if (currentSession.CurrentUser.Profile.Group != null)
             {
                 textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
                 textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
             }
+
             String avatarPath = iuh.getUserAvatarPath(currentSession.CurrentUser.Id);
             if (avatarPath != null)
             {
@@ -75,11 +77,16 @@ namespace ConnectingCompanies
                 Group userGroup = currentSession.CurrentUser.Group;
                 textBoxGroupName.Text = userGroup.Name;
                 textBoxGroupAddress.Text = userGroup.Address;
-                Console.WriteLine("GROUPADMIN: " + userGroup.GroupAdmin.Id);
                 textBoxGroupLeader.Text = userGroup.GroupAdmin.Profile.DisplayName;
                 textBoxGroupMailAdress.Text = userGroup.MailAddress;
                 dateTimePickerDateOfFounding.Value = userGroup.DateOfFounding == null ? DateTime.Now : (DateTime)userGroup.DateOfFounding;
                 textBoxGroupDescription.Text = userGroup.Description;
+
+                String avatarPath = igh.getGroupAvatarPath(currentSession.CurrentUser.Group.Id);
+                if (avatarPath != null)
+                {
+                    pictureBoxCompany.ImageLocation = avatarPath;
+                }
             }
         }
 
@@ -208,7 +215,7 @@ namespace ConnectingCompanies
             textBoxGroupMailAdress.Enabled = enable;
             dateTimePickerDateOfFounding.Enabled = enable;
             textBoxGroupDescription.Enabled = enable;
-            
+            buttonGroupUploadImage.Enabled = enable;
         }
 
         //----------------------
@@ -232,27 +239,24 @@ namespace ConnectingCompanies
         {
         }
 
-        private string newCompanyPicutre = "";
-
         private void buttonGroupUploadImage_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.FileOk += ofd_FileOkCompany;
                 ofd.ShowDialog();
-                if (newCompanyPicutre != "")//ha választott ki valamit
-                {
-                    //--//kép mentése a céghez
-                    //--//pictureBoxCompany frissítése
-                    newCompanyPicutre = "";//ha akar még módosítani
-                }
             }
         }
 
         private void ofd_FileOkCompany(object sender, CancelEventArgs e)
-        {//megkapja a kiválasztott elérési utat az adattag
-            if (!e.Cancel)//ha választott ki valamit
-            { newCompanyPicutre = (sender as OpenFileDialog).FileName; }
+        {
+            String pictureUrl = "";
+            if (!e.Cancel)
+            {
+                pictureUrl = (sender as OpenFileDialog).FileName;
+                String newPictureUrl = igh.saveGroupAvatar(currentSession.CurrentUser.Id, currentSession.CurrentUser.Group.Id, pictureUrl);
+                pictureBoxCompany.ImageLocation = newPictureUrl;
+            }
         }
 
         private void buttonGroupModifyData_Click(object sender, EventArgs e)
@@ -278,9 +282,13 @@ namespace ConnectingCompanies
         {
             try
             {
-                igh.saveGroupDatas(currentSession.CurrentUser.Id);
+                igh.saveGroupDatas(currentSession.CurrentUser.Id, currentSession.CurrentUser.Group.Id, textBoxGroupName.Text, textBoxGroupAddress.Text, textBoxGroupMailAdress.Text, dateTimePickerDateOfFounding.Value, textBoxGroupDescription.Text);
             }
             catch (PermissionDeniedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (GroupNotFoundException ex)
             {
                 MessageBox.Show(ex.Message);
             }
