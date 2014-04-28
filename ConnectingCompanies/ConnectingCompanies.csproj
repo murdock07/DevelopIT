@@ -78,7 +78,7 @@
     <Compile Include="Controller\AddEventHandler.cs" />
     <Compile Include="Controller\AdminHandler.cs" />
     <Compile Include="Controller\LoginHandler.cs" />
-    <Compile Include="Controller\LoginHandlerException.cs" />
+    <Compile Include="Exception\LoginHandlerException.cs" />
     <Compile Include="Controller\ModifyEventHandler.cs" />
     <Compile Include="Controller\NewMailHandler.cs" />
     <Compile Include="Controller\NewOfferHandler.cs" />
@@ -89,11 +89,12 @@
     <Compile Include="esemenyek.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Exection\PermissionDeniedException.cs" />
+    <Compile Include="Exception\PermissionDeniedException.cs" />
     <Compile Include="felhasznalok.cs">
       <DependentUpon>nyilvantartasModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Interface\IAddEventHandler.cs" />
+    <Compile Include="Interface\IAdminHandler.cs" />
     <Compile Include="Interface\ILoginHandler.cs" />
     <Compile Include="Interface\ISeachHandler.cs" />
     <Compile Include="Interface\IUserInterfaceHandler.cs" />
