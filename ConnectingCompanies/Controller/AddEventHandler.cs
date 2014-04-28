@@ -27,7 +27,7 @@ namespace ConnectingCompanies.Controller
                     output.Add(new Adatkezelő.Event(item as esemenyek));
                 }
             }
-            return new List<Adatkezelő.Event>();
+            return output;//b+..
         }
 
         //azon eseményeket adja vissza melyek meghívott csoportjának azonosítóját tartalmazza a felhasználó csoportjainak listája
@@ -69,7 +69,7 @@ namespace ConnectingCompanies.Controller
         public List<Adatkezelő.User> GetAllUsers()
         {
             var v = from x in MainForm.entities.felhasznalok
-                    where x.jogosultsagi_szint != 4//nem admin
+                    where x.jogosultsagi_szint != 4 && x.jogosultsagi_szint != 1//nem admin és nem vendég
                     select x;       //csak a felhasználókat listázza ki nem kell az admin is
             List<Adatkezelő.User> output = new List<Adatkezelő.User>();
             if (v != null)
@@ -143,14 +143,11 @@ namespace ConnectingCompanies.Controller
         public void DeleteEvent(Adatkezelő.Event ev)
         {
             var v = from x in MainForm.entities.esemenyek
-                    where x.letrehozo == ev.Creator.Id && x.helyszin == ev.Location && x.leiras == ev.Description && ev.Date.Year + ev.Date.Month + ev.Date.Day == x.idopont.Year + x.idopont.Month + x.idopont.Day
-                    select x;       //létrehozó, időpont és leírás alapján.. ez fals egy kicsit..
+                    where x.Id == ev.Id
+                    select x;
 
-            foreach (var item in v)
-            {
-                MainForm.entities.esemenyek.Remove(item);
-                MainForm.entities.SaveChanges();
-            }
+            MainForm.entities.esemenyek.Remove(v.First());
+            MainForm.entities.SaveChanges();
         }
 
         public void ModifyEventsGroup(Adatkezelő.User us, string name, string description, string place, DateTime dTime)

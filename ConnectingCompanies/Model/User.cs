@@ -40,6 +40,10 @@ namespace Adatkezelõ
 
         public User(int userId)
         {
+            var v = from x in MainForm.entities.felhasznalok
+                    where x.Id == userId
+                    select x;
+            SetAttributesFromDB(v.First());
         }
 
         public Group Group

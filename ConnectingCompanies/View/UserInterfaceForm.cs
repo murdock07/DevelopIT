@@ -311,8 +311,13 @@ namespace ConnectingCompanies
             /**/
             using (AddEventDialogForm adf = new AddEventDialogForm(currentSession))
             {
+                adf.FormClosing += adf_FormClosing;
                 adf.ShowDialog();
             }
+        }
+        void adf_FormClosing(object sender, FormClosingEventArgs e)
+        {//nem menti el db-be?
+            listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
         }
 
         private void buttonModifyEvent_Click(object sender, EventArgs e)
@@ -326,8 +331,11 @@ namespace ConnectingCompanies
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
         {
-            //tegyük fel,hogy csak azokat az eseményeket tudja törölni melyeket ő hozott létre
-            //ha egy csoport tagja és meg van hívva, akkor nem tudja törölni, szal csak az első listboxban tud nyúkálni
+            //a listboxban annyi rekord lesz ahány embert meghívott az általa létrehozott eseményekre+annyi ahány csoportosat csinált..
+            //pl.: csinált: 2 db csoportosat, 3 db egyénit 2 meghívottal, 2db egyénit 3 meghívottal
+            //így a listbox tartalma 2+3*2+2*3= 14db, .. adatbázis táblának nem pont így kéne kinéznie
+            //ha csoportost választott ki akkor törli Id alapján
+            //ha kiválaszt egyet akkor azt az egy egyéni esményt törli Id alapján
             if (listBoxPersonalEvents.SelectedIndex != -1)
             {
                 aeh.DeleteEvent(listBoxPersonalEvents.SelectedItem as Adatkezelő.Event);

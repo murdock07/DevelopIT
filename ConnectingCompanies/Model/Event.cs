@@ -11,6 +11,13 @@ namespace Adatkezelõ
         private String description;
         private String location;
         private String name;
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            //set { id = value; }
+        }
 
         public Event()
         {
@@ -24,8 +31,12 @@ namespace Adatkezelõ
             this.description = es.leiras;
             this.location = es.helyszin;
             this.name = es.megnevezes;
+            this.id = es.Id;
         }
-
+        public override string ToString()
+        {
+            return  this.name + " " + this.location +" "+this.date.ToString()+" E#"+this.id+" C#"+this.creator.Id;
+        }
         public Event CreatNewEvent()
         {
             return new Event();
