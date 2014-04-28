@@ -17,19 +17,20 @@ namespace Adatkezelõ
         private String description;
         private String mailAddress;
 
-        /**/
         private int id;
 
         public int Id
         {
             get { return id; }
-            //  set { id = value; }
         }
 
         public Group()
         {
         }
-
+        public override string ToString()
+        {
+            return name + " " + address + " " + mailAddress;
+        }
         public User GroupAdmin
         {
             get { return groupAdmin; }

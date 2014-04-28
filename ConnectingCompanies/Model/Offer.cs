@@ -16,7 +16,10 @@ namespace Adatkezelõ
         {
 
         }
-
+        public override string ToString()
+        {
+            return source.Name+"=>"+destination.Name+" '"+name+"' "+date.ToString().Substring(0,date.ToString().LastIndexOf(':'));
+        }
         public Offer(ajanlatok off)
         {
             this.date = off.kezdes_datum;

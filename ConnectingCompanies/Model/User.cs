@@ -24,9 +24,9 @@ namespace Adatkezelõ
             set { rank = value; }
         }
 
-        public override string ToString()//na itt viszont csak egy group van.. nem egy lsita..?
+        public override string ToString()
         {
-            return this.userName + " " + this.profile.PersonalAddress;
+            return this.Profile.DisplayName + " " + this.profile.PersonalAddress;
         }
 
         public int Id

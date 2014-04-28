@@ -26,25 +26,6 @@ namespace ConnectingCompanies
         {
             string user = textBoxLoginUserName.Text;
             string password = textBoxLoginPassword.Text;
-            //???????????????????????????????
-            #region
-            /* string s = "";
-             var v = from x in entities.felhasznalok//majd tötöld ki
-                     select x;
-             foreach (var item in v)
-             {
-                 s += (item as felhasznalok).azonosito + (item as felhasznalok).jelszo+"\n";
-             }
-             MessageBox.Show(s);*/
-            //string s = "";
-            //var v = from x in entities.esemenyek//majd tötöld ki
-            //        select x;
-            //foreach (var item in v)
-            //{
-            //    s += (item as esemenyek).idopont + " " + (item as esemenyek).Id + "" + (item as esemenyek).letrehozo.ToString() + "\n";
-            //}
-            //MessageBox.Show(s);
-            #endregion
             try
             {
                 currentSession = Controller.LoginHandler.CheckCredentials(user, password);

@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConnectingCompanies.Controller
 {
-    /**/
-
     internal class AddEventHandler : IAddEventHandler
     {
-        //MainForm.entities !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //private nyilvantartasEntities entities = new nyilvantartasEntities();
-
         public List<Adatkezelő.Event> GetPersonalEvents(Adatkezelő.User us)
         {//visszaadja azokat az adatkezelő.event-eket melyek létrehozója a megadott user
             var v = from x in MainForm.entities.esemenyek
                     where x.letrehozo == us.Id
                     select x;   //van egy listánk ami tárolja azokat az eseményeket amelyeket a felhasználó hozott létre
-            List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();//ez fogja visszadni az adatkezelő.event objektumokat a viewnak
+            List<Adatkezelő.Event> output = new List<Adatkezelő.Event>();
             if (v != null)
             {
                 foreach (var item in v)
@@ -27,7 +22,7 @@ namespace ConnectingCompanies.Controller
                     output.Add(new Adatkezelő.Event(item as esemenyek));
                 }
             }
-            return output;//b+..
+            return output;
         }
 
         //azon eseményeket adja vissza melyek meghívott csoportjának azonosítóját tartalmazza a felhasználó csoportjainak listája
@@ -47,25 +42,11 @@ namespace ConnectingCompanies.Controller
             var v = from x in MainForm.entities.esemenyek//végigmegyünk az eseményken, ha csoportos és a felhasználó csoportjai között szerepel az a csoport amit meghívtak akkor jó
                     where x.csoportos == true && ve.ToList().Contains(x.csoportok)
                     select x;   //megvannak azok a generált esemény objektumok amelyek
-            //System.Windows.Forms.MessageBox.Show(v.ToString());
             List<Adatkezelő.GroupEvent> output = new List<Adatkezelő.GroupEvent>();
-            //TODO: viktor ez mi?
-            #region
-            //if (v != null)
-            //{
-            //    foreach (var item in v.ToList())
-            //    {
-            //        Adatkezelő.GroupEvent ad=new Adatkezelő.GroupEvent();
-            //        ad.SetAttributesFromDB(item);
-            //        //ad.Groups=//
-            //        output.Add(ad);
-            //    }//
-            //}
-            #endregion
+
             return output;//események melynek meghívott csoportjai között szerepel a felhasználó valamely csoportja
         }
 
-        //összes usert visszaadja //kivéve adminokat
         public List<Adatkezelő.User> GetAllUsers()
         {
             var v = from x in MainForm.entities.felhasznalok
@@ -112,11 +93,11 @@ namespace ConnectingCompanies.Controller
             else//ha egyéni//létrehozunk annyi eseményt ahány emberünk van......
             {
                 for (int i = 0; i < invited.Count; i++)
-                {   //miért nincs egy táblánk ami tartalmazza az esemény azonosítókat és a userid-ket mellé...
-                    esemenyek e = new esemenyek();//egy ember akar egy találkát, meghív 15 embert, 15 rekordban tároljuk ezeket az eseményeket
-                    e.aktiv = true;                 //mindegyik eseménynek külön id-je lesz, szal az alapján nem lehet azonosítani
-                    e.csoportos = false;            //ha módosítani akarja egy már létrehozott eseményét akkor
-                    e.helyszin = place;             //végig kell menni az összes rekordon megnézni h ő csinálta-e illetve h ez az az esemény e amire gondolt
+                {  
+                    esemenyek e = new esemenyek();
+                    e.aktiv = true;                 
+                    e.csoportos = false;            
+                    e.helyszin = place;             
                     e.idopont = time;
                     e.leiras = desc;
                     e.letrehozo = creator.Id;
@@ -149,7 +130,6 @@ namespace ConnectingCompanies.Controller
             MainForm.entities.esemenyek.Remove(v.First());
             MainForm.entities.SaveChanges();
         }
-
         public void ModifyEventsGroup(Adatkezelő.User us, Adatkezelő.Event modEv, string name, string description, string place, DateTime dTime)
         {//tfh hogy ha a csoportos van kiválasztva akkor az események közül azt választjuk ki amelyiknek ő a létrehozója és csoportos és jó ID
             //ennek az adatait módosítjuk
@@ -166,7 +146,7 @@ namespace ConnectingCompanies.Controller
             }
         }
         public void ModifyPersonalEvent(Adatkezelő.User us, Adatkezelő.Event modEv, string name, string description, string place, DateTime dTime)
-        {//id alapján nem nagyon lehet azonosítani
+        {
             var v = from x in MainForm.entities.esemenyek
                     where x.megnevezes == modEv.Name && x.leiras == modEv.Description && x.helyszin == modEv.Location //&& x.idopont == modEv.Date
                     select x;
@@ -180,8 +160,5 @@ namespace ConnectingCompanies.Controller
             }
             MainForm.entities.SaveChanges();
         }
-
-
-
     }
 }

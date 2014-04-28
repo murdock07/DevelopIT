@@ -12,7 +12,8 @@ namespace Adatkezelõ
         private String location;
         private String name;
         private int id;
-
+        private string inventedUser;
+        private string sortDate;
         public int Id
         {
             get { return id; }
@@ -25,17 +26,22 @@ namespace Adatkezelõ
 
         public Event(ConnectingCompanies.esemenyek es)
         {
-            //letrejön a generált esemény objektum által az adatkezelõ objektum
             this.creator = new User(es.letrehozo); //
             this.date = es.idopont;
             this.description = es.leiras;
             this.location = es.helyszin;
             this.name = es.megnevezes;
             this.id = es.Id;
+            var v = from x in ConnectingCompanies.MainForm.entities.felhasznalok
+                    where x.Id == es.meghivott_szemely
+                    select x;
+            this.inventedUser = v.First().nev;
+            this.sortDate = date.ToString().Substring(date.ToString().IndexOf('.')+1);
+            sortDate=sortDate.Substring(0, sortDate.LastIndexOf(':'));
         }
         public override string ToString()
         {
-            return  this.name + " " + this.location +" "+this.date.ToString()+" E#"+this.id+" C#"+this.creator.Id;
+            return  inventedUser+" "+name + " " + location +" "+sortDate+" E#"+id+" C#"+creator.Id;
         }
         public Event CreatNewEvent()
         {

@@ -191,18 +191,12 @@ namespace ConnectingCompanies.Controller
         }
     }
 
-    /**/
-
     public class SearchHandler:Interface.ISearchHandler
     {
-        //a mainformon már van...
-        //nyilvantartasEntities entities = new nyilvantartasEntities();
-        //szóval ez nem kell
-        //MainForm.entities;
         public List<Adatkezelő.User> GetUsers(string name, string addr, string bPlace, DateTime birth)
         {
             if (name != null)
-                return FindUserByName(name);
+                return GetUserByName(name);
             if (addr != null)
                 return GetUsersByAddr(addr);
             if (bPlace != null)
@@ -243,7 +237,7 @@ namespace ConnectingCompanies.Controller
             if (name != null)
                 return GetOffersByName(name);
             if (sComp != null)
-                return FindOfferBySCompany(sComp);
+                return GetOfferBySCompany(sComp);
             if (dComp != null)
                 return GetOffersByDestCompany(dComp);
             if (date != DateTime.MinValue)
@@ -252,14 +246,11 @@ namespace ConnectingCompanies.Controller
                 throw new Exception("Hibás Offer keresési feltétlek!");
         }
 
-        public List<Adatkezelő.Event> FindEventsByDesc(string desc)
-        {
-            return new List<Event>();
-        }
-        public List<Adatkezelő.User> FindUserByName(string username)
-        {
-            var v = from x in MainForm.entities.felhasznalok //tessék így...
-                    where x.nev.Contains(username)
+
+        private List<User> GetUserByName(string username)
+        {//admin, guest nem kell
+            var v = from x in MainForm.entities.felhasznalok 
+                    where x.nev.Contains(username)&&x.jogosultsagi_szint!=4&&x.jogosultsagi_szint!=1
                     select x;
             List<User> output = new List<User>();
             foreach (var item in v)
@@ -270,18 +261,57 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<Offer> FindOfferBySCompany(string cName)
+        private List<User> GetUsersByAddr(string addr)
+        {//admin, guest nem kell
+            List<User> output = new List<User>();
+            var v = from x in MainForm.entities.felhasznalok
+                    where x.lakhely.Contains(addr) && x.jogosultsagi_szint != 4 && x.jogosultsagi_szint != 1
+                    select x;
+            foreach (var item in v)
+            {
+                output.Add(new Adatkezelő.User(item.Id));
+            }
+            return output;
+        }
+        private List<User> GetUserByBPlace(string place)
+        {//admin, guest nem kell
+            List<User> output = new List<User>();
+            var v = from x in MainForm.entities.felhasznalok
+                    where x.szuletesi_hely.Contains(place) && x.jogosultsagi_szint != 4 && x.jogosultsagi_szint != 1
+                    select x;
+            foreach (var item in v)
+            {
+                output.Add(new User(item.Id));
+            }
+            return output;
+        }
+        private List<User> GetUserByBDate(DateTime bDate)
+        {//admin, guest nem kell
+            List<User> output = new List<User>();
+            var v = from x in MainForm.entities.felhasznalok
+                    where x.szuletesi_ido.Year + x.szuletesi_ido.Month + x.szuletesi_ido.Day == bDate.Year + bDate.Month + bDate.Day && x.jogosultsagi_szint != 4 && x.jogosultsagi_szint != 1//!!!!nem datetime=datetime
+                    select x;
+            foreach (var item in v)
+            {
+                User usr = new User();
+                usr.SetAttributesFromDB(item);
+                output.Add(usr);
+            }
+            return output;
+        }
+
+        private List<Offer> GetOfferBySCompany(string cName)
         {
             //ha tartalmazza a neve a stringet... persze lehetne máshogy is
             List<Offer> output = new List<Offer>();
             var w = from x in MainForm.entities.csoportok
                     where x.cegnev.Contains(cName)
-                    select x.Id;//cégazonosítók listája melyek nevében szerepel a string
+                    select x.Id;
             if (w.Count() != 0)
             {
                 var v = from x in MainForm.entities.ajanlatok
                         where w.Contains(x.kezdo_ceg)
-                        select x;//ajánlatok listája
+                        select x;
                 foreach (var item in v)
                 {
                     Offer o = new Offer(item);
@@ -290,24 +320,56 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<Adatkezelő.Group> GetGroupsByName(string companyName)
+        private List<Offer> GetOffersByName(string name)
         {
-            //groupok listája amelyek cégneve tartalmazza az átadott stringet
-            var v = from x in MainForm.entities.csoportok
-                    where x.cegnev.Contains(companyName)
+            List<Offer> output = new List<Offer>();
+            var v = from x in MainForm.entities.ajanlatok
+                    where x.megnevezes.Contains(name)
                     select x;
-            List<Group> groups = new List<Group>();
             foreach (var item in v)
             {
-                Group newgroup = new Group();
-                newgroup.SetAttributesFromDB(item);
-                groups.Add(newgroup);
+                Offer o = new Offer(item);
+                output.Add(o);
             }
-            return groups;
+
+            return output;
         }
-        public List<Event> GetEventsByName(string eventname)
+        private List<Offer> GetOffersByDestCompany(string destC)
         {
-            //események melyek neve tartalmazzák az eventname-t
+            List<Offer> output = new List<Offer>();
+            var v = from x in MainForm.entities.csoportok
+                    where x.cegnev.Contains(destC)
+                    select x.Id;
+
+            if (v.Count() != 0)
+            {
+                var w = from x in MainForm.entities.ajanlatok
+                        where v.Contains(x.fogado_ceg)
+                        select x;//megfelelő ajánlatok listája
+
+                foreach (var item in w)
+                {//megfelelő ajánlatok=> List<Adatkezelő.Offer>
+                    Offer o = new Offer(item);
+                    output.Add(o);
+                }
+            }
+            return output;
+        }
+        private List<Offer> GetOffersByDateTime(DateTime dTime)
+        {//kező és végpont közé esik a megadott időpont
+            List<Offer> output = new List<Offer>();
+            var v = from x in MainForm.entities.ajanlatok
+                    where x.kezdes_datum >= dTime && x.zaras_datum != null && x.zaras_datum <= dTime
+                    select x;
+            foreach (var item in v)
+            {
+                output.Add(new Offer(item));
+            }
+            return output;
+        }
+
+        private List<Event> GetEventsByName(string eventname)
+        { //események melyek neve tartalmazzák az eventname-t
             List<Event> output = new List<Event>();
             var v = from x in MainForm.entities.esemenyek
                     where x.megnevezes.Contains(eventname)
@@ -324,22 +386,46 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<User> GetUsersByAddr(string addr)
+        private List<Event> GetEventsByDate(DateTime dateTime)
         {
-            //cím alapján adja vissza
-            List<User> output = new List<User>();
-            var v = from x in MainForm.entities.felhasznalok
-                    where x.lakhely.Contains(addr)
+            List<Event> output = new List<Event>();
+
+            var v = from x in MainForm.entities.esemenyek
+                    where x.idopont.Year + x.idopont.Month + x.idopont.Day == dateTime.Year + dateTime.Month + dateTime.Day//!!! óra eltérés miatt
                     select x;
             foreach (var item in v)
             {
-                output.Add(new Adatkezelő.User(item.Id));
+                output.Add(new Event(item));
             }
             return output;
         }
-        public List<Group> GetGroupsByAdd(string add)
+        private List<Event> GetEventsByPlace(string place)
         {
-            //telephely alapján
+            List<Event> output = new List<Event>();
+            var v = from x in MainForm.entities.esemenyek
+                    where x.helyszin.Contains(place)
+                    select x;
+            foreach (var item in v)
+            {
+                output.Add(new Event(item));
+            }
+            return output;
+        }
+        private List<Event> FindEventsByDesc(string desc)
+        {//leírás alapján
+            var v = from x in MainForm.entities.esemenyek
+                    where x.leiras.Contains(desc)
+                    select x;
+            List<Event> output = new List<Event>();
+            foreach (var item in v)
+            {
+                output.Add(new Event(item));
+            }
+            return output;
+        }
+
+        private List<Group> GetGroupsByAdd(string add)
+        {//telephely alapján
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
                     where x.telephely.Contains(add)
@@ -352,9 +438,8 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<Group> GetGroupsByDesc(string desc)
-        {
-            //leírás alapján keres
+        private List<Group> GetGroupsByDesc(string desc)
+        {//leírás alapján keres
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
                     where x.leiras.Contains(desc)
@@ -367,23 +452,25 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<User> GetUserByBPlace(string place)
-        {
-            List<User> output = new List<User>();
-            var v = from x in MainForm.entities.felhasznalok
-                    where x.szuletesi_hely.Contains(place)
+        private List<Group> GetGroupsByName(string companyName)
+        { //groupok listája amelyek cégneve tartalmazza az átadott stringet
+            var v = from x in MainForm.entities.csoportok
+                    where x.cegnev.Contains(companyName)
                     select x;
+            List<Group> groups = new List<Group>();
             foreach (var item in v)
             {
-                output.Add(new User(item.Id));
+                Group newgroup = new Group();
+                newgroup.SetAttributesFromDB(item);
+                groups.Add(newgroup);
             }
-            return output;
+            return groups;
         }
-        public List<Group> GetGroupsByCLeader(string leaderName)
+        private List<Group> GetGroupsByCLeader(string leaderName)
         {
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
-                    select x.cegvezeto;//csoportok cégvezetőinek listája
+                    select x.cegvezeto;
             foreach (var item in v)
             {
                 if (item != null)//ha volt vezető..nullable..
@@ -404,68 +491,7 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<Offer> GetOffersByName(string name)
-        {
-            List<Offer> output = new List<Offer>();
-            var v = from x in MainForm.entities.ajanlatok
-                    where x.megnevezes.Contains(name)
-                    select x;
-            foreach (var item in v)
-            {
-                Offer o = new Offer(item);
-                output.Add(o);
-            }
-
-            return output;
-        }
-        public List<Offer> GetOffersByDestCompany(string destC)
-        {
-            List<Offer> output = new List<Offer>();
-            var v = from x in MainForm.entities.csoportok  //groupIDk listája amiknek cégeneve tartalmazza a stringet
-                    where x.cegnev.Contains(destC)
-                    select x.Id;
-
-            if (v.Count() != 0)
-            {
-                var w = from x in MainForm.entities.ajanlatok
-                        where v.Contains(x.fogado_ceg)
-                        select x;//megfelelő ajánlatok listája
-
-                foreach (var item in w)
-                {//megfelelő ajánlatok=> List<Adatkezelő.Offer>
-                    Offer o = new Offer(item);
-                    output.Add(o);
-                }
-            }
-            return output;
-        }
-        public List<User> GetUserByBDate(DateTime bDate)
-        {
-            List<User> output = new List<User>();
-            var v = from x in MainForm.entities.felhasznalok
-                    where x.szuletesi_ido.Year + x.szuletesi_ido.Month + x.szuletesi_ido.Day == bDate.Year + bDate.Month + bDate.Day//!!!!nem datetime=datetime
-                    select x;
-            foreach (var item in v)
-            {
-                User usr = new User();
-                usr.SetAttributesFromDB(item);
-                output.Add(usr);
-            }
-            return output;
-        }
-        public List<Offer> GetOffersByDateTime(DateTime dTime)
-        {//kező és végpont közé esik a megadott időpont
-            List<Offer> output = new List<Offer>();
-            var v = from x in MainForm.entities.ajanlatok
-                    where x.kezdes_datum >= dTime && x.zaras_datum != null && x.zaras_datum <= dTime
-                    select x;
-            foreach (var item in v)
-            {
-                output.Add(new Offer(item));
-            }
-            return output;
-        }
-        public List<Group> GetGroupsByCreateDate(DateTime dTime)
+        private List<Group> GetGroupsByCreateDate(DateTime dTime)
         {//kező és végpont közé esik a megadott időpont
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
@@ -479,30 +505,6 @@ namespace ConnectingCompanies.Controller
             }
             return output;
         }
-        public List<Event> GetEventsByDate(DateTime dateTime)
-        {
-            List<Event> output = new List<Event>();
 
-            var v = from x in MainForm.entities.esemenyek
-                    where x.idopont.Year + x.idopont.Month + x.idopont.Day == dateTime.Year + dateTime.Month + dateTime.Day//!!! óra eltérés miatt
-                    select x;
-            foreach (var item in v)
-            {
-                output.Add(new Event(item));
-            }
-            return output;
-        }
-        public List<Event> GetEventsByPlace(string place)
-        {
-            List<Event> output = new List<Event>();
-            var v = from x in MainForm.entities.esemenyek
-                    where x.helyszin.Contains(place)
-                    select x;
-            foreach (var item in v)
-            {
-                output.Add(new Event(item));
-            }
-            return output;
-        }
     }
 }

@@ -23,8 +23,7 @@ namespace ConnectingCompanies
         private IGroupHandler igh = new GroupHandler();
         private IUserHandler iuh = new UserHandler();
 
-        /**/
-        IAddEventHandler aeh = new Controller.AddEventHandler();//interface...
+        IAddEventHandler aeh = new Controller.AddEventHandler();
 
         public UserInterfaceForm(Session cs)
         {
@@ -34,16 +33,19 @@ namespace ConnectingCompanies
             GetUserName();
             sessionTimer = currentSession.Timer;
             sessionTimer.Tick += sessionTimer_Tick;
-
-            //feltöltjük a listboxPersonalEventset azokkal az eseményekkel melyeket ő hozott létre
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
-            //feltöltjük a listát azokkal az eseményekkel melyek kapcsolatosak az ő csoportjaival
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
             setUserProfileDatas();
             setGroupPrilfeDatas();
             comboBoxSearchGroupOption.SelectedIndex = 1;
+            if (cs.CurrentUser.Type == UserType.Guest)
+            {//egy lehetséges megoldás, vendég csoportadatokat nézhessen csak...
+                comboBoxSearchGroupOption.Items.Remove("Ajánlat");
+                comboBoxSearchGroupOption.Items.Remove("Esemény");
+                comboBoxSearchGroupOption.Items.Remove("Felhasználó");
+            }
             BuildGui();
-            //--// pictureBoxUserPicture image-ét beállítani
+            
         }
 
         private void setUserProfileDatas()
@@ -308,7 +310,6 @@ namespace ConnectingCompanies
         //----------------------
         private void buttonCreateNewEvent_Click(object sender, EventArgs e)
         {
-            /**/
             using (AddEventDialogForm adf = new AddEventDialogForm(currentSession))
             {
                 adf.FormClosing += adf_FormClosing;
@@ -358,10 +359,8 @@ namespace ConnectingCompanies
 
         //----------------------
 
-        /**/
-
         private void buttonClearSearchParameters_Click(object sender, EventArgs e)
-        {//szerintem..
+        {
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -369,10 +368,10 @@ namespace ConnectingCompanies
             listBoxSearchResults.DataSource = null;
         }
 
-        /**/
         ISearchHandler sh = new Controller.SearchHandler();//interface
+
         private void buttonSearch_Click(object sender, EventArgs e)
-        {//tegyük fel, hogy egyszerre csak 1 mező alapján lehet keresni
+        {   //tegyük fel, hogy egyszerre csak 1 mező alapján lehet keresni
             //ha több bementi adato adott meg akkor nem keresünk, talán így a legegyszerűbb
             //mindig egy mezőben lehet csak érték-ha nem akkor hiba
             //idő alapján keresni=>checkbox check=>többi bemenet=""
@@ -380,53 +379,52 @@ namespace ConnectingCompanies
             if (comboBoxSearchGroupOption.SelectedIndex != -1)
             {
                 if (textBox1.Text != "" && textBox2.Text == "" && textBox3.Text == "" & !checkBox1.Checked)
-                {
-                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")//ha felhasználót akar keresni
-                        listBoxSearchResults.DataSource = sh.GetUsers(textBox1.Text, null, null, DateTime.MinValue);//sh.GetUserByName(textBox1.Text);
-                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")//ha ajánlatot keres//keződ cég alapján
-                        listBoxSearchResults.DataSource = sh.GetOffers(null, textBox1.Text, null, DateTime.MinValue); //sh.GetOfferBySCompany(textBox1.Text);
+                {//első textbox alapján akar keresni /többi üres,és nincs checked
+                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")
+                        listBoxSearchResults.DataSource = sh.GetUsers(textBox1.Text, null, null, DateTime.MinValue);
+                    if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")
+                        listBoxSearchResults.DataSource = sh.GetOffers(null, textBox1.Text, null, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Csoport")
-                        listBoxSearchResults.DataSource = sh.GetGroups(textBox1.Text, null, null, DateTime.MinValue);//sh.GetGroupsByName(textBox1.Text);
+                        listBoxSearchResults.DataSource = sh.GetGroups(textBox1.Text, null, null, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Esemény")
-                        listBoxSearchResults.DataSource = sh.GetEvent(textBox1.Text, null, null, DateTime.MinValue);//sh.GetEventsByName(textBox1.Text);
-                }//első textbox alapján akar keresni /többi üres,és nincs checked
+                        listBoxSearchResults.DataSource = sh.GetEvent(textBox1.Text, null, null, DateTime.MinValue);
+                }
                 else if (textBox1.Text == "" && textBox2.Text != "" && textBox3.Text == "" & !checkBox1.Checked)
-                {
+                {//második textbox alapján akar keresni/többi üres,és nincs checked
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")
-                        listBoxSearchResults.DataSource = sh.GetUsers(null, textBox2.Text, null, DateTime.MinValue);//sh.GetUsersByAddr(textBox2.Text);
+                        listBoxSearchResults.DataSource = sh.GetUsers(null, textBox2.Text, null, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")
-                        listBoxSearchResults.DataSource = sh.GetOffers(null, null, textBox2.Text, DateTime.MinValue);//sh.GetOffersByDestCompany(textBox2.Text); //fogadó cég
+                        listBoxSearchResults.DataSource = sh.GetOffers(null, null, textBox2.Text, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Csoport")
-                        listBoxSearchResults.DataSource = sh.GetGroups(null, null, textBox2.Text, DateTime.MinValue);//sh.GetGroupsByAdd(textBox2.Text);
+                        listBoxSearchResults.DataSource = sh.GetGroups(null, null, textBox2.Text, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Esemény")
-                        listBoxSearchResults.DataSource = sh.GetEvent(null, null, textBox2.Text, DateTime.MinValue);//sh.GetEventsByDesc(textBox2.Text);//leírás alapján
-                }//második textbox alapján akar keresni/többi üres,és nincs checked
+                        listBoxSearchResults.DataSource = sh.GetEvent(null, null, textBox2.Text, DateTime.MinValue);
+                }
                 else if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text != "" & !checkBox1.Checked)
-                {
+                {//harmadik textbox alapján akar keresni/többi üres és nincs checked
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")
-                        listBoxSearchResults.DataSource = sh.GetUsers(null, null, textBox3.Text, DateTime.MinValue);//sh.GetUserByBPlace(textBox3.Text);
+                        listBoxSearchResults.DataSource = sh.GetUsers(null, null, textBox3.Text, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")
-                        listBoxSearchResults.DataSource = sh.GetOffers(textBox3.Text, null, null, DateTime.MinValue);//sh.GetOffersByName(textBox3.Text);//megnevezés
+                        listBoxSearchResults.DataSource = sh.GetOffers(textBox3.Text, null, null, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Csoport")
-                        listBoxSearchResults.DataSource = sh.GetGroups(null, textBox3.Text, null, DateTime.MinValue);//sh.GetGroupsByCLeader(textBox3.Text);//cégvezető
+                        listBoxSearchResults.DataSource = sh.GetGroups(null, textBox3.Text, null, DateTime.MinValue);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Esemény")
-                        listBoxSearchResults.DataSource = sh.GetEvent(null, textBox3.Text, null, DateTime.MinValue);//sh.GetEventsByPlace(textBox3.Text);
-                }//harmadik textbox alapján akar keresni/többi üres és nincs checked
+                        listBoxSearchResults.DataSource = sh.GetEvent(null, textBox3.Text, null, DateTime.MinValue);
+                }
                 else if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "" & checkBox1.Checked)
-                {
+                {//minden üres, checked=true => csak dátum alapján akar keresni
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Felhasználó")
-                        listBoxSearchResults.DataSource = sh.GetUsers(null, null, null, dateTimePicker1.Value);//sh.GetUserByBDate(dateTimePicker1.Value);  //születési idő alapján
+                        listBoxSearchResults.DataSource = sh.GetUsers(null, null, null, dateTimePicker1.Value);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Ajánlat")
-                        listBoxSearchResults.DataSource = sh.GetOffers(null, null, null, dateTimePicker1.Value);   //kezdő és végpont közé esik a megadott időpont
+                        listBoxSearchResults.DataSource = sh.GetOffers(null, null, null, dateTimePicker1.Value);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Csoport")
-                        listBoxSearchResults.DataSource = sh.GetGroups(null, null, null, dateTimePicker1.Value);//sh.GetGroupsByCreateDate(dateTimePicker1.Value);  //alapítás dátuma alapján
+                        listBoxSearchResults.DataSource = sh.GetGroups(null, null, null, dateTimePicker1.Value);
                     if (comboBoxSearchGroupOption.SelectedItem.ToString() == "Esemény")
-                        listBoxSearchResults.DataSource = sh.GetEvent(null, null, null, dateTimePicker1.Value);//sh.GetEventsByDate(dateTimePicker1.Value);    //esemény időpont alapján
-                }//minden üres, checked=true => csak dátum alapján akar keresni
+                        listBoxSearchResults.DataSource = sh.GetEvent(null, null, null, dateTimePicker1.Value);
+                }
                 else MessageBox.Show("Hibás keresés!");//több helyre adott meg értéket
             }
         }
-        /**/
 
         private void tabControlUserInterface_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -436,11 +434,8 @@ namespace ConnectingCompanies
             }
         }
 
-        /**/
-
-        private void BuildGui()//labelek tartalmának beállítása, ha kell elrejtés
+        private void BuildGui()//labelek tartalmának beállítása
         {
-
                 ComboBox combo = comboBoxSearchGroupOption;
                 if (combo.SelectedItem != null)//ha van kiválasztva valami
                 {
@@ -456,7 +451,7 @@ namespace ConnectingCompanies
                         label1.Text = "Kezdő cég:";
                         label2.Text = "Fogadó cég:";
                         label3.Text = "Megnevezés:";
-                        label4.Text = "Dátum:";     //olyanokat fogunk majd visszaadni melynek keződ és vég időpontja közé esik ez az időpont
+                        label4.Text = "Dátum:";     //kezdő és vég időpontja közé esik ez az időpont
                     }
                     if (combo.SelectedItem.ToString() == "Csoport")
                     {
