@@ -14,6 +14,7 @@ namespace ConnectingCompanies.Interface
         List<Adatkezelő.User> GetAllUsers();
         void CreateEvent(User creator, bool group, string name, string desc, string place, DateTime time, List<User> invited);
         void DeleteEvent(Event ev);
-        void ModifyEventsGroup(User us, string name, string description, string place, DateTime dTime);
+        void ModifyEventsGroup(User us, Event modEv, string name, string description, string place, DateTime dTime);
+        void ModifyPersonalEvent(User us, Event modEv, string name, string description, string place, DateTime dTime);
     }
 }

@@ -150,11 +150,11 @@ namespace ConnectingCompanies.Controller
             MainForm.entities.SaveChanges();
         }
 
-        public void ModifyEventsGroup(Adatkezelő.User us, string name, string description, string place, DateTime dTime)
-        {//tfh hogy ha a csoportos van kiválasztva akkor az események közül azt választjuk ki amelyiknek ő a létrehozója és csoportos
+        public void ModifyEventsGroup(Adatkezelő.User us, Adatkezelő.Event modEv, string name, string description, string place, DateTime dTime)
+        {//tfh hogy ha a csoportos van kiválasztva akkor az események közül azt választjuk ki amelyiknek ő a létrehozója és csoportos és jó ID
             //ennek az adatait módosítjuk
             var v = from x in MainForm.entities.esemenyek
-                    where x.letrehozo == us.Id && x.csoportos == true
+                    where x.letrehozo == us.Id && x.csoportos == true&&x.Id==modEv.Id
                     select x;
             if (v.Count() != 0)
             {
@@ -165,5 +165,23 @@ namespace ConnectingCompanies.Controller
                 MainForm.entities.SaveChanges();//?
             }
         }
+        public void ModifyPersonalEvent(Adatkezelő.User us, Adatkezelő.Event modEv, string name, string description, string place, DateTime dTime)
+        {//id alapján nem nagyon lehet azonosítani
+            var v = from x in MainForm.entities.esemenyek
+                    where x.megnevezes == modEv.Name && x.leiras == modEv.Description && x.helyszin == modEv.Location //&& x.idopont == modEv.Date
+                    select x;
+
+            foreach (var item in v)
+            {
+                item.idopont = dTime;
+                item.megnevezes = name;
+                item.leiras = description;
+                item.helyszin = place;
+            }
+            MainForm.entities.SaveChanges();
+        }
+
+
+
     }
 }

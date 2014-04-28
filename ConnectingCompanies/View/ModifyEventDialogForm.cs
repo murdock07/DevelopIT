@@ -13,18 +13,25 @@ namespace ConnectingCompanies.Forms
     public partial class ModifyEventDialogForm : Form
     {
         private Adatkezelő.User user;
-        public ModifyEventDialogForm(Session s)
+        private Adatkezelő.Event modEvent;//módosítandó személyes esemény amit kiválasztott
+        private Adatkezelő.Event modEventGroup;//módosítandó csoportos esemény amit kiválasztott
+        public ModifyEventDialogForm(Session s, Adatkezelő.Event modEvent, Adatkezelő.Event modEventGroup)
         {
             InitializeComponent();
             this.user = s.CurrentUser;
+            this.modEvent = modEvent;
+            this.modEventGroup = modEventGroup;
         }
         Controller.AddEventHandler aeh = new Controller.AddEventHandler();
         private void buttonSaveNewEvent_Click(object sender, EventArgs e)
         {
             if (textBoxEventPlace.Text != "" && textBoxEventName.Text != "" && textBoxDescription.Text != null)
             {//ne legyen üres mező
-                if(radioButtonGroup.Checked)//ha csoportos
-                    aeh.ModifyEventsGroup(user, textBoxEventName.Text, textBoxDescription.Text, textBoxEventPlace.Text, dateTimePickerEventDate.Value);
+                if(radioButtonGroup.Checked&&modEventGroup!=null)//ha csoportos és van mit módosítani
+                    aeh.ModifyEventsGroup(user,modEventGroup, textBoxEventName.Text, textBoxDescription.Text, textBoxEventPlace.Text, dateTimePickerEventDate.Value);
+                if (radioButtonUser.Checked && modEvent != null)//ha egyéni és van mit módosítani
+                    aeh.ModifyPersonalEvent(user, modEvent, textBoxEventName.Text, textBoxDescription.Text, textBoxEventPlace.Text, dateTimePickerEventDate.Value);
+
                 //adatok csomagolása
                 //visszajelzés
                 MessageBox.Show("Mentve");

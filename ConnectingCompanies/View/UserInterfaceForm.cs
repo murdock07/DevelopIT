@@ -39,10 +39,10 @@ namespace ConnectingCompanies
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
             //feltöltjük a listát azokkal az eseményekkel melyek kapcsolatosak az ő csoportjaival
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
-            HideLabels();//kezdetben nincs kiválasztva semmi, ne legyenek fals labelek
             setUserProfileDatas();
             setGroupPrilfeDatas();
-
+            comboBoxSearchGroupOption.SelectedIndex = 1;
+            BuildGui();
             //--// pictureBoxUserPicture image-ét beállítani
         }
 
@@ -322,11 +322,16 @@ namespace ConnectingCompanies
 
         private void buttonModifyEvent_Click(object sender, EventArgs e)
         {
-            /**/
-            using (ModifyEventDialogForm medf = new ModifyEventDialogForm(currentSession))
+            using (ModifyEventDialogForm medf = new ModifyEventDialogForm(currentSession,listBoxPersonalEvents.SelectedItem as Event,listBoxGroupEvents.SelectedItem as Event))
             {
+                medf.FormClosing += medf_FormClosing;
                 medf.ShowDialog();
             }
+        }
+        void medf_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
+            listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
         }
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
@@ -435,12 +440,10 @@ namespace ConnectingCompanies
 
         private void BuildGui()//labelek tartalmának beállítása, ha kell elrejtés
         {
-            if (tabControlUserInterface.SelectedTab.Name == "tabPageSearch")
-            {
+
                 ComboBox combo = comboBoxSearchGroupOption;
                 if (combo.SelectedItem != null)//ha van kiválasztva valami
                 {
-                    ShowLabels();//legyenek labelek, ha már választott ki valamit
                     if (combo.SelectedItem.ToString() == "Felhasználó")
                     {
                         label1.Text = "Neve";
@@ -469,33 +472,8 @@ namespace ConnectingCompanies
                         label3.Text = "Helyszín:";
                         label4.Text = "Időpont:";
                     }
-                }
-                else//nincs kiválasztva szempont ne legyenek label-ek
-                { HideLabels(); }
             }
         }
-
-        /**/
-
-        private void ShowLabels()
-        {
-            label1.Show();
-            label2.Show();
-            label3.Show();
-            label4.Show();     //intervallumon belül
-        }
-
-        /**/
-
-        private void HideLabels()//elrejti
-        {
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();     //intervallumon belül
-        }
-
-        /**/
 
         private void comboBoxSearchGroupOption_SelectedIndexChanged(object sender, EventArgs e)
         {
