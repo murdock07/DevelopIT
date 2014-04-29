@@ -303,7 +303,7 @@ namespace ConnectingCompanies.Controller
                 return GetUserByBPlace(bPlace);
             if (birth != DateTime.MinValue)
                 return GetUserByBDate(birth);
-            else//ha mind1ik null volt, persze ha többnek volt érték adva akkor sorrendben amelyikre először teljesül, ez kicsit fals
+            else//ha mind1ik null volt, persze ha többnek volt érték adva akkor sorrendben amelyikre először teljesül ..?
                 throw new InvalidSearchParameterException("Hibás User keresési feltételek!");
         }
         public List<Adatkezelő.Event> GetEvent(string name, string place, string desc, DateTime date)
@@ -576,9 +576,9 @@ namespace ConnectingCompanies.Controller
                 if (item != null)//ha volt vezető..nullable..
                 {
                     var ve = from x in MainForm.entities.felhasznalok
-                             where x.Id == item
+                             where x.Id == item&&x.nev.Contains(leaderName)
                              select x;//azon felhasználók akik főnökök//ebből csak 1lesz
-                    if (ve.First() != null)
+                    if (ve.Count()!=0&&ve.First() != null)
                     {//létezik a felh
                         var w = from x in MainForm.entities.csoportok
                                 where x.cegvezeto == item
@@ -595,7 +595,7 @@ namespace ConnectingCompanies.Controller
         {//kező és végpont közé esik a megadott időpont
             List<Group> output = new List<Group>();
             var v = from x in MainForm.entities.csoportok
-                    where x.alapitas_datuma == dTime//OK?
+                    where x.alapitas_datuma.Value.Year+x.alapitas_datuma.Value.Month+x.alapitas_datuma.Value.Day==dTime.Year+dTime.Month+dTime.Day
                     select x;
             foreach (var item in v)
             {

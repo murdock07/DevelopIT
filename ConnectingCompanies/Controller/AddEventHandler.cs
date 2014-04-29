@@ -41,7 +41,7 @@ namespace ConnectingCompanies.Controller
 
             var v = from x in MainForm.entities.esemenyek//végigmegyünk az eseményken, ha csoportos és a felhasználó csoportjai között szerepel az a csoport amit meghívtak akkor jó
                     where x.csoportos == true && ve.ToList().Contains(x.csoportok)
-                    select x;   //megvannak azok a generált esemény objektumok amelyek
+                    select x;   //megvannak azok a generált esemény objektumok
             List<Adatkezelő.GroupEvent> output = new List<Adatkezelő.GroupEvent>();
 
             return output;//események melynek meghívott csoportjai között szerepel a felhasználó valamely csoportja
