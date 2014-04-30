@@ -22,8 +22,9 @@ namespace ConnectingCompanies
         private List<ToolStripItem> menuItems;
         private IGroupHandler igh = new GroupHandler();
         private IUserHandler iuh = new UserHandler();
+        private IAdminHandler iah = new AdminHandler();
 
-        IAddEventHandler aeh = new Controller.AddEventHandler();
+        private IAddEventHandler aeh = new Controller.AddEventHandler();
 
         public UserInterfaceForm(Session cs)
         {
@@ -35,8 +36,8 @@ namespace ConnectingCompanies
             sessionTimer.Tick += sessionTimer_Tick;
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
-            setUserProfileDatas();
-            setGroupPrilfeDatas();
+            setUserProfileData();
+            setGroupProfileData();
             comboBoxSearchGroupOption.SelectedIndex = 1;
             if (cs.CurrentUser.Type == UserType.Guest)
             {//egy lehetséges megoldás, vendég csoportadatokat nézhessen csak...
@@ -45,49 +46,6 @@ namespace ConnectingCompanies
                 comboBoxSearchGroupOption.Items.Remove("Felhasználó");
             }
             BuildGui();
-            
-        }
-
-        private void setUserProfileDatas()
-        {
-            textBoxUserName.Text = currentSession.CurrentUser.Profile.DisplayName;
-            textBoxUserAddress.Text = currentSession.CurrentUser.Profile.PersonalAddress;
-            textBoxUserBirthPlace.Text = currentSession.CurrentUser.Profile.BirthPlace;
-            dateTimePickerUserBirthDate.Value = currentSession.CurrentUser.Profile.BirthDate;
-            textBoxUserDescription.Text = currentSession.CurrentUser.Profile.Description;
-            textBoxUserGroupPost.Text = currentSession.CurrentUser.Rank;
-
-            if (currentSession.CurrentUser.Profile.Group != null)
-            {
-                textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
-                textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
-            }
-
-            String avatarPath = iuh.getUserAvatarPath(currentSession.CurrentUser.Id);
-            if (avatarPath != null)
-            {
-                pictureUserPicutre.ImageLocation = avatarPath;
-            }
-        }
-
-        private void setGroupPrilfeDatas()
-        {
-            if (currentSession.CurrentUser.Group != null)
-            {
-                Group userGroup = currentSession.CurrentUser.Group;
-                textBoxGroupName.Text = userGroup.Name;
-                textBoxGroupAddress.Text = userGroup.Address;
-                textBoxGroupLeader.Text = userGroup.GroupAdmin.Profile.DisplayName;
-                textBoxGroupMailAdress.Text = userGroup.MailAddress;
-                dateTimePickerDateOfFounding.Value = userGroup.DateOfFounding == null ? DateTime.Now : (DateTime)userGroup.DateOfFounding;
-                textBoxGroupDescription.Text = userGroup.Description;
-
-                String avatarPath = igh.getGroupAvatarPath(currentSession.CurrentUser.Group.Id);
-                if (avatarPath != null)
-                {
-                    pictureBoxCompany.ImageLocation = avatarPath;
-                }
-            }
         }
 
         private void sessionTimer_Tick(object sender, EventArgs e)
@@ -201,6 +159,28 @@ namespace ConnectingCompanies
             }
         }
 
+        private void setUserProfileData()
+        {
+            textBoxUserName.Text = currentSession.CurrentUser.Profile.DisplayName;
+            textBoxUserAddress.Text = currentSession.CurrentUser.Profile.PersonalAddress;
+            textBoxUserBirthPlace.Text = currentSession.CurrentUser.Profile.BirthPlace;
+            dateTimePickerUserBirthDate.Value = currentSession.CurrentUser.Profile.BirthDate;
+            textBoxUserDescription.Text = currentSession.CurrentUser.Profile.Description;
+            textBoxUserGroupPost.Text = currentSession.CurrentUser.Rank;
+
+            if (currentSession.CurrentUser.Profile.Group != null)
+            {
+                textBoxUserGroupName.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupName;
+                textBoxUserGroupAddress.Text = currentSession.CurrentUser.Profile.Group.groupProfile.GroupAddress;
+            }
+
+            String avatarPath = iuh.getUserAvatarPath(currentSession.CurrentUser.Id);
+            if (avatarPath != null)
+            {
+                pictureUserPicutre.ImageLocation = avatarPath;
+            }
+        }
+
         //----------------------
 
         #endregion Felhasználó
@@ -209,7 +189,6 @@ namespace ConnectingCompanies
 
         private void setGroupProfileFields(bool enable)
         {
-            
             textBoxGroupName.Enabled = enable;
             textBoxGroupAddress.Enabled = enable;
             textBoxGroupMailAdress.Enabled = enable;
@@ -275,7 +254,6 @@ namespace ConnectingCompanies
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void buttonGroupSaveData_Click(object sender, EventArgs e)
@@ -309,6 +287,26 @@ namespace ConnectingCompanies
             NOF.Show();
         }
 
+        private void setGroupProfileData()
+        {
+            if (currentSession.CurrentUser.Group != null)
+            {
+                Group userGroup = currentSession.CurrentUser.Group;
+                textBoxGroupName.Text = userGroup.Name;
+                textBoxGroupAddress.Text = userGroup.Address;
+                textBoxGroupLeader.Text = userGroup.GroupAdmin.Profile.DisplayName;
+                textBoxGroupMailAdress.Text = userGroup.MailAddress;
+                dateTimePickerDateOfFounding.Value = userGroup.DateOfFounding == null ? DateTime.Now : (DateTime)userGroup.DateOfFounding;
+                textBoxGroupDescription.Text = userGroup.Description;
+
+                String avatarPath = igh.getGroupAvatarPath(currentSession.CurrentUser.Group.Id);
+                if (avatarPath != null)
+                {
+                    pictureBoxCompany.ImageLocation = avatarPath;
+                }
+            }
+        }
+
         //----------------------
 
         #endregion Csoport
@@ -324,20 +322,22 @@ namespace ConnectingCompanies
                 adf.ShowDialog();
             }
         }
-        void adf_FormClosing(object sender, FormClosingEventArgs e)
+
+        private void adf_FormClosing(object sender, FormClosingEventArgs e)
         {//nem menti el db-be?
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
         }
 
         private void buttonModifyEvent_Click(object sender, EventArgs e)
         {
-            using (ModifyEventDialogForm medf = new ModifyEventDialogForm(currentSession,listBoxPersonalEvents.SelectedItem as Event,listBoxGroupEvents.SelectedItem as Event))
+            using (ModifyEventDialogForm medf = new ModifyEventDialogForm(currentSession, listBoxPersonalEvents.SelectedItem as Event, listBoxGroupEvents.SelectedItem as Event))
             {
                 medf.FormClosing += medf_FormClosing;
                 medf.ShowDialog();
             }
         }
-        void medf_FormClosing(object sender, FormClosingEventArgs e)
+
+        private void medf_FormClosing(object sender, FormClosingEventArgs e)
         {
             listBoxGroupEvents.DataSource = aeh.GetGroupEvents(currentSession.CurrentUser);
             listBoxPersonalEvents.DataSource = aeh.GetPersonalEvents(currentSession.CurrentUser);
@@ -376,7 +376,7 @@ namespace ConnectingCompanies
             listBoxSearchResults.DataSource = null;
         }
 
-        ISearchHandler sh = new Controller.SearchHandler();//interface
+        private ISearchHandler sh = new Controller.SearchHandler();//interface
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {   //tegyük fel, hogy egyszerre csak 1 mező alapján lehet keresni
@@ -444,37 +444,37 @@ namespace ConnectingCompanies
 
         private void BuildGui()//labelek tartalmának beállítása
         {
-                ComboBox combo = comboBoxSearchGroupOption;
-                if (combo.SelectedItem != null)//ha van kiválasztva valami
+            ComboBox combo = comboBoxSearchGroupOption;
+            if (combo.SelectedItem != null)//ha van kiválasztva valami
+            {
+                if (combo.SelectedItem.ToString() == "Felhasználó")
                 {
-                    if (combo.SelectedItem.ToString() == "Felhasználó")
-                    {
-                        label1.Text = "Neve";
-                        label2.Text = "Címe:";
-                        label3.Text = "Szül hely:";
-                        label4.Text = "Szül. idő:";
-                    }
-                    if (combo.SelectedItem.ToString() == "Ajánlat")
-                    {
-                        label1.Text = "Kezdő cég:";
-                        label2.Text = "Fogadó cég:";
-                        label3.Text = "Megnevezés:";
-                        label4.Text = "Dátum:";     //kezdő és vég időpontja közé esik ez az időpont
-                    }
-                    if (combo.SelectedItem.ToString() == "Csoport")
-                    {
-                        label1.Text = "Cégnév:";
-                        label2.Text = "Telephely:";
-                        label3.Text = "Cégvezető:";
-                        label4.Text = "Dátum:";     //alapítás dátuma
-                    }
-                    if (combo.SelectedItem.ToString() == "Esemény")
-                    {
-                        label1.Text = "Megnevezés:";
-                        label2.Text = "Leírás:";
-                        label3.Text = "Helyszín:";
-                        label4.Text = "Időpont:";
-                    }
+                    label1.Text = "Neve";
+                    label2.Text = "Címe:";
+                    label3.Text = "Szül hely:";
+                    label4.Text = "Szül. idő:";
+                }
+                if (combo.SelectedItem.ToString() == "Ajánlat")
+                {
+                    label1.Text = "Kezdő cég:";
+                    label2.Text = "Fogadó cég:";
+                    label3.Text = "Megnevezés:";
+                    label4.Text = "Dátum:";     //kezdő és vég időpontja közé esik ez az időpont
+                }
+                if (combo.SelectedItem.ToString() == "Csoport")
+                {
+                    label1.Text = "Cégnév:";
+                    label2.Text = "Telephely:";
+                    label3.Text = "Cégvezető:";
+                    label4.Text = "Dátum:";     //alapítás dátuma
+                }
+                if (combo.SelectedItem.ToString() == "Esemény")
+                {
+                    label1.Text = "Megnevezés:";
+                    label2.Text = "Leírás:";
+                    label3.Text = "Helyszín:";
+                    label4.Text = "Időpont:";
+                }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConnectingCompanies.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ConnectingCompanies.Controller
 {
-    internal class AdminHandler
+    internal class AdminHandler : IAdminHandler
     {
         internal static void CreateStatistics(object sender, PaintEventArgs e, DataGridView dgv)
         {
