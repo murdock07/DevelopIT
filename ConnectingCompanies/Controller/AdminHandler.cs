@@ -40,5 +40,43 @@ namespace ConnectingCompanies.Controller
             dgv.Rows[4].Cells[2].Value = "-";
             dgv.Rows[4].Cells[3].Value = "-";
         }
+
+        private string itemType;
+
+        public void DeleteItem(object item)
+        {
+            throw new NotImplementedException();
+            //aktiv = false
+        }
+
+        public Form CollectData()
+        {
+            throw new NotImplementedException();
+            //a form az adatbekéréshez
+        }
+
+        public void AddItem(List<string> data)
+        {
+            throw new NotImplementedException();
+            //új elem mentése dbbe
+        }
+
+        public void ChangeItemType(string type, ListBox list)
+        {
+            this.itemType = type;
+            GetItemsForList(list);
+        }
+
+        private void GetItemsForList(ListBox list)
+        {
+            throw new NotImplementedException();
+            //lista feltöltés
+        }
+
+        public List<string> ZipData(Form dataForm)
+        {
+            throw new NotImplementedException();
+            //formból adat kiszedés
+        }
     }
 }

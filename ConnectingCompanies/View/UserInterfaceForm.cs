@@ -492,22 +492,27 @@ namespace ConnectingCompanies
         //----------------------
         private void buttonAdminUsers_Click(object sender, EventArgs e)
         {
+            iah.ChangeItemType("user", listBoxHandling);
         }
 
         private void buttonAdminGroups_Click(object sender, EventArgs e)
         {
+            iah.ChangeItemType("group", listBoxHandling);
         }
 
         private void buttonAdminOffers_Click(object sender, EventArgs e)
         {
+            iah.ChangeItemType("offer", listBoxHandling);
         }
 
         private void buttonAdminEvents_Click(object sender, EventArgs e)
         {
+            iah.ChangeItemType("event", listBoxHandling);
         }
 
         private void buttonAdminFiles_Click(object sender, EventArgs e)
         {
+            iah.ChangeItemType("file", listBoxHandling);
         }
 
         private void groupBoxStatistics_Paint(object sender, PaintEventArgs e)
@@ -517,6 +522,19 @@ namespace ConnectingCompanies
 
         private void tabControlUserInterface_TabIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void buttonADD_Click(object sender, EventArgs e)
+        {
+            Form dataForm = iah.CollectData();
+            List<string> data = iah.ZipData(dataForm);
+            iah.AddItem(data);
+        }
+
+        private void buttonDELETE_Click(object sender, EventArgs e)
+        {
+            var item = listBoxHandling.SelectedItem;
+            iah.DeleteItem(item);
         }
 
         //----------------------

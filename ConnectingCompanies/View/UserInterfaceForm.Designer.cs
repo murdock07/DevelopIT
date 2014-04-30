@@ -133,6 +133,9 @@
             this.toolStripMenuItemDivider = new System.Windows.Forms.ToolStripMenuItem();
             this.hátralévőIdőToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerSession = new System.Windows.Forms.Timer(this.components);
+            this.listBoxHandling = new System.Windows.Forms.ListBox();
+            this.buttonADD = new System.Windows.Forms.Button();
+            this.buttonDELETE = new System.Windows.Forms.Button();
             this.tabControlUserInterface.SuspendLayout();
             this.tabPageUserProfile.SuspendLayout();
             this.groupBoxPersonalMailing.SuspendLayout();
@@ -1025,6 +1028,9 @@
             // 
             // tabPageAdmin
             // 
+            this.tabPageAdmin.Controls.Add(this.buttonDELETE);
+            this.tabPageAdmin.Controls.Add(this.buttonADD);
+            this.tabPageAdmin.Controls.Add(this.listBoxHandling);
             this.tabPageAdmin.Controls.Add(this.groupBoxStatistics);
             this.tabPageAdmin.Controls.Add(this.buttonAdminFiles);
             this.tabPageAdmin.Controls.Add(this.buttonAdminEvents);
@@ -1044,7 +1050,7 @@
             this.groupBoxStatistics.Controls.Add(this.dataGridViewStat);
             this.groupBoxStatistics.Location = new System.Drawing.Point(236, 6);
             this.groupBoxStatistics.Name = "groupBoxStatistics";
-            this.groupBoxStatistics.Size = new System.Drawing.Size(536, 514);
+            this.groupBoxStatistics.Size = new System.Drawing.Size(536, 245);
             this.groupBoxStatistics.TabIndex = 5;
             this.groupBoxStatistics.TabStop = false;
             this.groupBoxStatistics.Text = "Statisztika";
@@ -1060,7 +1066,7 @@
             this.ColumnDeletes});
             this.dataGridViewStat.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewStat.Name = "dataGridViewStat";
-            this.dataGridViewStat.Size = new System.Drawing.Size(524, 495);
+            this.dataGridViewStat.Size = new System.Drawing.Size(524, 220);
             this.dataGridViewStat.TabIndex = 0;
             // 
             // ColumnName
@@ -1093,7 +1099,7 @@
             // 
             // buttonAdminFiles
             // 
-            this.buttonAdminFiles.Location = new System.Drawing.Point(8, 122);
+            this.buttonAdminFiles.Location = new System.Drawing.Point(8, 222);
             this.buttonAdminFiles.Name = "buttonAdminFiles";
             this.buttonAdminFiles.Size = new System.Drawing.Size(222, 23);
             this.buttonAdminFiles.TabIndex = 4;
@@ -1103,7 +1109,7 @@
             // 
             // buttonAdminEvents
             // 
-            this.buttonAdminEvents.Location = new System.Drawing.Point(8, 93);
+            this.buttonAdminEvents.Location = new System.Drawing.Point(8, 176);
             this.buttonAdminEvents.Name = "buttonAdminEvents";
             this.buttonAdminEvents.Size = new System.Drawing.Size(222, 23);
             this.buttonAdminEvents.TabIndex = 3;
@@ -1113,7 +1119,7 @@
             // 
             // buttonAdminOffers
             // 
-            this.buttonAdminOffers.Location = new System.Drawing.Point(8, 64);
+            this.buttonAdminOffers.Location = new System.Drawing.Point(8, 127);
             this.buttonAdminOffers.Name = "buttonAdminOffers";
             this.buttonAdminOffers.Size = new System.Drawing.Size(222, 23);
             this.buttonAdminOffers.TabIndex = 2;
@@ -1123,7 +1129,7 @@
             // 
             // buttonAdminGroups
             // 
-            this.buttonAdminGroups.Location = new System.Drawing.Point(8, 35);
+            this.buttonAdminGroups.Location = new System.Drawing.Point(8, 76);
             this.buttonAdminGroups.Name = "buttonAdminGroups";
             this.buttonAdminGroups.Size = new System.Drawing.Size(222, 23);
             this.buttonAdminGroups.TabIndex = 1;
@@ -1133,7 +1139,7 @@
             // 
             // buttonAdminUsers
             // 
-            this.buttonAdminUsers.Location = new System.Drawing.Point(8, 6);
+            this.buttonAdminUsers.Location = new System.Drawing.Point(8, 25);
             this.buttonAdminUsers.Name = "buttonAdminUsers";
             this.buttonAdminUsers.Size = new System.Drawing.Size(222, 23);
             this.buttonAdminUsers.TabIndex = 0;
@@ -1184,6 +1190,34 @@
             // timerSession
             // 
             this.timerSession.Interval = 1000;
+            // 
+            // listBoxHandling
+            // 
+            this.listBoxHandling.FormattingEnabled = true;
+            this.listBoxHandling.Location = new System.Drawing.Point(236, 257);
+            this.listBoxHandling.Name = "listBoxHandling";
+            this.listBoxHandling.Size = new System.Drawing.Size(536, 264);
+            this.listBoxHandling.TabIndex = 6;
+            // 
+            // buttonADD
+            // 
+            this.buttonADD.Location = new System.Drawing.Point(8, 269);
+            this.buttonADD.Name = "buttonADD";
+            this.buttonADD.Size = new System.Drawing.Size(222, 109);
+            this.buttonADD.TabIndex = 7;
+            this.buttonADD.Text = "Hozzáadás";
+            this.buttonADD.UseVisualStyleBackColor = true;
+            this.buttonADD.Click += new System.EventHandler(this.buttonADD_Click);
+            // 
+            // buttonDELETE
+            // 
+            this.buttonDELETE.Location = new System.Drawing.Point(8, 397);
+            this.buttonDELETE.Name = "buttonDELETE";
+            this.buttonDELETE.Size = new System.Drawing.Size(222, 109);
+            this.buttonDELETE.TabIndex = 8;
+            this.buttonDELETE.Text = "Törlés";
+            this.buttonDELETE.UseVisualStyleBackColor = true;
+            this.buttonDELETE.Click += new System.EventHandler(this.buttonDELETE_Click);
             // 
             // UserInterfaceForm
             // 
@@ -1338,5 +1372,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListBox listBoxHandling;
+        private System.Windows.Forms.Button buttonDELETE;
+        private System.Windows.Forms.Button buttonADD;
     }
 }
